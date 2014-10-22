@@ -1,0 +1,4056 @@
+{
+    "131126_MONK_0326_BC38JJACXX": {
+        "id": 1980,
+        "run_info": {
+            "control_lane": 5,
+            "flow_cell": "C38JJ",
+            "index1_cycles": 8,
+            "index2_cycles": null,
+            "index_read": true,
+            "lanes": {
+                "1": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11263,
+                    "id": 14334,
+                    "lab": "Baker",
+                    "lane_number": 1,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10017,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 382,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human (hg18)",
+                            "reference_sequence_path": "H_sapiens/hg18",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "robertah@stanford.edu",
+                            "full_name": "Roberta Hannibal"
+                        }
+                    ],
+                    "notify_comments": "echuong@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "RH 11-12-13",
+                    "sequencing_request": {
+                        "id": 11348
+                    },
+                    "submitter": "Roberta Hannibal",
+                    "submitter_email": "robertah@stanford.edu"
+                },
+                "2": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGTCC",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11290,
+                    "id": 14374,
+                    "lab": "Chien-YuehHsiu",
+                    "lane_number": 2,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10040,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Mouse Female (mm9)",
+                            "reference_sequence_path": "Mus_musculus/mm9_female",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "yuling@stanford.edu\t\t\t",
+                            "full_name": "YuLing Wei"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "YLW-ToxogdT111913",
+                    "sequencing_request": {
+                        "id": 11375
+                    },
+                    "submitter": "YuLing Wei",
+                    "submitter_email": "yuling@stanford.edu\t\t\t"
+                },
+                "3": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11291,
+                    "id": 14375,
+                    "lab": "Baker",
+                    "lane_number": 3,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10041,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 415,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human (hg18)",
+                            "reference_sequence_path": "H_sapiens/hg18",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "robertah@stanford.edu",
+                            "full_name": "Roberta Hannibal"
+                        }
+                    ],
+                    "notify_comments": "echuong@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "RHZ_11-19-13_A",
+                    "sequencing_request": {
+                        "id": 11376
+                    },
+                    "submitter": "Roberta Hannibal",
+                    "submitter_email": "robertah@stanford.edu"
+                },
+                "4": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11292,
+                    "id": 14376,
+                    "lab": "Baker",
+                    "lane_number": 4,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10042,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 397,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human (hg18)",
+                            "reference_sequence_path": "H_sapiens/hg18",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "robertah@stanford.edu",
+                            "full_name": "Roberta Hannibal"
+                        }
+                    ],
+                    "notify_comments": "echuong@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "RHZ_11-19-13_B",
+                    "sequencing_request": {
+                        "id": 11377
+                    },
+                    "submitter": "Roberta Hannibal",
+                    "submitter_email": "robertah@stanford.edu"
+                },
+                "5": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14395,
+                    "lab": "Snyder",
+                    "lane_number": 5,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "6": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ATCACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACTTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGCTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGCTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11294,
+                    "id": 14377,
+                    "lab": "Ashley",
+                    "lane_number": 6,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10043,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 350,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "chaib.hassan@gmail.com",
+                            "full_name": "Hassan Chaib (Ashley)"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "MWHC5",
+                    "sequencing_request": {
+                        "id": 11379
+                    },
+                    "submitter": "Hassan Chaib (Ashley)",
+                    "submitter_email": "chaib.hassan@gmail.com"
+                },
+                "7": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11284,
+                    "id": 14378,
+                    "lab": "SFGF",
+                    "lane_number": 7,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10036,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 325,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human (hg18)",
+                            "reference_sequence_path": "H_sapiens/hg18",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "john.coller@stanford.edu\t\t\t",
+                            "full_name": "John Coller"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "poolBN8",
+                    "sequencing_request": {
+                        "id": 11369
+                    },
+                    "submitter": "John Coller",
+                    "submitter_email": "john.coller@stanford.edu\t\t\t"
+                },
+                "8": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 8,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "AAAAAAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11119,
+                    "id": 14394,
+                    "lab": "Diehn",
+                    "lane_number": 8,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 9899,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 382,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "dmklass@stanford.edu\t\t\t",
+                            "full_name": "Dan\t\t\t Klass\t\t\t"
+                        }
+                    ],
+                    "notify_comments": "amnewman@stanford.edu, diehn@stanford.edu, arasha@stanford.edu, sbratman@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "Spike_44_Barcode_1",
+                    "sequencing_request": {
+                        "id": 11200
+                    },
+                    "submitter": "Dan\t\t\t Klass\t\t\t",
+                    "submitter_email": "dmklass@stanford.edu\t\t\t"
+                }
+            },
+            "paired_end": true,
+            "platform": "hiseq2000",
+            "platform_name": "HiSeq 2000",
+            "read1_cycles": 101,
+            "read2_cycles": 101,
+            "run_name": "131126_MONK_0326_BC38JJACXX",
+            "seq_software": "hcs_1_5_15"
+        }
+    },
+    "131203_BRISCOE_0135_BH7D1FADXX": {
+        "id": 1990,
+        "run_info": {
+            "control_lane": null,
+            "flow_cell": "H7D1F",
+            "index1_cycles": null,
+            "index2_cycles": null,
+            "index_read": false,
+            "lanes": {
+                "1": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11312,
+                    "id": 14476,
+                    "lab": "Barna",
+                    "lane_number": 1,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10060,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 350,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "mbarna@stanford.edu",
+                            "full_name": "Maria Barna"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "Tumor WGS rcvd 11/21/13",
+                    "sequencing_request": {
+                        "id": 11397
+                    },
+                    "submitter": "Maria Barna",
+                    "submitter_email": "mbarna@stanford.edu"
+                },
+                "2": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11312,
+                    "id": 14467,
+                    "lab": "Barna",
+                    "lane_number": 2,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10060,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 350,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "mbarna@stanford.edu",
+                            "full_name": "Maria Barna"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "Tumor WGS rcvd 11/21/13",
+                    "sequencing_request": {
+                        "id": 11397
+                    },
+                    "submitter": "Maria Barna",
+                    "submitter_email": "mbarna@stanford.edu"
+                },
+                "3": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14477,
+                    "lab": "Snyder",
+                    "lane_number": 3,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "4": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14478,
+                    "lab": "Snyder",
+                    "lane_number": 4,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "5": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14479,
+                    "lab": "Snyder",
+                    "lane_number": 5,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "6": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14480,
+                    "lab": "Snyder",
+                    "lane_number": 6,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "7": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14481,
+                    "lab": "Snyder",
+                    "lane_number": 7,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "8": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14482,
+                    "lab": "Snyder",
+                    "lane_number": 8,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                }
+            },
+            "paired_end": true,
+            "platform": "hiseq2000",
+            "platform_name": "HiSeq 2000",
+            "read1_cycles": 101,
+            "read2_cycles": 101,
+            "run_name": "131203_BRISCOE_0135_BH7D1FADXX",
+            "seq_software": "hcs_1_5_15"
+        }
+    },
+    "131213_HAVERS_0429_BC3AMEACXX": {
+        "id": 2003,
+        "run_info": {
+            "control_lane": 5,
+            "flow_cell": "C3AME",
+            "index1_cycles": 8,
+            "index2_cycles": 8,
+            "index_read": true,
+            "lanes": {
+                "1": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GTGGCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11331,
+                    "id": 14510,
+                    "lab": "Alizadeh",
+                    "lane_number": 1,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10076,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "michael.r.green@stanford.edu\t\t\t",
+                            "full_name": "Michael Green"
+                        }
+                    ],
+                    "notify_comments": "greenmr@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "MRG_MCL_08",
+                    "sequencing_request": {
+                        "id": 11416
+                    },
+                    "submitter": "Michael Green",
+                    "submitter_email": "michael.r.green@stanford.edu\t\t\t"
+                },
+                "2": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GTGGCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11332,
+                    "id": 14511,
+                    "lab": "Alizadeh",
+                    "lane_number": 2,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10077,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "michael.r.green@stanford.edu\t\t\t",
+                            "full_name": "Michael Green"
+                        }
+                    ],
+                    "notify_comments": "greenmr@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "MRG_MCL_09",
+                    "sequencing_request": {
+                        "id": 11417
+                    },
+                    "submitter": "Michael Green",
+                    "submitter_email": "michael.r.green@stanford.edu\t\t\t"
+                },
+                "3": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GTGGCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11333,
+                    "id": 14512,
+                    "lab": "Alizadeh",
+                    "lane_number": 3,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10078,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "michael.r.green@stanford.edu\t\t\t",
+                            "full_name": "Michael Green"
+                        }
+                    ],
+                    "notify_comments": "greenmr@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "MRG_MCL_10",
+                    "sequencing_request": {
+                        "id": 11418
+                    },
+                    "submitter": "Michael Green",
+                    "submitter_email": "michael.r.green@stanford.edu\t\t\t"
+                },
+                "4": {
+                    "barcode_position": "dual_index_read",
+                    "barcode_size": 8,
+                    "barcode_size2": 8,
+                    "barcodes": [
+                        {
+                            "codepoint": "TAAGGCGA-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA-TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA-CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA-TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA-AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA-GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA-ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA-AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA-CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA-CTAAGCCT",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11350,
+                    "id": 14508,
+                    "lab": "Petrov",
+                    "lane_number": 4,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10092,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 0,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 331,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Yeast (SGD 4/11)",
+                            "reference_sequence_path": "S_cerevisiae/sgd_4_21_11",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "svenkat1@stanford.edu\t\t\t",
+                            "full_name": "Sandeep\t\t\t Venkataram\t\t\t"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "SV_96_1",
+                    "sequencing_request": {
+                        "id": 11435
+                    },
+                    "submitter": "Sandeep\t\t\t Venkataram\t\t\t",
+                    "submitter_email": "svenkat1@stanford.edu\t\t\t"
+                },
+                "5": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14516,
+                    "lab": "Snyder",
+                    "lane_number": 5,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "6": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11349,
+                    "id": 14513,
+                    "lab": "West",
+                    "lane_number": 6,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10091,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "sxz@stanford.edu",
+                            "full_name": "Shirley Zhu"
+                        }
+                    ],
+                    "notify_comments": " rbwest@stanford.edu, mrijn@stanford.edu,rtswee2@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "BC-6.6",
+                    "sequencing_request": {
+                        "id": 11434
+                    },
+                    "submitter": "Shirley Zhu",
+                    "submitter_email": "sxz@stanford.edu"
+                },
+                "7": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11348,
+                    "id": 14515,
+                    "lab": "West",
+                    "lane_number": 7,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10090,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "sxz@stanford.edu",
+                            "full_name": "Shirley Zhu"
+                        }
+                    ],
+                    "notify_comments": " rbwest@stanford.edu, mrijn@stanford.edu,rtswee2@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "BC-3.3",
+                    "sequencing_request": {
+                        "id": 11433
+                    },
+                    "submitter": "Shirley Zhu",
+                    "submitter_email": "sxz@stanford.edu"
+                },
+                "8": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ATCACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACTTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGCTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGCTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11351,
+                    "id": 14509,
+                    "lab": "Ashley",
+                    "lane_number": 8,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10093,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 350,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "chaib.hassan@gmail.com",
+                            "full_name": "Hassan Chaib (Ashley)"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "MWHC6",
+                    "sequencing_request": {
+                        "id": 11436
+                    },
+                    "submitter": "Hassan Chaib (Ashley)",
+                    "submitter_email": "chaib.hassan@gmail.com"
+                }
+            },
+            "paired_end": true,
+            "platform": "hiseq2000",
+            "platform_name": "HiSeq 2000",
+            "read1_cycles": 101,
+            "read2_cycles": 101,
+            "run_name": "131213_HAVERS_0429_BC3AMEACXX",
+            "seq_software": "hcs_1_5_15"
+        }
+    },
+    "131217_PINKERTON_0286_AC3083ACXX": {
+        "id": 2005,
+        "run_info": {
+            "control_lane": 5,
+            "flow_cell": "C3083",
+            "index1_cycles": null,
+            "index2_cycles": null,
+            "index_read": false,
+            "lanes": {
+                "1": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11385,
+                    "id": 14557,
+                    "lab": "Snyder",
+                    "lane_number": 1,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10125,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 30,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "ccenik@stanford.edu",
+                            "full_name": "Can Cenik"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "GM19138_Rep2 rcvd 11/5/13",
+                    "sequencing_request": {
+                        "id": 11470
+                    },
+                    "submitter": "Can Cenik",
+                    "submitter_email": "ccenik@stanford.edu"
+                },
+                "2": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11386,
+                    "id": 14558,
+                    "lab": "Snyder",
+                    "lane_number": 2,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10126,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 30,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "ccenik@stanford.edu",
+                            "full_name": "Can Cenik"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "GM19137_Rep2 rcvd 11/5/13",
+                    "sequencing_request": {
+                        "id": 11471
+                    },
+                    "submitter": "Can Cenik",
+                    "submitter_email": "ccenik@stanford.edu"
+                },
+                "3": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11387,
+                    "id": 14559,
+                    "lab": "Snyder",
+                    "lane_number": 3,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10127,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 30,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "ccenik@stanford.edu",
+                            "full_name": "Can Cenik"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "GM18489_Rep1 rcvd 12/16/13",
+                    "sequencing_request": {
+                        "id": 11472
+                    },
+                    "submitter": "Can Cenik",
+                    "submitter_email": "ccenik@stanford.edu"
+                },
+                "4": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11388,
+                    "id": 14560,
+                    "lab": "Snyder",
+                    "lane_number": 4,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10128,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 30,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "ccenik@stanford.edu",
+                            "full_name": "Can Cenik"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "GM18502_OLD rcvd 12/16/13",
+                    "sequencing_request": {
+                        "id": 11473
+                    },
+                    "submitter": "Can Cenik",
+                    "submitter_email": "ccenik@stanford.edu"
+                },
+                "5": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14564,
+                    "lab": "Snyder",
+                    "lane_number": 5,
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "6": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11389,
+                    "id": 14561,
+                    "lab": "Snyder",
+                    "lane_number": 6,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10129,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 30,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "ccenik@stanford.edu",
+                            "full_name": "Can Cenik"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "GM10847_Rep3 rcvd 12/16/13",
+                    "sequencing_request": {
+                        "id": 11474
+                    },
+                    "submitter": "Can Cenik",
+                    "submitter_email": "ccenik@stanford.edu"
+                },
+                "7": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11390,
+                    "id": 14562,
+                    "lab": "Snyder",
+                    "lane_number": 7,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10130,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 30,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "ccenik@stanford.edu",
+                            "full_name": "Can Cenik"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "GM19239_Rep3 rcvd 12/16/13",
+                    "sequencing_request": {
+                        "id": 11475
+                    },
+                    "submitter": "Can Cenik",
+                    "submitter_email": "ccenik@stanford.edu"
+                },
+                "8": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11391,
+                    "id": 14563,
+                    "lab": "Snyder",
+                    "lane_number": 8,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10131,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 30,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "ccenik@stanford.edu",
+                            "full_name": "Can Cenik"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "GM18523_Rep3 rcvd 12/16/13",
+                    "sequencing_request": {
+                        "id": 11476
+                    },
+                    "submitter": "Can Cenik",
+                    "submitter_email": "ccenik@stanford.edu"
+                }
+            },
+            "paired_end": false,
+            "platform": "hiseq2000",
+            "platform_name": "HiSeq 2000",
+            "read1_cycles": 36,
+            "read2_cycles": null,
+            "run_name": "131217_PINKERTON_0286_AC3083ACXX",
+            "seq_software": "hcs_1_5_15"
+        }
+    },
+    "140117_SPENSER_0045_000000000-A69G7": {
+        "id": 2014,
+        "run_info": {
+            "control_lane": null,
+            "flow_cell": "A69G7",
+            "index1_cycles": 8,
+            "index2_cycles": 8,
+            "index_read": true,
+            "lanes": {
+                "1": {
+                    "barcode_position": "dual_index_read",
+                    "barcode_size": 8,
+                    "barcode_size2": 8,
+                    "barcodes": [
+                        {
+                            "codepoint": "AAAAAAAA-TTTTTTTT",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11435,
+                    "id": 14630,
+                    "lab": "Davis-Mark",
+                    "lane_number": 1,
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "frubelt@stanford.edu",
+                            "full_name": "Florian Rubelt"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "FR_2014-01-14 rcvd 1/15/14",
+                    "sequencing_request": {
+                        "id": 11521
+                    },
+                    "submitter": "Florian Rubelt",
+                    "submitter_email": "frubelt@stanford.edu"
+                }
+            },
+            "paired_end": true,
+            "platform": "miseq",
+            "platform_name": "MiSeq",
+            "read1_cycles": 300,
+            "read2_cycles": 300,
+            "run_name": "140117_SPENSER_0045_000000000-A69G7",
+            "seq_software": "mcs_2_1_13"
+        }
+    },
+    "140117_TENNISON_0275_BC3081ACXX": {
+        "id": 2015,
+        "run_info": {
+            "control_lane": 5,
+            "flow_cell": "C3081",
+            "index1_cycles": 7,
+            "index2_cycles": null,
+            "index_read": true,
+            "lanes": {
+                "1": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11397,
+                    "id": 14610,
+                    "lab": "Wang-ZhiYong",
+                    "lane_number": 1,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10138,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 35,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "A. thaliana (TAIR9)",
+                            "reference_sequence_path": "A_thaliana/tair9",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "chanhop@stanford.edu\t\t\t",
+                            "full_name": "Chan Ho\t\t\t Park\t\t\t"
+                        }
+                    ],
+                    "notify_comments": "zywang24@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "bsu-q flg22",
+                    "sequencing_request": {
+                        "id": 11483
+                    },
+                    "submitter": "Chan Ho\t\t\t Park\t\t\t",
+                    "submitter_email": "chanhop@stanford.edu\t\t\t"
+                },
+                "2": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11414,
+                    "id": 14611,
+                    "lab": "Baker",
+                    "lane_number": 2,
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "huizhu@stanford.edu",
+                            "full_name": "Hui Zhu"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "Laevis stage 8 and 10",
+                    "sequencing_request": {
+                        "id": 11500
+                    },
+                    "submitter": "Hui Zhu",
+                    "submitter_email": "huizhu@stanford.edu"
+                },
+                "3": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GTTTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGTCC",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11417,
+                    "id": 14612,
+                    "lab": "Scott",
+                    "lane_number": 3,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10154,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 35,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Mouse Male (mm9)",
+                            "reference_sequence_path": "Mus_musculus/mm9_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "sale@stanford.edu\t\t\t",
+                            "full_name": "Alexander\t\t\t Brown\t\t\t"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "Molarity",
+                    "sequencing_request": {
+                        "id": 11503
+                    },
+                    "submitter": "Alexander\t\t\t Brown\t\t\t",
+                    "submitter_email": "sale@stanford.edu\t\t\t"
+                },
+                "4": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GTTTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGTCC",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11418,
+                    "id": 14613,
+                    "lab": "Scott",
+                    "lane_number": 4,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10155,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 35,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Mouse Male (mm9)",
+                            "reference_sequence_path": "Mus_musculus/mm9_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "sale@stanford.edu\t\t\t",
+                            "full_name": "Alexander\t\t\t Brown\t\t\t"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "qbit",
+                    "sequencing_request": {
+                        "id": 11504
+                    },
+                    "submitter": "Alexander\t\t\t Brown\t\t\t",
+                    "submitter_email": "sale@stanford.edu\t\t\t"
+                },
+                "5": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14616,
+                    "lab": "Snyder",
+                    "lane_number": 5,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 9901,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 36,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 11204
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "6": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11426,
+                    "id": 14614,
+                    "lab": "Pollack",
+                    "lane_number": 6,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10162,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 36,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human (hg18)",
+                            "reference_sequence_path": "H_sapiens/hg18",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "hspark@jbnu.ac.kr",
+                            "full_name": "Hosung Park"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "HSPark_ChIPseq_DLD-1 & SW837",
+                    "sequencing_request": {
+                        "id": 11512
+                    },
+                    "submitter": "Hosung Park",
+                    "submitter_email": "hspark@jbnu.ac.kr"
+                },
+                "7": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11427,
+                    "id": 14615,
+                    "lab": "Baker",
+                    "lane_number": 7,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10163,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 36,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Frog (xenTro2)",
+                            "reference_sequence_path": "X_tropicalis/xenTro2",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "grakhi@stanford.edu",
+                            "full_name": "Rakhi Gupta"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "Trop-st10-FA2-G6",
+                    "sequencing_request": {
+                        "id": 11513
+                    },
+                    "submitter": "Rakhi Gupta",
+                    "submitter_email": "grakhi@stanford.edu"
+                },
+                "8": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11425,
+                    "id": 14609,
+                    "lab": "Snyder",
+                    "lane_number": 8,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10161,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 32,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 0,
+                            "read2_num_mapped_bases": 0,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Female (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_female",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "trupti@stanford.edu",
+                            "full_name": "Trupti Kawli"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "GFP_MAX-S_K562_Rep3 rcvd 12/5/13",
+                    "sequencing_request": {
+                        "id": 11511
+                    },
+                    "submitter": "Trupti Kawli",
+                    "submitter_email": "trupti@stanford.edu"
+                }
+            },
+            "paired_end": false,
+            "platform": "hiseq2000",
+            "platform_name": "HiSeq 2000",
+            "read1_cycles": 36,
+            "read2_cycles": null,
+            "run_name": "140117_TENNISON_0275_BC3081ACXX",
+            "seq_software": "hcs_1_5_15"
+        }
+    },
+    "140122_SPENSER_0047_000000000-A74L0": {
+        "id": 2018,
+        "run_info": {
+            "control_lane": null,
+            "flow_cell": "A74L0",
+            "index1_cycles": null,
+            "index2_cycles": null,
+            "index_read": false,
+            "lanes": {
+                "1": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 11463,
+                    "id": 14650,
+                    "lab": "Snyder",
+                    "lane_number": 1,
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "dspacek@stanford.edu",
+                            "full_name": "Damek Spacek"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "Luc_BC_1M rcvd 1/17/14",
+                    "sequencing_request": {
+                        "id": 11548
+                    },
+                    "submitter": "Damek Spacek",
+                    "submitter_email": "dspacek@stanford.edu"
+                }
+            },
+            "paired_end": false,
+            "platform": "miseq",
+            "platform_name": "MiSeq",
+            "read1_cycles": 36,
+            "read2_cycles": null,
+            "run_name": "140122_SPENSER_0047_000000000-A74L0",
+            "seq_software": "mcs_2_1_13"
+        }
+    },
+    "140203_MONK_0336_AC3CY3ACXX": {
+        "id": 2024,
+        "run_info": {
+            "control_lane": 5,
+            "flow_cell": "C3CY3",
+            "index1_cycles": 8,
+            "index2_cycles": null,
+            "index_read": true,
+            "lanes": {
+                "1": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ATCACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11443,
+                    "id": 14654,
+                    "lab": "Diehn",
+                    "lane_number": 1,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10179,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 450,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Mouse Female (mm9)",
+                            "reference_sequence_path": "Mus_musculus/mm9_female",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "yjeong@stanford.edu\t\t\t",
+                            "full_name": "Youngtae\t\t\t Jeong\t\t\t"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "Keap1 mEEC",
+                    "sequencing_request": {
+                        "id": 11529
+                    },
+                    "submitter": "Youngtae\t\t\t Jeong\t\t\t",
+                    "submitter_email": "yjeong@stanford.edu\t\t\t"
+                },
+                "2": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGCTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGCTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACTTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11445,
+                    "id": 14635,
+                    "lab": "Skotheim",
+                    "lane_number": 2,
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "jukam@stanford.edu",
+                            "full_name": "David Jukam"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "XenTxID_8Pool",
+                    "sequencing_request": {
+                        "id": 11531
+                    },
+                    "submitter": "David Jukam",
+                    "submitter_email": "jukam@stanford.edu"
+                },
+                "3": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTCAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11447,
+                    "id": 14638,
+                    "lab": "SFGF",
+                    "lane_number": 3,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10182,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 362,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "john.coller@stanford.edu\t\t\t",
+                            "full_name": "John Coller"
+                        }
+                    ],
+                    "notify_comments": "xuhuai.ji@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "poolJcui",
+                    "sequencing_request": {
+                        "id": 11533
+                    },
+                    "submitter": "John Coller",
+                    "submitter_email": "john.coller@stanford.edu\t\t\t"
+                },
+                "4": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATCACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11448,
+                    "id": 14639,
+                    "lab": "SFGF",
+                    "lane_number": 4,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10183,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 426,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Other",
+                            "reference_sequence_path": "other",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "john.coller@stanford.edu\t\t\t",
+                            "full_name": "John Coller"
+                        }
+                    ],
+                    "notify_comments": "xuhuai.ji@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "poolleif1",
+                    "sequencing_request": {
+                        "id": 11534
+                    },
+                    "submitter": "John Coller",
+                    "submitter_email": "john.coller@stanford.edu\t\t\t"
+                },
+                "5": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 14656,
+                    "lab": "Snyder",
+                    "lane_number": 5,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "6": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACTTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGCTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGGCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11449,
+                    "id": 14640,
+                    "lab": "SFGF",
+                    "lane_number": 6,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10184,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 423,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_name": "Other",
+                            "reference_sequence_path": "other",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "john.coller@stanford.edu\t\t\t",
+                            "full_name": "John Coller"
+                        }
+                    ],
+                    "notify_comments": "xuhuai.ji@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "poolleif2",
+                    "sequencing_request": {
+                        "id": 11535
+                    },
+                    "submitter": "John Coller",
+                    "submitter_email": "john.coller@stanford.edu\t\t\t"
+                },
+                "7": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11460,
+                    "id": 14655,
+                    "lab": "Bejerano",
+                    "lane_number": 7,
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "graycamp@gmail.com\t\t\t",
+                            "full_name": "Gray Camp"
+                        }
+                    ],
+                    "notify_comments": "campjg@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "Plac_FAIRE_1",
+                    "sequencing_request": {
+                        "id": 11545
+                    },
+                    "submitter": "Gray Camp",
+                    "submitter_email": "graycamp@gmail.com\t\t\t"
+                },
+                "8": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 8,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GTATCGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGTATGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCTCGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCGTCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGCGTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGTCGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCGTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATGTAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCTATCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCTGTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTAGTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGCTAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTGCTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCGTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGCTGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGAGCGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATGTCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCAGTGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGCTCAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTATCTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCATGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTATGCGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCTATGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTGTGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAGTCTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGCAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCGTAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGTGTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGTAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGCGCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTGCTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATGCGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGTACGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGATGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTCGAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCTACTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGTCAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCAGTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTATGAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGTGCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATAGCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCATGCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATGCGCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTCTGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTATCGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACGCTGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGCATGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCGTATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTATCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTCATAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACTATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGCGCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTCACAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGCGTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAGAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACTGTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCACGTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCACGCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGCTGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGATCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACTGAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGTAGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACGTCTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTACTCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTGAGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGACGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGACTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGAGTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTATGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGTCTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTCTCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATCATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATGAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTCGTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATCTCAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTGTCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATCGATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGAGTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATGCATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGATCAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTCTATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGATACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAGATCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATCAGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCAGATGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATGTACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTATACAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGATACTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCAGCGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTACTGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGTACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCTACAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTGTGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCATATCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACGTATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGCTATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGATGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCACGCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCAGTATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGATAGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCGAGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACTCATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCTGATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACTAGCTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGTAGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCAGCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGTCTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACTGCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACACAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACATACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACAGTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGCTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGACTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCAGAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTACAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACGTCAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCACAGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACTGCGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATCGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGAGATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGATGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGACGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGACGCTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTACGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCACTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAGCAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATGATAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCAGCTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACGTATCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTATCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATACACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACTAGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATGACTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGATCGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACTGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACTCGATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACGATCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCATCATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACATGTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTCATCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGCATAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGAGTCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTACGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACGAGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACGCACAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACGTGCTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACGATCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTGTACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGATGTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATATATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGTACTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATAGAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGATATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACATGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGAGATCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTACATAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATCAGTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATCATATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACATAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGTATAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACAGTCAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACATATAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGCATCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGACTATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGCATCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGACGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATCACTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGCTCTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGTCATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTGACAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATACAGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATAGACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGAGATAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGCTGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGTCAGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ACGATACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGCGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATCGCTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATGCTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGCAGTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATCTAGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "ATCGCATA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 11457,
+                    "id": 14643,
+                    "lab": "Snyder",
+                    "lane_number": 8,
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "lijj@stanford.edu",
+                            "full_name": "Jingjing Li"
+                        },
+                        {
+                            "email": "zhihaima@stanford.edu",
+                            "full_name": "Zhihai Ma"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "RNAediting rcvd 1/21/14",
+                    "sequencing_request": {
+                        "id": 11542
+                    },
+                    "submitter": "Jingjing Li",
+                    "submitter_email": "lijj@stanford.edu"
+                }
+            },
+            "paired_end": true,
+            "platform": "hiseq2000",
+            "platform_name": "HiSeq 2000",
+            "read1_cycles": 101,
+            "read2_cycles": 101,
+            "run_name": "140203_MONK_0336_AC3CY3ACXX",
+            "seq_software": "hcs_1_5_15"
+        }
+    }
+}
