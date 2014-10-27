@@ -86,20 +86,26 @@ class Connection:
         # Initialize pretty printer for writing data structures in the log
         self.pprint = pprint.PrettyPrinter(indent=2, width=1).pprint
 
-    def getsamplesheet(self, run, filename='samplesheet.csv'):
+    def getsamplesheet(self, run, lane=None, filename='samplesheet.csv'):
 
-        self.log("Writing samplesheet for run %s to file %s" % (run, filename))
+        if lane is not None:
+            self.log("Writing samplesheet for run %s lane %s to file %s" % (run, lane, filename))
+        else:
+            self.log("Writing samplesheet for run %s, all lanes, to file %s" % (run, filename))
 
-        samplesheet = self.local.getsamplesheet(run=run)
+        samplesheet = self.local.getsamplesheet(run=run, lane=lane)
         if samplesheet is None:
-            samplesheet = self.remote.getsamplesheet(run=run)
+            samplesheet = self.remote.getsamplesheet(run=run, lane=lane)
         if not samplesheet:
             raise Exception('samplesheet for run %s could not be found.' % run)
 
         if self.saveresults:
-            self.local.addsamplesheet(run=run, samplesheet=samplesheet)
+            self.local.addsamplesheet(run=run, samplesheet=samplesheet, lane=lane)
             self.local.writesamplesheetstodisk()
-            self.log("Added samplesheet for %s to testdata." % run)
+            if lane is not None:
+                self.log("Added samplesheet for run %s lane %s to testdata." % (run, lane))
+            else:
+                self.log("Added samplesheet for run %s all lanes to testdata." % run)
 
         if filename:
             with open(filename, 'w') as f:
@@ -356,8 +362,10 @@ class Connection:
         return id
 
     def getallrunobjects(self, run):
-        self.getruninfo(run)
+        runinfo = self.getruninfo(run)
         self.getsamplesheet(run, filename=None)
+        for lane in runinfo['run_info']['lanes'].keys():
+            self.getsamplesheet(run, filename=None, lane=lane)
         self.indexpipelineruns(run)
         self.indexlaneresults(run)
         self.indexmapperresults(run)

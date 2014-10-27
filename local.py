@@ -37,11 +37,15 @@ class LocalDataManager:
 
         return self._runinfo.get(run)
 
-    def getsamplesheet(self, run=None):
+    def getsamplesheet(self, run=None, lane=None):
         if self.disable:
             return None
 
-        return self._samplesheets.get(run)
+        run = self._samplesheets.get(run)
+        if run is None:
+            return None
+        else:
+            return run.get(lane)
 
     def showpipelinerun(self, id=None):
         if self.disable:
@@ -194,8 +198,10 @@ class LocalDataManager:
     def addruninfo(self, run, runinfo):
         self._runinfo[run] = runinfo
 
-    def addsamplesheet(self, run, samplesheet):
-        self._samplesheets[run] = samplesheet
+    def addsamplesheet(self, run, samplesheet, lane=None):
+        # lane = None means samplesheet for all lanes.
+        run = self._samplesheets.setdefault(run, {}) 
+        run[lane] = samplesheet
 
     def addpipelinerun(self, id, pipelinerun):
         self._pipelineruns[str(id)] = pipelinerun

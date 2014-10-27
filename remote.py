@@ -20,16 +20,20 @@ class RemoteDataManager:
         self.token = lims_token
         self.urlprefix = self._geturlprefix(lims_url, apiversion)
 
-    def getsamplesheet(self, run):
+    def getsamplesheet(self, run, lane=None):
         if not self.read_lims:
             return None
 
+        params = {
+            'token': self.token,
+            'run': run
+            }
+        if lane is not None:
+            params['lane'] = str(lane)
+
         response = requests.get(
-            self.urlprefix+'samplesheets',
-            params = {
-                'token': self.token,
-                'run': run
-                }
+            self.urlprefix+'samplesheets', 
+            params=params
             )
         self._checkstatus(response)
         return response.text
