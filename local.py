@@ -302,8 +302,8 @@ class LocalDataManager:
     def _loadmapperresults(self):
         self._mapperresults = self._load(self._mapperresultsfile)
 
-    def _fullpath(self, file):
-        return os.path.join(os.path.dirname(os.path.abspath(__file__)), self._testdatadir, file)
+    def _fullpath(self, infile):
+        return os.path.join(os.path.dirname(os.path.abspath(__file__)), self._testdatadir, infile)
 
     def _load(self, datafile):
         try:
