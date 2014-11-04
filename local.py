@@ -38,12 +38,14 @@ class LocalDataManager:
         return self._runinfo.get(run)
 
     def getsamplesheet(self, run=None, lane=None):
+        if lane:
+            lane = str(lane)
         if self.disable:
             return None
 
         run = self._samplesheets.get(run)
-        if run is None:
-            return None
+        if not lane:
+            return run
         else:
             return run.get(lane)
 
