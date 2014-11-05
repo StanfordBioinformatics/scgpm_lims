@@ -58,10 +58,10 @@ class RemoteDataManager:
 
         runinfo = self.getruninfo(run)
         try:
-            id = runinfo.get('id')
+            idd = runinfo.get('id')
         except:
             return None
-        return id
+        return idd
 
     def getlaneid(self, run, lane):
         if not self.read_lims:
@@ -69,17 +69,17 @@ class RemoteDataManager:
 
         runinfo = self.getruninfo(run)
         try:
-            id = runinfo.get('run_info').get('lanes').get(str(lane)).get('id')
+            idd = runinfo.get('run_info').get('lanes').get(str(lane)).get('id')
         except:
             return None
-        return id
+        return idd
 
-    def showpipelinerun(self, id):
+    def showpipelinerun(self, idd):
         if not self.read_lims:
             return None
 
         response = requests.get(
-            self.urlprefix+'solexa_pipeline_runs/%s' % id,
+            self.urlprefix+'solexa_pipeline_runs/%s' % idd,
             params = {
                 'token': self.token
                 }
@@ -87,12 +87,12 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
-    def showlaneresult(id):
+    def showlaneresult(idd):
         if not self.read_lims:
             return None
 
         response = requests.get(
-            self.urlprefix+'solexa_lane_results/%s' % id,
+            self.urlprefix+'solexa_lane_results/%s' % idd,
             params = {
                 'token': self.token
                 }
@@ -100,12 +100,12 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
-    def showmapperresult(self, id):
+    def showmapperresult(self, idd):
         if not self.read_lims:
             return None
 
         response = requests.get(
-            self.urlprefix+'mapper_results/%s' % id,
+            self.urlprefix+'mapper_results/%s' % idd,
             params = {
                 'token': self.token
                 }
@@ -214,12 +214,12 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
-    def updatepipelinerun(self, id, paramdict):
+    def updatepipelinerun(self, idd, paramdict):
         if not self.write_lims:
             return None
 
         response = requests.patch(
-            self.urlprefix+'solexa_pipeline_runs/%s' % id,
+            self.urlprefix+'solexa_pipeline_runs/%s' % idd,
             params = {
                 'token': self.token
                 },
@@ -229,12 +229,12 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
-    def updatelaneresult(self, id, paramdict):
+    def updatelaneresult(self, idd, paramdict):
         if not self.write_lims:
             return None
 
         response = requests.patch(
-            self.urlprefix+'solexa_lane_results/%s' % id,
+            self.urlprefix+'solexa_lane_results/%s' % idd,
             params = {
                 'token': self.token
                 },
@@ -244,12 +244,12 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
-    def updatemapperresult(self, id, paramdict):
+    def updatemapperresult(self, idd, paramdict):
         if not self.write_lims:
             return None
 
         response = requests.patch(
-            self.urlprefix+'mapper_results/%s' % id,
+            self.urlprefix+'mapper_results/%s' % idd,
             params = {
                 'token': self.token
                 },

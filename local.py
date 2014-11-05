@@ -49,31 +49,31 @@ class LocalDataManager:
         else:
             return run.get(lane)
 
-    def showpipelinerun(self, id=None):
+    def showpipelinerun(self, idd=None):
         if self.disable:
             return None
 
-        return self._pipelineruns.get(id)
+        return self._pipelineruns.get(idd)
 
-    def showlaneresult(self, id=None):
+    def showlaneresult(self, idd=None):
         if self.disable:
             return None
 
-        return self._laneresults.get(id)
+        return self._laneresults.get(idd)
 
-    def showmapperresult(self, id=None):
+    def showmapperresult(self, idd=None):
         if self.disable:
             return None
 
-        return self._mapperresults.get(id)
+        return self._mapperresults.get(idd)
 
     def indexpipelineruns(self, run=None):
         if self.disable: 
             return {}
 
-        run_id = self.getrunid(run)
+        run_idd =self.getrunid(run)
         found_pipelineruns = {}
-        for id, pipelinerun in self._pipelineruns.iteritems():
+        for idd, pipelinerun in self._pipelineruns.iteritems():
             if str(pipelinerun.get('solexa_run_id')) == str(run_id):
                 found_pipelineruns[str(pipelinerun.get('id'))] = pipelinerun
         return found_pipelineruns
@@ -84,7 +84,7 @@ class LocalDataManager:
 
         laneids = self._getlaneids(run)
         found_laneresults = {}
-        for id, laneresult in self._laneresults.iteritems():
+        for idd, laneresult in self._laneresults.iteritems():
             if str(laneresult.get('solexa_run_id')) in laneids:
                 found_laneresults[str(laneresult.get('id'))] = laneresult
                 #TODO add other filters for lane, barcode, readnumber
@@ -96,18 +96,18 @@ class LocalDataManager:
 
         laneresultids = self._getlaneresultids(run)
         found_mapperresults = {}
-        for id, mapperresult in self._mapperresults.iteritems():
+        for idd, mapperresult in self._mapperresults.iteritems():
             if str(mapperresult.get('dataset_id')) in laneresultids:
-                found_mapperresults[id] = mapperresult
+                found_mapperresults[idd] = mapperresult
         return found_mapperresults
 
     def createpipelinerun(self, run_id, lane, paramdict=None):
         if self.disable:
             return None
 
-        id = self._getrandomid()
+        idd =self._getrandomid()
         pipelinerun = {
-            'id': id,
+            'id': idd,
             'solexa_run_id': run_id,
             'started': True,
             'active': True,
@@ -127,8 +127,8 @@ class LocalDataManager:
         if self.disable:
             return None
 
-        id = self._getrandomid()
-        laneresult = {'id': id,
+        idd =self._getrandomid()
+        laneresult = {'id': idd,
                       'solexa_lane_id': lane_id,
                       'solexa_pipeline_run_id': None,
                       'created_at': str(datetime.now()),
@@ -137,7 +137,7 @@ class LocalDataManager:
                       }
         laneresult.update(paramdict)
 
-        self.addlaneresult(id, laneresult)
+        self.addlaneresult(idd, laneresult)
         
         return laneresult
 
@@ -145,48 +145,48 @@ class LocalDataManager:
         if self.disable:
             return None
         
-        id = self._getrandomid()
-        mapperresult = { 'id': id,
+        idd =self._getrandomid()
+        mapperresult = { 'id': idd,
                          'created_at': str(datetime.now()),
                          'active': True
                          }
         mapperresult.update(paramdict)
-        self.addmapperresult(id, mapperresult)
+        self.addmapperresult(idd, mapperresult)
 
         return mapperresult
 
-    def updatepipelinerun(self, id, paramdict):
+    def updatepipelinerun(self, idd, paramdict):
         if self.disable:
             return None
 
-        id = str(id)
+        idd =str(idd)
         try:
-            self._pipelineruns.get(id).update(paramdict)
+            self._pipelineruns.get(idd).update(paramdict)
         except:
             return None
-        return self.showpipelinerun(id)
+        return self.showpipelinerun(idd)
 
-    def updatelaneresult(self, id, paramdict):
+    def updatelaneresult(self, idd, paramdict):
         if self.disable:
             return None
 
-        id = str(id)
+        idd =str(idd)
         try:
-            self._laneresults.get(id).update(paramdict)
+            self._laneresults.get(idd).update(paramdict)
         except:
             return None
-        return self.showlaneresult(id)
+        return self.showlaneresult(idd)
 
-    def updatemapperresult(self, id, paramdict):
+    def updatemapperresult(self, idd, paramdict):
         if self.disable:
             return None
 
-        id = str(id)
+        idd =str(idd)
         try:
-            self._mapperresults.get(id).update(paramdict)
+            self._mapperresults.get(idd).update(paramdict)
         except:
             return None
-        return self.showmapperresult(id)
+        return self.showmapperresult(idd)
 
     def _getrandomid(self):
         # High enough min to exclude valid ids in LIMS
@@ -205,26 +205,26 @@ class LocalDataManager:
         run = self._samplesheets.setdefault(run, {}) 
         run[lane] = samplesheet
 
-    def addpipelinerun(self, id, pipelinerun):
-        self._pipelineruns[str(id)] = pipelinerun
+    def addpipelinerun(self, idd, pipelinerun):
+        self._pipelineruns[str(idd)] = pipelinerun
 
-    def addlaneresult(self, id, laneresult):
-        self._laneresults[str(id)] = laneresult
+    def addlaneresult(self, idd, laneresult):
+        self._laneresults[str(idd)] = laneresult
 
-    def addmapperresult(self, id, mapperresult):
-        self._mapperresults[str(id)] = mapperresult
+    def addmapperresult(self, idd, mapperresult):
+        self._mapperresults[str(idd)] = mapperresult
 
     def addpipelineruns(self, pipelineruns):
-        for id, pipelinerun in pipelineruns.iteritems():
-            self.addpipelinerun(id, pipelinerun)
+        for idd, pipelinerun in pipelineruns.iteritems():
+            self.addpipelinerun(idd, pipelinerun)
 
     def addlaneresults(self, laneresults):
-        for id, laneresult in laneresults.iteritems():
-            self.addlaneresult(id, laneresult)
+        for idd, laneresult in laneresults.iteritems():
+            self.addlaneresult(idd, laneresult)
 
     def addmapperresults(self, mapperresults):
-        for id, mapperresult in mapperresults.iteritems():
-            self.addmapperresult(id, mapperresult)
+        for idd, mapperresult in mapperresults.iteritems():
+            self.addmapperresult(idd, mapperresult)
 
     def getrunid(self, run):
         try:
@@ -235,11 +235,11 @@ class LocalDataManager:
     def getlaneid(self, run, lane):
         runinfo = self.getruninfo(run)
         try:
-            id = runinfo.get('run_info').get('lanes').get(str(lane)).get('id')
+            idd =runinfo.get('run_info').get('lanes').get(str(lane)).get('id')
         except:
             return None
         
-        return id
+        return idd
 
     def _getlaneresultids(self, run):
         laneresultids = []

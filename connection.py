@@ -189,59 +189,59 @@ class Connection:
         self.log(mapperresult, pretty=True)
         return mapperresult
 
-    def showpipelinerun(self, id):
+    def showpipelinerun(self, idd):
 
-        self.log("Showing pipeline run with id=%s" % id)
+        self.log("Showing pipeline run with id=%s" % idd)
 
-        pipelinerun = self.local.showpipelinerun(id)
+        pipelinerun = self.local.showpipelinerun(idd)
         if pipelinerun is None:
-            pipelinerun = self.remote.showpipelinerun(id)
+            pipelinerun = self.remote.showpipelinerun(idd)
 
         if not pipelinerun:
-            raise Exception('pipelinerun with id %s could not be found.' % id)
+            raise Exception('pipelinerun with id %s could not be found.' % idd)
 
         if self.saveresults:
-            self.local.addpipelinerun(id=id, pipelinerun=pipelinerun)
+            self.local.addpipelinerun(idd=idd, pipelinerun=pipelinerun)
             self.local.writepipelinerunstodisk()
-            self.log("Added pipelinerun id %s to testdata." % id)
+            self.log("Added pipelinerun id %s to testdata." % idd)
 
         self.log(pipelinerun, pretty=True)
         return pipelinerun
 
-    def showlaneresult(self, id):
+    def showlaneresult(self, idd):
 
-        self.log("Showing laneresult with id=%s" % id)
+        self.log("Showing laneresult with id=%s" % idd)
 
-        laneresult = self.local.showlaneresult(id)
+        laneresult = self.local.showlaneresult(idd)
         if not laneresult:
-            laneresult = self.remote.showlaneresult(id)
+            laneresult = self.remote.showlaneresult(idd)
 
         if not laneresult:
-            raise Exception('laneresult with id %s could not be found.' % id)
+            raise Exception('laneresult with id %s could not be found.' % idd)
 
         if self.saveresults:
-            self.local.addlaneresult(id=id, laneresult=laneresult)
+            self.local.addlaneresult(idd=idd, laneresult=laneresult)
             self.local.writelaneresultstodisk()
-            self.log("Added laneresult id %s to testdata." % id)
+            self.log("Added laneresult id %s to testdata." % idd)
 
         self.log(laneresult, pretty=True)
         return laneresult
 
-    def showmapperresult(self, id):
+    def showmapperresult(self, idd):
 
-        self.log("Showing mapper result with id=%s" % id)
+        self.log("Showing mapper result with id=%s" % idd)
 
-        mapperresult = self.local.showmapperresult(id)
+        mapperresult = self.local.showmapperresult(idd)
         if not mapperresult:
-            mapperresult = self.remote.showmapperresult(id)
+            mapperresult = self.remote.showmapperresult(idd)
 
         if not mapperresult:
-            raise Exception('mapperresult with id %s could not be found.' % id)
+            raise Exception('mapperresult with id %s could not be found.' % idd)
 
         if self.saveresults:
-            self.local.addmapperresult(id=id, mapperresult=mapperresult)
+            self.local.addmapperresult(idd=idd, mapperresult=mapperresult)
             self.local.writemapperresultstodisk()
-            self.log("Added mapperresult id %s to testdata." % id)
+            self.log("Added mapperresult id %s to testdata." % idd)
 
         self.log(mapperresult, pretty=True)
         return mapperresult
@@ -300,66 +300,66 @@ class Connection:
         self.log(mapperresults, pretty=True)
         return mapperresults
 
-    def updatepipelinerun(self, id, paramdict):
+    def updatepipelinerun(self, idd, paramdict):
 
-        self.log("Updating pipeline run id=%s with paramdict=%s" % (id, paramdict))
+        self.log("Updating pipeline run id=%s with paramdict=%s" % (idd, paramdict))
 
-        pipelinerun = self.remote.updatepipelinerun(id, paramdict)
+        pipelinerun = self.remote.updatepipelinerun(idd, paramdict)
         if not pipelinerun:
-            pipelinerun = self.local.updatepipelinerun(id, paramdict)
+            pipelinerun = self.local.updatepipelinerun(idd, paramdict)
 
         if not pipelinerun:
-            raise Exception("Failed to update pipelinerun id=%s paramdict=%s" % (id, paramdict))
+            raise Exception("Failed to update pipelinerun id=%s paramdict=%s" % (idd, paramdict))
 
         self.log(pipelinerun, pretty=True)
         return pipelinerun
     
-    def updatelaneresult(self, id, paramdict):
+    def updatelaneresult(self, idd, paramdict):
 
-        self.log("Updating lane result id=%s with paramdict=%s" % (id, paramdict))
+        self.log("Updating lane result id=%s with paramdict=%s" % (idd, paramdict))
 
-        laneresult = self.remote.updatelaneresult(id, paramdict)
+        laneresult = self.remote.updatelaneresult(idd, paramdict)
         if not laneresult:
-            laneresult = self.local.updatelaneresult(id, paramdict)
+            laneresult = self.local.updatelaneresult(idd, paramdict)
 
         if not laneresult:
-            raise Exception("Failed to update laneresult id=%s paramdict=%s" % (id, paramdict))
+            raise Exception("Failed to update laneresult id=%s paramdict=%s" % (idd, paramdict))
 
         self.log(laneresult, pretty=True)
         return laneresult
 
-    def updatemapperresult(self, id, paramdict):
+    def updatemapperresult(self, idd, paramdict):
 
-        self.log("Updating mapper result id=%s with paramdict=%s" % (id, paramdict))
+        self.log("Updating mapper result id=%s with paramdict=%s" % (idd, paramdict))
 
-        mapperresult = self.remote.updatemapperresult(id, paramdict)
+        mapperresult = self.remote.updatemapperresult(idd, paramdict)
         if not mapperresult:
-            mapperresult = self.local.updatemapperresult(id, paramdict)
+            mapperresult = self.local.updatemapperresult(idd, paramdict)
 
         if not mapperresult:
-            raise Exception("Failed to update mapperresult id=%s paramdict=%s" % (id, paramdict))
+            raise Exception("Failed to update mapperresult id=%s paramdict=%s" % (idd, paramdict))
 
         self.log(mapperresult, pretty=True)
         return mapperresult
 
     def getrunid(self, run):
 
-        id = self.local.getrunid(run)
-        if not id:
-            id = self.remote.getrunid(run)
-        if not id:
+        idd = self.local.getrunid(run)
+        if not idd:
+            idd = self.remote.getrunid(run)
+        if not idd:
             raise Exception("Failed to find id for run %s" % run)
-        return id
+        return idd
 
     def getlaneid(self, run, lane):
-        id = self.local.getlaneid(run=run, lane=lane)
-        if not id:
-            id = self.remote.getlaneid(run=run, lane=lane)
+        idd = self.local.getlaneid(run=run, lane=lane)
+        if not idd:
+            idd = self.remote.getlaneid(run=run, lane=lane)
 
-        if not id:
+        if not idd:
             raise Exception("Failed to find lane_id for run=%s lane=%s" % (run, lane))
 
-        return id
+        return idd
 
     def getallrunobjects(self, run):
         runinfo = self.getruninfo(run)
