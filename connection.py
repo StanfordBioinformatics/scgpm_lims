@@ -99,7 +99,7 @@ class Connection:
         if not samplesheet:
             raise Exception('samplesheet for run %s could not be found.' % run)
 
-        if self.saveresults:
+        if self.saveresults: #true only when testdata_update_mode is true
             self.local.addsamplesheet(run=run, samplesheet=samplesheet, lane=lane)
             self.local.writesamplesheetstodisk()
             if lane is not None:
