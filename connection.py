@@ -395,3 +395,47 @@ class Connection:
                 self.pprint(message)
             else:
                 print message
+
+
+Class RunInfo:
+    class Lane:
+        emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')
+        def __init__(self,laninfo):
+            self.laneinfo = laneinfo
+            self.notify_emails = [x['email'].strip() for x in self.laneinfo['notify']]
+            notify_comments = None
+            try:
+                notify_comments = self.laneinfo['notify_comments']
+            except KeyError:
+                pass
+            if notify_comments:
+                potentialEmails = re.split(r'[ ,;]',notify_comments)
+                potentialEmails = [x.strip() for x in potentialEmails]
+                potentialEmails = emaiReg.findall(potentialEmails)
+                if potentialEmails:
+                    for i in potentialEmails:
+                        self.notify_emails.append(i)
+                        
+    def __inif__(self,runinfo):
+        """
+        Args : runinfo - dict. of the kind returned from Connection.getruninfo().
+        """
+        ri = runinfo['run_info']
+        self.paired_end = ri['paired_end'] #bool
+        self.read1_cycles = ri['read1_cycles'] #int
+        self.read2_cycles = ri['read2_cycles'] #int
+        self.index1_cycles = ri['index1_cycles'] #int
+        self.index2_cycles = ri['index2_cycles'] #int
+        self.control_lane = ri['control_lane'] #int - lane number of the control if there is a control. Not sure what it returns if no control
+        self.seq_software = ri['seq_software'] #str (i.e. 'hcs_2_0_5')
+        self.flow_cell = ri['flow_cell'] #str
+        self.platform = ri['platform_name'] #str
+        self.run_name = ri['run_name'] #str i.e. '140415_BRISCOE_0154_BC42Y8ACXX'
+        self.lanes = {}
+        for i in ri['lanes']:
+            self.lanes[int(i)] = Lane(i)
+            
+    
+
+                        
+                
