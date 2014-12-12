@@ -1,12 +1,11 @@
 import json
 import requests
 
-
 class RemoteDataManager:
 
     localorremote = 'remote'
 
-    def __init__(self, apiversion=None, lims_url=None, lims_token=None, read_lims=True, write_lims=True):
+    def __init__(self, apiversion=None, lims_url=None, lims_token=None, read_lims=True, write_lims=True, verify=True):
 
         self.read_lims = read_lims
         self.write_lims = write_lims
@@ -33,7 +32,8 @@ class RemoteDataManager:
 
         response = requests.get(
             self.urlprefix+'samplesheets', 
-            params=params
+            params=params,
+            verify=self.verify,
             )
         self._checkstatus(response)
         return response.text
@@ -47,7 +47,8 @@ class RemoteDataManager:
             params = {
                 'token': self.token,
                 'run': run
-                }
+                },
+            verify = self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -82,7 +83,8 @@ class RemoteDataManager:
             self.urlprefix+'solexa_pipeline_runs/%s' % idd,
             params = {
                 'token': self.token
-                }
+                },
+            verify = self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -95,7 +97,8 @@ class RemoteDataManager:
             self.urlprefix+'solexa_lane_results/%s' % idd,
             params = {
                 'token': self.token
-                }
+                },
+            verify = self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -108,7 +111,8 @@ class RemoteDataManager:
             self.urlprefix+'mapper_results/%s' % idd,
             params = {
                 'token': self.token
-                }
+                },
+            verify=self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -122,7 +126,8 @@ class RemoteDataManager:
             params = {
                 'token': self.token,
                 'run': run
-                }
+                },
+            verify=self.verify,
             )
         self._checkstatus(response)
         return self._listtodict(response.json())
@@ -141,7 +146,8 @@ class RemoteDataManager:
                     params.update({'read_number': readnumber})
         response = requests.get(
             self.urlprefix+'solexa_lane_results',
-            params = params
+            params = params,
+            verify=self.verify,
             )
 
         self._checkstatus(response)
@@ -156,7 +162,8 @@ class RemoteDataManager:
             params = {
                 'token': self.token,
                 'run': run
-                }
+                },
+            verify=self.verify,
             )
         self._checkstatus(response)
         return self._listtodict(response.json())
@@ -177,7 +184,8 @@ class RemoteDataManager:
                 'token': self.token
                 },
             data = data,
-            headers = {'content-type': 'application/json'}
+            headers = {'content-type': 'application/json'},
+            verify=self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -195,7 +203,8 @@ class RemoteDataManager:
             self.urlprefix+'solexa_lane_results',
             params = params,
             data = json.dumps(paramdict),
-            headers = {'content-type': 'application/json'}
+            headers = {'content-type': 'application/json'},
+            verify=self.verify,
             )
         print paramdict
         self._checkstatus(response)
@@ -209,7 +218,8 @@ class RemoteDataManager:
             self.urlprefix+'mapper_results',
             params = {'token': self.token},
             data = json.dumps(paramdict),
-            headers = {'content-type': 'application/json'}
+            headers = {'content-type': 'application/json'},
+            verify=self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -224,7 +234,8 @@ class RemoteDataManager:
                 'token': self.token
                 },
             data=json.dumps(paramdict),
-            headers = {'content-type': 'application/json'}
+            headers = {'content-type': 'application/json'},
+            verify=self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -239,7 +250,8 @@ class RemoteDataManager:
                 'token': self.token
                 },
             data=json.dumps(paramdict),
-            headers = {'content-type': 'application/json'}
+            headers = {'content-type': 'application/json'},
+            verify=self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -254,7 +266,8 @@ class RemoteDataManager:
                 'token': self.token
                 },
             data=json.dumps(paramdict),
-            headers = {'content-type': 'application/json'}
+            headers = {'content-type': 'application/json'},
+            verify=self.verify,
             )
         self._checkstatus(response)
         return response.json()
@@ -275,7 +288,8 @@ class RemoteDataManager:
                 'run': run,
                 'lane': lane,
                 'token': self.token
-                }
+                },
+            verify=self.verify,
             )
         self._checkstatus(response)
 

@@ -9,7 +9,7 @@ class Connection:
 
     __version__ = '0.1'
 
-    def __init__(self, lims_url=None, lims_token=None, apiversion='v1', verbose=False, override_owner=None, local_only=False, remote_is_read_only=False, testdata_update_mode=False):
+    def __init__(self, lims_url=None, lims_token=None, apiversion='v1', verbose=False, override_owner=None, local_only=False, remote_is_read_only=False, testdata_update_mode=False, verify_cert=True):
 
         # turn on logs to stdout
         self.verbose = verbose
@@ -74,7 +74,7 @@ class Connection:
             self.log('Running in normal mode, reading from and writing to remote LIMS')
 
         self.local = local.LocalDataManager(loadtestdata=loadtestdata, disable=disable_local)
-        self.remote = remote.RemoteDataManager(write_lims=write_lims, read_lims=read_lims, lims_url=lims_url, lims_token=lims_token, apiversion=apiversion)
+        self.remote = remote.RemoteDataManager(write_lims=write_lims, read_lims=read_lims, lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
 
         # If override_owner is set to a valid email address,
         # emails in runinfo will be replaced by the override.
@@ -397,7 +397,7 @@ class Connection:
                 print message
 
 
-Class RunInfo:
+class RunInfo:
     class Lane:
         emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')
         def __init__(self,laninfo):
@@ -416,7 +416,7 @@ Class RunInfo:
                     for i in potentialEmails:
                         self.notify_emails.append(i)
                         
-    def __inif__(self,runinfo):
+    def __init__(self,runinfo):
         """
         Args : runinfo - dict. of the kind returned from Connection.getruninfo().
         """
