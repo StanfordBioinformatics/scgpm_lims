@@ -139,12 +139,12 @@ class Connection:
 
         if self.remote.write_lims:
             self.log("Resetting any old results before creating pipeline run")
-            self.remote.resetlane(run, lane)
+            self.remote.deletelaneresults(run, lane)
             self.log("Creating pipeline run object for run=%s, lane=%s, paramdict=%s" % (run, lane, paramdict))
             pipelinerun = self.remote.createpipelinerun(run, lane, paramdict)
         else:
             self.log("Resetting any old results before creating pipeline run")
-            self.local.resetlane(run, lane)
+            self.local.deletelaneresults(run, lane)
             # run_id may be for a run in either remote or local, so we look it up here
             # instead of in the local data manager
             run_id = self.getrunid(run)
@@ -157,13 +157,13 @@ class Connection:
         self.log(pipelinerun, pretty=True)
         return pipelinerun
 
-    def resetlaneresults(self, run, lane):
+    def deletelaneresults(self, run, lane):
         if self.remote.write_lims:
             self.log("Reseting old results")
-            self.remote.resetlane(run, lane)
+            self.remote.deletelaneresults(run, lane)
         else:
             self.log("Resetting old results")
-            self.local.resetlane(run, lane)
+            self.local.deletelaneresults(run, lane)
 
     def createlaneresult(self, paramdict, run, lane):
 

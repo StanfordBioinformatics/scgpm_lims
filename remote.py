@@ -274,7 +274,7 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
-    def resetlane(self, run, lane):
+    def deletelaneresults(self, run, lane):
 
         # for each lane
         #   for each lane_result
@@ -285,7 +285,7 @@ class RemoteDataManager:
         #     lane_result.active = false
         #                                                                                                                                                                                                   
         response = requests.post(
-            self.urlprefix+'reset_lane',
+            self.urlprefix+'delete_lane_results',
             params = {
                 'run': run,
                 'lane': lane,

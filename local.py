@@ -193,7 +193,7 @@ class LocalDataManager:
         # Large enough range to make repetition vanishingly improbable
         return random.randint(1e12,2e12)
 
-    def resetlane(self, run, lane):
+    def deletelaneresults(self, run, lane):
         # TODO
         pass
 
