@@ -157,6 +157,14 @@ class Connection:
         self.log(pipelinerun, pretty=True)
         return pipelinerun
 
+    def resetlaneresults(self, run, lane):
+        if self.remote.write_lims:
+            self.log("Reseting old results")
+            self.remote.resetlane(run, lane)
+        else:
+            self.log("Resetting old results")
+            self.local.resetlane(run, lane)
+
     def createlaneresult(self, paramdict, run, lane):
 
         self.log("Creating lane result for run=%s, lane=%s, paramsdict=%s" % (run, lane, paramdict))
