@@ -18,6 +18,7 @@ class RemoteDataManager:
             raise Exception("lims_url and lims_token are required. Current settings are lims_url=%s, lims_token=%s" % (lims_url, lims_token))
         self.token = lims_token
         self.urlprefix = self._geturlprefix(lims_url, apiversion)
+        self.verify = verify
 
     def getsamplesheet(self, run, lane=None):
         if not self.read_lims:
@@ -166,6 +167,7 @@ class RemoteDataManager:
             verify=self.verify,
             )
         self._checkstatus(response)
+
         return self._listtodict(response.json())
 
     def createpipelinerun(self, run, lane, paramdict = None):
