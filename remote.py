@@ -5,7 +5,7 @@ class RemoteDataManager:
 
     localorremote = 'remote'
 
-    def __init__(self, apiversion=None, lims_url=None, lims_token=None, read_lims=True, write_lims=True, verify=True):
+    def __init__(self, apiversion=None, lims_url=None, lims_token=None, read_lims=True, write_lims=True, verify=False):
 
         self.read_lims = read_lims
         self.write_lims = write_lims
@@ -208,7 +208,6 @@ class RemoteDataManager:
             headers = {'content-type': 'application/json'},
             verify=self.verify,
             )
-        print paramdict
         self._checkstatus(response)
         return response.json()
 

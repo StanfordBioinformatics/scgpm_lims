@@ -1,4 +1,5 @@
 import json
+import os
 import pprint
 import re
 
@@ -9,10 +10,15 @@ class Connection:
 
     __version__ = '0.1'
 
-    def __init__(self, lims_url=None, lims_token=None, apiversion='v1', verbose=False, override_owner=None, local_only=False, remote_is_read_only=False, testdata_update_mode=False, verify_cert=True):
+    def __init__(self, lims_url=None, lims_token=None, apiversion='v1', verbose=False, override_owner=None, local_only=False, remote_is_read_only=False, testdata_update_mode=False, verify_cert=False):
 
         # turn on logs to stdout
         self.verbose = verbose
+
+        if not lims_url:
+            lims_url = os.getenv('LIMS_URL')
+        if not lims_token:
+            lims_token = os.getenv('LIMS_TOKEN')
 
         if not local_only:
             # lims info is required
