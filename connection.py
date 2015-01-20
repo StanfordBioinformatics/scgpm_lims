@@ -12,20 +12,57 @@ class Connection:
 
     def __init__(self, lims_url=None, lims_token=None, apiversion='v1', verbose=False, override_owner=None, local_only=False, remote_is_read_only=False, testdata_update_mode=False, verify_cert=False):
 
+        # The Connection class is a tool for connecting to the HTTP API of the UHTS LIMS
+        # for making queries or updating objects in the database.
+
+        # INPUT ARGUMENTS
+        #
+        # lims_url and lims_token are required unless local_only==True.
+        # They can be provided as arguments to the constructor, as env vars LIMS_URL and LIMS_TOKEN, or via manual entry
+        #
+        # verbose=True will cause diagnostic information to be logged (to stdout)
+        #
+        # override_owner='valid.email@address.edu'
+        # When override_owner is set to a valid email address, the owner email address in 'runinfo' will be replaced
+        # with this value. This is useful for testing purposes, so that real data sets can be run, but notification
+        # emails will be set to a designated test email address instead of to Sequencing Center customers.
+        #
+        # local_only=True will prevent any connection to the LIMS, either read or write.
+        # Instead the test database will be used. This is saved as a flat file that can be checked in with source code.
+        #
+        # remote_is_read_only=True will prevent write operations to LIMS, writing instead to the local database.
+        # Be careful with this option. It provides data from the local database when it is available (otherwise data
+        # updates recorded in the local database could not be read). So if the local database contains an object with the
+        # same ID as the remote LIMS, the local object will mask the object in the remote LIMS.
+        #
+        # testdata_update_mode=True will write the results of every query to the local database. This is useful for
+        # saving a copy of data from remote LIMS to the code base to be used later for testing without connecting to the
+        # remote LIMS.
+        #
+        # verify_cert=True will cause an exception to be raised if the LIMS ssl certificate is not from a trusted source.
+
+
         # turn on logs to stdout
         self.verbose = verbose
 
+        # If LIMS info not provided to constructor, get it from environment variables
         if not lims_url:
             lims_url = os.getenv('LIMS_URL')
         if not lims_token:
             lims_token = os.getenv('LIMS_TOKEN')
 
         if not local_only:
-            # lims info is required
+            # LIMS info is required. Give option to enter it manually.
             if lims_url is None:
-                raise Exception('lims_url is requred unless running in local_only mode')
+                print "'lims_url' argument was not provided when creating Connection(), and LIMS_URL environment variable was not found."
+                lims_url = raw_input("You can manually enter the LIMS URL now: ")
+                if lims_url == None:
+                    raise Exception('lims_url is requred unless running in local_only mode')
             if lims_token is None:
-                raise Exception('lims_token is requred unless running in local_only mode')
+                print "'lims_token' argument was not provided when creating Connection(), and LIMS_TOKEN environment variable was not found."
+                lims_token = raw_input("You can manually enter the LIMS token now: ")
+                if lims_token == None:
+                    raise Exception('lims_token is requred unless running in local_only mode')
 
         if local_only:
             # No connection with LIMS. Since this is used for testing mode,
@@ -411,45 +448,41 @@ class Connection:
                 print message
 
 
-class RunInfo:
-    class Lane:
-        emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')
-        def __init__(self,laninfo):
-            self.laneinfo = laneinfo
-            self.notify_emails = [x['email'].strip() for x in self.laneinfo['notify']]
-            notify_comments = None
-            try:
-                notify_comments = self.laneinfo['notify_comments']
-            except KeyError:
-                pass
-            if notify_comments:
-                potentialEmails = re.split(r'[ ,;]',notify_comments)
-                potentialEmails = [x.strip() for x in potentialEmails]
-                potentialEmails = emaiReg.findall(potentialEmails)
-                if potentialEmails:
-                    for i in potentialEmails:
-                        self.notify_emails.append(i)
+#class RunInfo:
+#    class Lane:
+#        emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')
+#        def __init__(self,laninfo):
+#            self.laneinfo = laneinfo
+#            self.notify_emails = [x['email'].strip() for x in self.laneinfo['notify']]
+#            notify_comments = None
+#            try:
+#                notify_comments = self.laneinfo['notify_comments']
+#            except KeyError:
+#                pass
+#            if notify_comments:
+#                potentialEmails = re.split(r'[ ,;]',notify_comments)
+#                potentialEmails = [x.strip() for x in potentialEmails]
+#                potentialEmails = emaiReg.findall(potentialEmails)
+#                if potentialEmails:
+#                    for i in potentialEmails:
+#                        self.notify_emails.append(i)
                         
-    def __init__(self,runinfo):
-        """
-        Args : runinfo - dict. of the kind returned from Connection.getruninfo().
-        """
-        ri = runinfo['run_info']
-        self.paired_end = ri['paired_end'] #bool
-        self.read1_cycles = ri['read1_cycles'] #int
-        self.read2_cycles = ri['read2_cycles'] #int
-        self.index1_cycles = ri['index1_cycles'] #int
-        self.index2_cycles = ri['index2_cycles'] #int
-        self.control_lane = ri['control_lane'] #int - lane number of the control if there is a control. Not sure what it returns if no control
-        self.seq_software = ri['seq_software'] #str (i.e. 'hcs_2_0_5')
-        self.flow_cell = ri['flow_cell'] #str
-        self.platform = ri['platform_name'] #str
-        self.run_name = ri['run_name'] #str i.e. '140415_BRISCOE_0154_BC42Y8ACXX'
-        self.lanes = {}
-        for i in ri['lanes']:
-            self.lanes[int(i)] = Lane(i)
-            
-    
+#    def __init__(self,runinfo):
+#        """
+#        Args : runinfo - dict. of the kind returned from Connection.getruninfo().
+#        """
+#        ri = runinfo['run_info']
+#        self.paired_end = ri['paired_end'] #bool
+#        self.read1_cycles = ri['read1_cycles'] #int
+#        self.read2_cycles = ri['read2_cycles'] #int
+#        self.index1_cycles = ri['index1_cycles'] #int
+#        self.index2_cycles = ri['index2_cycles'] #int
+#        self.control_lane = ri['control_lane'] #int - lane number of the control if there is a control. Not sure what it returns if no control
+#        self.seq_software = ri['seq_software'] #str (i.e. 'hcs_2_0_5')
+#        self.flow_cell = ri['flow_cell'] #str
+#        self.platform = ri['platform_name'] #str
+#        self.run_name = ri['run_name'] #str i.e. '140415_BRISCOE_0154_BC42Y8ACXX'
+#        self.lanes = {}
+#        for i in ri['lanes']:
+#            self.lanes[int(i)] = Lane(i)
 
-                        
-                
