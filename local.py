@@ -74,7 +74,7 @@ class LocalDataManager:
         run_idd =self.getrunid(run)
         found_pipelineruns = {}
         for idd, pipelinerun in self._pipelineruns.iteritems():
-            if str(pipelinerun.get('solexa_run_id')) == str(run_id):
+            if str(pipelinerun.get('solexa_run_id')) == str(run_idd):
                 found_pipelineruns[str(pipelinerun.get('id'))] = pipelinerun
         return found_pipelineruns
 
