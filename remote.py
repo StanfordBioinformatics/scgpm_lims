@@ -294,6 +294,20 @@ class RemoteDataManager:
             )
         self._checkstatus(response)
 
+    def testconnection(self):
+        if not self.read_lims:
+            return
+
+        response = requests.get(
+            self.urlprefix+'ok',
+            params = {
+                'token': self.token
+                },
+            verify=self.verify,
+            )
+        self._checkstatus(response)
+        return
+
     def _listtodict(self, resultslist):
         resultsdict = {}
         for result in resultslist:

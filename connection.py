@@ -421,6 +421,11 @@ class Connection:
         self.indexlaneresults(run)
         self.indexmapperresults(run)
 
+    def testconnection(self):
+        # Raises exception if no 200 response
+        self.remote.testconnection()
+        return True
+
     def _processruninfo(self, runinfo):
 
         # Replace emails if override_owner is set
@@ -448,7 +453,12 @@ class Connection:
                 print message
 
 
-#class RunInfo:
+class RunInfo:
+
+    def __init__(self, conn, run):
+        self.json = conn.getruninfo(run=run)
+        
+
 #    class Lane:
 #        emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')
 #        def __init__(self,laninfo):
