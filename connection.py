@@ -456,7 +456,10 @@ class Connection:
 class RunInfo:
 
     def __init__(self, conn, run):
-        self.json = conn.getruninfo(run=run)
+        self.obj = conn.getruninfo(run=run)
+
+    def get_run_name(self):
+        return self.obj['run_info']['run_name']
         
 
 #    class Lane:

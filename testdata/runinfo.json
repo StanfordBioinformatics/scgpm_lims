@@ -1,0 +1,2742 @@
+{
+    "141117_MONK_0387_AC4JCDACXX": {
+        "id": 2290,
+        "run_info": {
+            "control_lane": 5,
+            "flow_cell": "C4JCD",
+            "index1_cycles": 8,
+            "index2_cycles": null,
+            "index_read": true,
+            "lanes": {
+                "1": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ATCACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12386,
+                    "id": 15963,
+                    "lab": "Snyder",
+                    "lane_number": 1,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10865,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 350,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 17,
+                            "reference_sequence_name": "Human Female (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_female",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "trupti@stanford.edu",
+                            "full_name": "Trupti Kawli"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "#110,111_E_TruSeq rcvd 10/23/14",
+                    "sequencing_request": {
+                        "id": 12496
+                    },
+                    "submitter": "Trupti Kawli",
+                    "submitter_email": "trupti@stanford.edu"
+                },
+                "2": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ATCACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12419,
+                    "id": 15992,
+                    "lab": "Snyder",
+                    "lane_number": 2,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10886,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 350,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 17,
+                            "reference_sequence_name": "Human Female (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_female",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "trupti@stanford.edu",
+                            "full_name": "Trupti Kawli"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "#113,114_C_TruSeq rcvd 10/28/14",
+                    "sequencing_request": {
+                        "id": 12529
+                    },
+                    "submitter": "Trupti Kawli",
+                    "submitter_email": "trupti@stanford.edu"
+                },
+                "3": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ATCACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCAG",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12420,
+                    "id": 15993,
+                    "lab": "Snyder",
+                    "lane_number": 3,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10887,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 350,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 17,
+                            "reference_sequence_name": "Human Female (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_female",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "trupti@stanford.edu",
+                            "full_name": "Trupti Kawli"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "#119,120_A_TruSeq rcvd 11/5/14",
+                    "sequencing_request": {
+                        "id": 12530
+                    },
+                    "submitter": "Trupti Kawli",
+                    "submitter_email": "trupti@stanford.edu"
+                },
+                "4": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12421,
+                    "id": 15994,
+                    "lab": "Snyder",
+                    "lane_number": 4,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10888,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 371,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 19,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "varshar@stanford.edu",
+                            "full_name": "Varsha Rao"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "551-456 rcvd 11/5/14",
+                    "sequencing_request": {
+                        "id": 12531
+                    },
+                    "submitter": "Varsha Rao",
+                    "submitter_email": "varshar@stanford.edu"
+                },
+                "5": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 15998,
+                    "lab": "Snyder",
+                    "lane_number": 5,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 12,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "6": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12422,
+                    "id": 15995,
+                    "lab": "Snyder",
+                    "lane_number": 6,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10889,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 348,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 19,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "varshar@stanford.edu",
+                            "full_name": "Varsha Rao"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "810-720 rcvd 11/5/14",
+                    "sequencing_request": {
+                        "id": 12532
+                    },
+                    "submitter": "Varsha Rao",
+                    "submitter_email": "varshar@stanford.edu"
+                },
+                "7": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "GCCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGTA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12423,
+                    "id": 15996,
+                    "lab": "Snyder",
+                    "lane_number": 7,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10890,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 348,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 19,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "varshar@stanford.edu",
+                            "full_name": "Varsha Rao"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "066-202 rcvd 11/5/14",
+                    "sequencing_request": {
+                        "id": 12533
+                    },
+                    "submitter": "Varsha Rao",
+                    "submitter_email": "varshar@stanford.edu"
+                },
+                "8": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 8,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "TGAACGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCATGTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTGAGGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTGAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGATCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTAAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCATCTTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACAAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCTTGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTGGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCCAAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAACAGGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCTGGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGAACCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCGGAAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTTGGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAACCAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGAGGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCGAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGTCCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTACTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCATTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTATGGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTAGTTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCAACGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTACGGCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATTCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTAGACC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGGTTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAACTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGGATACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACTAACC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAACAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCACGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCGCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGATGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTTCGTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCAATGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTGTTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCAGAACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGCATGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTACCGTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACGTAAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGCTACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGACGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCAATCCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGGATTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGGTATTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGATTACC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGAGGACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGTCGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGCCGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGACTGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTCAAGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGCCTAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGATGCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGTGGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGTACTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCGAATT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTGTTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGAGCTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTGGAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAAGTGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCAACGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTAGTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGGTAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACTTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACGATT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTATCAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTGATTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGTAGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATAGGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTCCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCATCTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAAGACTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGGTTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCAGGTTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAGACCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACTTCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCATAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAATCCTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTTGTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACCAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTAGCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGTTCTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACTAGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCACTATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTAACTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAACTCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGGTCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGTACAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTGGTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTGAATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTTACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTCTCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTCGAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTCAGCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGAATTGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGTTGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTACGACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGCACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGTTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTGACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTCAGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCATGGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGCGGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCACAACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGCCATT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTGCGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCCATGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGACTACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGATAGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACAAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTTCCTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATGCATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTCCGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGTCTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGCAATCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGTTAGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGTTCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCAATAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTCGCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCATCTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAAGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTACCTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAAGTCGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAAGTGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGTTACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCACTCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGAAGAGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGAGACGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATCTGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCTGGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGATGTTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAAGCTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGTTAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGCAATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGGTATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTCGTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTATGGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACATTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACTGTGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGATCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTAAGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGCAGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTGTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAAGCCAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGAATAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGTTGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGACACTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATGGACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTTGACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTGTTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCAACTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATCACTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGATCTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCAGGCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCTTATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGTGTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTATCTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTACCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGATACAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGTCTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGGCTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCCTCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCATGGTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGACGCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGGCAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGAGACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGACCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATCTACC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCATTGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGGATGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTGAGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGTCAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCGTGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACTAGGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTCGTAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATAGGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACAGCAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTGGCTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCGTTGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTGTCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGGCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTAGGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTCTTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGAAGGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCACGTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACCAGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTGAGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATAGCGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGCGTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTAGAAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAAGCATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACGACTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAAGAAGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACCATAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACGGATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGGAGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAACGGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTCCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCACACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATTCGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGGAACAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGAGAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCACATCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATTCCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGGTGTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTAACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCTATCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCGGTAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTTCTTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCAAGAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGATCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCAACATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCAGGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCCAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCAACAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCTGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCCGTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATTACGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGTAGGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTATTCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGGTTCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTAGAGCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCGAATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTACCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGCGATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCATCCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTTCCATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTAAGCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCAAGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTGTGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATGAAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGATTCTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAATGCCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGATGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCTTGGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTCTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGTGTTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCTCCAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTCCTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTATCGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCTTCGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTACCAAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTTATCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATTCGCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACTGGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCAACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCCTACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGTAGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCAGTCTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCATGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGTGATT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGAGTGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCACAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGCTGTTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAAGGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAACTAGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGCTTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCGATTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAACCTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCATCACT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACGATGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTACAACC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAGCTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGCGCTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGGATCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CACTTAGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGGTCGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCAATGGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTTGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTACTTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTTACCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGTAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCGTCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAATGTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAACCACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACGTCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGACTTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATTGCAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGAATCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAACGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGCAGTAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCGTATTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGGTAAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTTCAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGAGGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGAAGGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTACGCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGTTGCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGGAATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTGTAAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGCTTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGAATGCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCACATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGAGCTTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTACGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTAAGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAAGGTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGCGTTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAAGAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCACCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAACCTTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTCGAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTAACAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACCTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATGGTGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGCAAGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAATCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTCCTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATCGACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTTACC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAAGCGTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGGATC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGCTAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTAACAGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGCTTGTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGCCAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAATCCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGATTGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCAGTTGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGAAGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTTCAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTGACGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCGTTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCTCTTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCAAGTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACCTCCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGAAGCCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CATCCTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCTATACG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCACTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGCTGAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCATGAAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCACCAAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGAACCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCGTGTAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGTGAACA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTGAGTTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGTGATG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGTACGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTTGCGAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCATAGGT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTTGTAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCCGCAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCCTGTC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GAGGCAAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGGACAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATGTCCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGACCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGTTGG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGGACCTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GATCTCAC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTAGGTT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GACGACAA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAATCGCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTTGCGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGTGACC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTCTGCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CCAATTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTGTACC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTGCACCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TACTTGCG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGATTGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TTCAGTCC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTGGTCA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGCTACTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTCATGTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCGGAAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGACTG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TGTCCAAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TATGTGGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTTAAGC",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12424,
+                    "id": 15997,
+                    "lab": "Snyder",
+                    "lane_number": 8,
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "wenyuz@stanford.edu",
+                            "full_name": "Wenyu Zhou"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "Me16-Lib5 rcvd 11/4/14",
+                    "sequencing_request": {
+                        "id": 12534
+                    },
+                    "submitter": "Wenyu Zhou",
+                    "submitter_email": "wenyuz@stanford.edu"
+                }
+            },
+            "paired_end": true,
+            "pipeline_runs": {
+                "2101": {
+                    "archive_dir": "/srv/gsfs0/projects/seq_center/Illumina/PublishedResults/2014/nov/141117_MONK_0387_AC4JCDACXX",
+                    "finished": true,
+                    "pipeline_version": "1.9.0-1.8.2",
+                    "run_dir": "/srv/gsfs0/projects/seq_center/Illumina/RunsInProgress/141117_MONK_0387_AC4JCDACXX",
+                    "started": true
+                }
+            },
+            "platform": "hiseq2000",
+            "platform_name": "HiSeq 2000",
+            "read1_cycles": 101,
+            "read2_cycles": 101,
+            "run_name": "141117_MONK_0387_AC4JCDACXX",
+            "seq_software": "hcs_1_5_15_1"
+        }
+    },
+    "141126_PINKERTON_0343_BC4J1PACXX": {
+        "id": 2302,
+        "run_info": {
+            "control_lane": 5,
+            "flow_cell": "C4J1P",
+            "index1_cycles": 8,
+            "index2_cycles": 8,
+            "index_read": true,
+            "lanes": {
+                "1": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "cttgta",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "acagtg",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "cagatc",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "acttga",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12428,
+                    "id": 16039,
+                    "lab": "Diehn",
+                    "lane_number": 1,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10894,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 420,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 19,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "Angela.Hui@stanford.edu\t\t\t",
+                            "full_name": "Angela Hui"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "PL66",
+                    "sequencing_request": {
+                        "id": 12538
+                    },
+                    "submitter": "Angela Hui",
+                    "submitter_email": "Angela.Hui@stanford.edu\t\t\t"
+                },
+                "2": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 6,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "ttaggc",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "cgtacg",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "gatcag",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "tagctt",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12429,
+                    "id": 16040,
+                    "lab": "Diehn",
+                    "lane_number": 2,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10895,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 420,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 19,
+                            "reference_sequence_name": "Human Male (hg19)",
+                            "reference_sequence_path": "H_sapiens/hg19_male",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "Angela.Hui@stanford.edu\t\t\t",
+                            "full_name": "Angela Hui"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "PL67",
+                    "sequencing_request": {
+                        "id": 12539
+                    },
+                    "submitter": "Angela Hui",
+                    "submitter_email": "Angela.Hui@stanford.edu\t\t\t"
+                },
+                "3": {
+                    "barcode_position": "index_read",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 12411,
+                    "id": 16009,
+                    "lab": "Mignot",
+                    "lane_number": 3,
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "linglin@stanford.edu",
+                            "full_name": "Ling Lin"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "TCR-HS41",
+                    "sequencing_request": {
+                        "id": 12521
+                    },
+                    "submitter": "Ling Lin",
+                    "submitter_email": "linglin@stanford.edu"
+                },
+                "4": {
+                    "barcode_position": "index_read",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 12435,
+                    "id": 16037,
+                    "lab": "Mignot",
+                    "lane_number": 4,
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "linglin@stanford.edu",
+                            "full_name": "Ling Lin"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "TCR-HS43",
+                    "sequencing_request": {
+                        "id": 12545
+                    },
+                    "submitter": "Ling Lin",
+                    "submitter_email": "linglin@stanford.edu"
+                },
+                "5": {
+                    "barcode_position": "no_barcode",
+                    "barcode_size": 0,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 20,
+                    "id": 16058,
+                    "lab": "Snyder",
+                    "lane_number": 5,
+                    "mapping_requests": [
+                        {
+                            "comments": "",
+                            "filter_poly_a": false,
+                            "generate_sgr": false,
+                            "mapping_program": "eland",
+                            "mapping_request_id": 736,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 101,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 300,
+                            "read2_num_mapped_bases": 101,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 12,
+                            "reference_sequence_name": "PhiX",
+                            "reference_sequence_path": "PhiX/phi_x_174",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "lramirez@shgc.stanford.edu",
+                            "full_name": "Lucia Ramirez"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "CGPM",
+                    "sample_name": "PhiX",
+                    "sequencing_request": {
+                        "id": 868
+                    },
+                    "submitter": "Lucia Ramirez",
+                    "submitter_email": "lramirez@shgc.stanford.edu"
+                },
+                "6": {
+                    "barcode_position": "index_read",
+                    "barcode_size": null,
+                    "barcode_size2": null,
+                    "barcodes": [],
+                    "dna_library_id": 12436,
+                    "id": 16038,
+                    "lab": "Mignot",
+                    "lane_number": 6,
+                    "multiplexed": false,
+                    "notify": [
+                        {
+                            "email": "linglin@stanford.edu",
+                            "full_name": "Ling Lin"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "TCR-HS44",
+                    "sequencing_request": {
+                        "id": 12546
+                    },
+                    "submitter": "Ling Lin",
+                    "submitter_email": "linglin@stanford.edu"
+                },
+                "7": {
+                    "barcode_position": "dual_index_read",
+                    "barcode_size": 8,
+                    "barcode_size2": 8,
+                    "barcodes": [
+                        {
+                            "codepoint": "TAAGGCGA - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA - TAGATCGC",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA - CTCTCTAT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA - TATCCTCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA - AGAGTAGA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA - GTAAGGAG",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA - ACTGCATA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA - AAGGAGTA",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAAGGCGA - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGTACTAG - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AGGCAGAA - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TCCTGAGC - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GGACTCCT - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "TAGGCATG - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CTCTCTAC - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CAGAGAGG - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GCTACGCT - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "CGAGGCTG - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "AAGAGGCA - CTAAGCCT",
+                            "name": ""
+                        },
+                        {
+                            "codepoint": "GTAGAGGA - CTAAGCCT",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12450,
+                    "id": 16057,
+                    "lab": "Sherlock",
+                    "lane_number": 7,
+                    "mapping_requests": [
+                        {
+                            "comments": null,
+                            "filter_poly_a": true,
+                            "generate_sgr": true,
+                            "mapping_program": "bwa",
+                            "mapping_request_id": 10905,
+                            "max_hits": 10,
+                            "max_mismatches": 2,
+                            "num_mapped_bases": 100,
+                            "num_skipped_bases": 0,
+                            "pair_distance": 507,
+                            "read2_num_mapped_bases": 100,
+                            "read2_num_skipped_bases": 0,
+                            "reference_sequence_id": 34,
+                            "reference_sequence_name": "Yeast (SGD 4/11)",
+                            "reference_sequence_path": "S_cerevisiae/sgd_4_21_11",
+                            "sgr_extension": 200
+                        }
+                    ],
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "miajaffe@stanford.edu\t\t\t",
+                            "full_name": "Mia Jaffe\t\t\t"
+                        }
+                    ],
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "Jaffe-SeqLib4",
+                    "sequencing_request": {
+                        "id": 12560
+                    },
+                    "submitter": "Mia Jaffe\t\t\t",
+                    "submitter_email": "miajaffe@stanford.edu\t\t\t"
+                },
+                "8": {
+                    "barcode_position": "index_read",
+                    "barcode_size": 8,
+                    "barcode_size2": null,
+                    "barcodes": [
+                        {
+                            "codepoint": "AAAAAAAA",
+                            "name": ""
+                        }
+                    ],
+                    "dna_library_id": 12461,
+                    "id": 16055,
+                    "lab": "Diehn",
+                    "lane_number": 8,
+                    "multiplexed": true,
+                    "notify": [
+                        {
+                            "email": "dmklass@stanford.edu\t\t\t",
+                            "full_name": "Dan Klass"
+                        }
+                    ],
+                    "notify_comments": "amnewman@stanford.edu, diehn@stanford.edu, arasha@stanford.edu, lovejoy@stanford.edu",
+                    "owner": "",
+                    "queue": "UHTS",
+                    "sample_name": "Index_Control",
+                    "sequencing_request": {
+                        "id": 12571
+                    },
+                    "submitter": "Dan Klass",
+                    "submitter_email": "dmklass@stanford.edu\t\t\t"
+                }
+            },
+            "paired_end": true,
+            "pipeline_runs": {
+                "2112": {
+                    "archive_dir": "/srv/gsfs0/projects/seq_center/Illumina/PublishedResults/2014/nov/141126_PINKERTON_0343_BC4J1PACXX",
+                    "finished": true,
+                    "pipeline_version": "1.9.0-1.8.2",
+                    "run_dir": "/srv/gsfs0/projects/seq_center/Illumina/RunsInProgress/141126_PINKERTON_0343_BC4J1PACXX",
+                    "started": true
+                }
+            },
+            "platform": "hiseq2000",
+            "platform_name": "HiSeq 2000",
+            "read1_cycles": 101,
+            "read2_cycles": 101,
+            "run_name": "141126_PINKERTON_0343_BC4J1PACXX",
+            "seq_software": "hcs_1_5_15_1"
+        }
+    }
+}
