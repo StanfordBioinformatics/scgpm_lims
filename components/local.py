@@ -13,7 +13,7 @@ class LocalDataManager:
     _laneresultsfile = 'laneresults.json'
     _mapperresultsfile = 'mapperresults.json'
 
-    _testdatadir = 'testdata'
+    _testdatadir = '../testdata'
 
     def __init__(self, loadtestdata=False, disable=False):
 
