@@ -165,7 +165,7 @@ class Connection:
         if not dirty_runinfo:
             dirty_runinfo = self.remote.getruninfo(run=run)
 
-        runinfo = self._processruninfo(dirty_runinfo)
+        runinfo = self._processruninfo(dirty_runinfo) #update emails if self.override_owner is True
 
         if not runinfo:
             raise Exception('runinfo for run %s could not be found.' % run)
