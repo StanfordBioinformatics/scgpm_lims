@@ -1,3 +1,4 @@
+import re
 class RunInfo:
 
     #TODO fix this enum
