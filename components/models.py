@@ -1,8 +1,11 @@
 class RunInfo:
 
-    #TODO fix this enum
-    RUN_STATUS_COPY_STARTED = 0
-    RUN_SEQUENCING_FAILED = 0
+    # Allowed values for SolexaRun.sequencingRunStatus
+    SEQUENCING_RUN_STATUS_PREPROCESSING = 'preprocessing'
+    SEQUENCING_RUN_STATUS_SEQUENCING = 'sequencing'
+    SEQUENCING_RUN_STATUS_DONE = 'sequencing_done'
+    SEQUENCING_RUN_STATUS_FAILED = 'sequencing_failed'
+    SEQUENCING_RUN_STATUS_EXCEPTION = 'sequencing_exception'
 
     def __init__(self, conn, run):
         self.obj = conn.getruninfo(run=run)
@@ -10,11 +13,8 @@ class RunInfo:
     def get_run_name(self):
         return self.obj['run_info']['run_name']
       
-    def set_run_status(self, status):
-        pass #TODO
-
-    def get_run_status(self, status):
-        pass #TODO
+    def get_run_status(self):
+        return self.obj['run_info']['sequencing_run_status']
 
     def getpipelinerunid(self, run, lane=None, status='done'):
         VALID_STATA = ['done', 'inprogress', 'new']
@@ -50,6 +50,11 @@ class RunInfo:
             pipeline_runs = inprogress
 
         return _getlatest(pipeline_runs, status)
+
+class SolexaRun:
+    def __init__(self, conn, run_id=None): 
+        self.obj = conn.showrun(run=run)
+        
 
 #    class Lane:
 #        emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')

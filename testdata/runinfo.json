@@ -2003,7 +2003,8 @@
             "read1_cycles": 101,
             "read2_cycles": 101,
             "run_name": "141117_MONK_0387_AC4JCDACXX",
-            "seq_software": "hcs_1_5_15_1"
+            "seq_software": "hcs_1_5_15_1",
+            "sequencing_run_status": "sequencing_done"
         }
     },
     "141126_PINKERTON_0343_BC4J1PACXX": {
@@ -2736,7 +2737,8 @@
             "read1_cycles": 101,
             "read2_cycles": 101,
             "run_name": "141126_PINKERTON_0343_BC4J1PACXX",
-            "seq_software": "hcs_1_5_15_1"
+            "seq_software": "hcs_1_5_15_1",
+            "sequencing_run_status": "sequencing_done"
         }
     }
 }

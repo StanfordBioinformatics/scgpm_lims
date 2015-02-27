@@ -9,6 +9,7 @@ class LocalDataManager:
 
     _runinfofile = 'runinfo.json'
     _samplesheetsfile = 'samplesheets.json'
+    _solexarunsfile = 'solexaruns.json'
     _pipelinerunsfile = 'pipelineruns.json'
     _laneresultsfile = 'laneresults.json'
     _mapperresultsfile = 'mapperresults.json'
@@ -19,6 +20,7 @@ class LocalDataManager:
 
         self._runinfo = {}
         self._samplesheets = {}
+        self._solexaruns = {}
         self._pipelineruns = {}
         self._laneresults = {}
         self._mapperresults = {}
@@ -49,6 +51,12 @@ class LocalDataManager:
         else:
             return run.get(lane)
 
+    def showsolexarun(self, idd=None):
+        if self.disable:
+            return None
+
+        return self._solexaruns.get(idd)
+
     def showpipelinerun(self, idd=None):
         if self.disable:
             return None
@@ -67,6 +75,17 @@ class LocalDataManager:
 
         return self._mapperresults.get(idd)
 
+    def indexsolexaruns(self, run=None):
+        if self.disable:
+            return {}
+
+        run_idd =self.getrunid(run)
+        solexa_run = self._solexaruns.get(run_idd)
+        if solexa_run is None:
+            return {}
+        else:
+            return solexa_run
+        
     def indexpipelineruns(self, run=None):
         if self.disable: 
             return {}
@@ -155,6 +174,17 @@ class LocalDataManager:
 
         return mapperresult
 
+    def updatesolexarun(self, idd, paramdict):
+        if self.disable:
+            return None
+
+        idd=str(idd)
+        try:
+            self._solexaruns.get(idd).update(paramdict)
+        except:
+            return None
+        return self.showsolexarun(idd)
+
     def updatepipelinerun(self, idd, paramdict):
         if self.disable:
             return None
@@ -200,10 +230,16 @@ class LocalDataManager:
     def addruninfo(self, run, runinfo):
         self._runinfo[run] = runinfo
 
+    def addrun(self, idd, run):
+        self._runs[str(idd)] = run
+
     def addsamplesheet(self, run, samplesheet, lane=None):
         # lane = None means samplesheet for all lanes.
         run = self._samplesheets.setdefault(run, {}) 
         run[lane] = samplesheet
+
+    def addsolexarun(self, idd, solexarun):
+        self._solexaruns[str(idd)] = solexarun
 
     def addpipelinerun(self, idd, pipelinerun):
         self._pipelineruns[str(idd)] = pipelinerun
@@ -213,6 +249,10 @@ class LocalDataManager:
 
     def addmapperresult(self, idd, mapperresult):
         self._mapperresults[str(idd)] = mapperresult
+
+    def addsolexaruns(self, solexaruns):
+        for idd, solexarun in solexaruns.iteritems():
+            self.addsolexarun(idd, solexarun)
 
     def addpipelineruns(self, pipelineruns):
         for idd, pipelinerun in pipelineruns.iteritems():
@@ -264,6 +304,9 @@ class LocalDataManager:
     def writesamplesheetstodisk(self):
         self._writetodisk(self._samplesheets, self._samplesheetsfile)
 
+    def writesolexarunstodisk(self):
+        self._writetodisk(self._solexaruns, self._solexarunsfile)
+
     def writepipelinerunstodisk(self):
         self._writetodisk(self._pipelineruns, self._pipelinerunsfile)
 
@@ -285,6 +328,7 @@ class LocalDataManager:
     def _loadall(self):
         self._loadruninfo()
         self._loadsamplesheets()
+        self._loadsolexaruns()
         self._loadpipelineruns()
         self._loadlaneresults()
         self._loadmapperresults()
@@ -294,6 +338,9 @@ class LocalDataManager:
 
     def _loadsamplesheets(self):
         self._samplesheets = self._load(self._samplesheetsfile)
+
+    def _loadsolexaruns(self):
+        self._solexaruns = self._load(self._solexarunsfile)
 
     def _loadpipelineruns(self):
         self._pipelineruns = self._load(self._pipelinerunsfile)

@@ -76,6 +76,20 @@ class RemoteDataManager:
             return None
         return idd
 
+    def showsolexarun(self, idd):
+        if not self.read_lims:
+            return None
+
+        response = requests.get(
+            self.urlprefix+'solexa_runs/%s' % idd,
+            params = {
+                'token': self.token
+                },
+            verify = self.verify,
+            )
+        self._checkstatus(response)
+        return response.json()
+
     def showpipelinerun(self, idd):
         if not self.read_lims:
             return None
@@ -117,6 +131,22 @@ class RemoteDataManager:
             )
         self._checkstatus(response)
         return response.json()
+
+    def indexsolexaruns(self, run):
+        if not self.read_lims:
+            return {}
+
+        response = requests.get(
+            self.urlprefix+'solexa_runs',
+            params = {
+                'token': self.token,
+                'run': run
+                },
+            verify=self.verify,
+            )
+
+        self._checkstatus(response)
+        return self._listtodict(response.json())
 
     def indexpipelineruns(self, run):
         if not self.read_lims:
@@ -219,6 +249,22 @@ class RemoteDataManager:
             self.urlprefix+'mapper_results',
             params = {'token': self.token},
             data = json.dumps(paramdict),
+            headers = {'content-type': 'application/json'},
+            verify=self.verify,
+            )
+        self._checkstatus(response)
+        return response.json()
+
+    def updatesolexarun(self, idd, paramdict):
+        if not self.write_lims:
+            return None
+
+        response = requests.patch(
+            self.urlprefix+'solexa_runs/%s' % idd,
+            params = {
+                'token': self.token
+                },
+            data=json.dumps(paramdict),
             headers = {'content-type': 'application/json'},
             verify=self.verify,
             )

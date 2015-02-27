@@ -47,9 +47,9 @@ class Connection:
 
         # If LIMS info not provided to constructor, get it from environment variables
         if not lims_url:
-            lims_url = os.getenv('LIMS_URL')
+            lims_url = os.getenv('UHTS_LIMS_URL')
         if not lims_token:
-            lims_token = os.getenv('LIMS_TOKEN')
+            lims_token = os.getenv('UHTS_LIMS_TOKEN')
 
         if not local_only:
             # LIMS info is required. Give option to enter it manually.
@@ -240,6 +240,21 @@ class Connection:
         self.log(mapperresult, pretty=True)
         return mapperresult
 
+    def showsolexarun(self, idd):
+        
+        self.log("Getting solexarun id %s" % idd)
+
+        solexarun = self.local.showsolexarun(idd)
+        if solexarun is None:
+            solexarun = self.remote.showsolexarun(idd)
+
+        if not solexarun:
+            raise Exception('solexarun with id %s could not be found.' % idd)
+        
+        if self.saveresults:
+            self.local.addsolexarun(idd=idd, solexarun=solexarun)
+        self.log("Added solexarun id %s to testdata." % run_name)
+
     def showpipelinerun(self, idd):
 
         self.log("Showing pipeline run with id=%s" % idd)
@@ -297,6 +312,24 @@ class Connection:
         self.log(mapperresult, pretty=True)
         return mapperresult
 
+    def indexsolexaruns(self, run):
+
+        self.log("Indexing solexa run(s) where run=%s" % run)
+
+        solexaruns = self.remote.indexsolexaruns(run)
+        # data from remote is overridden if found in local
+        solexaruns.update(self.local.indexsolexaruns(run))
+
+        # Don't raise Exception if the list is empty.
+
+        if self.saveresults:
+            self.local.addsolexaruns(solexaruns=solexaruns)
+            self.local.writesolexarunstodisk()
+            self.log("Added %s solexa runs to testdata" % len(solexaruns))
+
+        self.log(solexaruns, pretty=True)
+        return solexaruns
+
     def indexpipelineruns(self, run):
 
         self.log("Indexing pipeline runs where run=%s" % run)
@@ -350,6 +383,20 @@ class Connection:
 
         self.log(mapperresults, pretty=True)
         return mapperresults
+
+    def updatesolexarun(self, run_id, paramdict):
+        
+        self.log("Updating Solexa Run id=%s with paramdict=%s" % (run_id, paramdict))
+    
+        run = self.remote.updaterun(run_id, paramdict)
+        if not run:
+            run = self.local.updatepipelinerun(run_id, paramdict)
+
+        if not run:
+            raise Exception("Failed to update Solexa Run id=%s paramdict=%s" % (run_id, paramdict))
+        
+        self.log(run, pretty=True)
+        return run
 
     def updatepipelinerun(self, idd, paramdict):
 
@@ -414,7 +461,9 @@ class Connection:
 
     def getallrunobjects(self, run):
         runinfo = self.getruninfo(run)
+        self.indexsolexaruns(run)
         self.getsamplesheet(run, filename=None)
+        self.indexsolexaruns(run)
         for lane in runinfo['run_info']['lanes'].keys():
             self.getsamplesheet(run, filename=None, lane=lane)
         self.indexpipelineruns(run)
