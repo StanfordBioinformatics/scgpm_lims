@@ -1,20 +1,27 @@
+import re
 class RunInfo:
 
-    # Allowed values for SolexaRun.sequencingRunStatus
-    SEQUENCING_RUN_STATUS_PREPROCESSING = 'preprocessing'
-    SEQUENCING_RUN_STATUS_SEQUENCING = 'sequencing'
-    SEQUENCING_RUN_STATUS_DONE = 'sequencing_done'
-    SEQUENCING_RUN_STATUS_FAILED = 'sequencing_failed'
-    SEQUENCING_RUN_STATUS_EXCEPTION = 'sequencing_exception'
+    #TODO fix this enum
+    RUN_STATUS_COPY_STARTED = 0
+    RUN_SEQUENCING_FAILED = 0
 
     def __init__(self, conn, run):
-        self.obj = conn.getruninfo(run=run)
+        obj = conn.getruninfo(run=run)
+        self.ri = obj['run_info'] #self.ri = run info object
+        self.runId =obj['id'] 
 
-    def get_run_name(self):
-        return self.obj['run_info']['run_name']
+    def getRunName(self):
+        return self.ri['run_name']
       
-    def get_run_status(self):
-        return self.obj['run_info']['sequencing_run_status']
+    def getLane(self,lane):
+        lane = str(lane)
+        return self.Lane(self.ri['lanes'][lane])
+
+    def setRunStatus(self, status):
+        pass #TODO
+
+    def getRunStatus(self, status):
+        pass #TODO
 
     def getpipelinerunid(self, run, lane=None, status='done'):
         VALID_STATA = ['done', 'inprogress', 'new']
@@ -51,45 +58,75 @@ class RunInfo:
 
         return _getlatest(pipeline_runs, status)
 
-class SolexaRun:
-    def __init__(self, conn, run_id=None): 
-        self.obj = conn.showrun(run=run)
+    class LaneInfo:
+        emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')
+        def __init__(self,laninfo):
+            """
+            Args: laneinfo - A dict that is one of the values of the lanes in self.ri['lanes'].
+            """
+            self.li = laneinfo
+      
+        def __getitem__(self,key):
+            return self.li[key] 
+
+        def getDnaLibraryId(self):
+            return self['dna_library_id']
+
+        def getBarcodeSize1(self):
+            return self['barcode_size']
+
+        def getLab(self):
+            return self['lab']
+ 
+        def getMappingRequests(self):
+            return self['mapping_requests']
+
+        def getQueue(self):
+            return self['queue']
+ 
+        def getSubmitter(self):
+            return self['submitter']
+      
+        def getBarcodePosition(self):
+            return self['barcode_position']
+
+        def getSequencingRequest(self):
+            return self['sequencing_request']
+
+        def getNotify(self):
+            return self['notify']
+
+        def getSampleName(self):
+            return self['sample_name']
+
+        def getOwner(self):
+            return self['owner']
+   
+        def getBarcodeSize2(self):
+            return self['barcode_size2']
         
+        def isMultiplexed(self):
+            return self['multiplexed']
+ 
+            self.notify_emails = [x['email'].strip() for x in self.li['notify']]
+            notify_comments = None
+            try:
+                notify_comments = self.li['notify_comments']
+            except KeyError:
+                pass
+            if notify_comments:
+                potentialEmails = re.split(r'[ ,;]',notify_comments)
+                potentialEmails = [x.strip() for x in potentialEmails]
+                potentialEmails = emaiReg.findall(potentialEmails)
+                if potentialEmails:
+                    for i in potentialEmails:
+                        self.notify_emails.append(i)
 
-#    class Lane:
-#        emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')
-#        def __init__(self,laninfo):
-#            self.laneinfo = laneinfo
-#            self.notify_emails = [x['email'].strip() for x in self.laneinfo['notify']]
-#            notify_comments = None
-#            try:
-#                notify_comments = self.laneinfo['notify_comments']
-#            except KeyError:
-#                pass
-#            if notify_comments:
-#                potentialEmails = re.split(r'[ ,;]',notify_comments)
-#                potentialEmails = [x.strip() for x in potentialEmails]
-#                potentialEmails = emaiReg.findall(potentialEmails)
-#                if potentialEmails:
-#                    for i in potentialEmails:
-#                        self.notify_emails.append(i)
-                        
-#    def __init__(self,runinfo):
-#        """
-#        Args : runinfo - dict. of the kind returned from Connection.getruninfo().
-#        """
-#        ri = runinfo['run_info']
-#        self.paired_end = ri['paired_end'] #bool
-#        self.read1_cycles = ri['read1_cycles'] #int
-#        self.read2_cycles = ri['read2_cycles'] #int
-#        self.index1_cycles = ri['index1_cycles'] #int
-#        self.index2_cycles = ri['index2_cycles'] #int
-#        self.control_lane = ri['control_lane'] #int - lane number of the control if there is a control. Not sure what it returns if no control
-#        self.seq_software = ri['seq_software'] #str (i.e. 'hcs_2_0_5')
-#        self.flow_cell = ri['flow_cell'] #str
-#        self.platform = ri['platform_name'] #str
-#        self.run_name = ri['run_name'] #str i.e. '140415_BRISCOE_0154_BC42Y8ACXX'
-#        self.lanes = {}
-#        for i in ri['lanes']:
-#            self.lanes[int(i)] = Lane(i)
+        def getLaneId(self):
+            return self['id']
 
+        def getSubmitterEmail(self):
+            return self['submitter_email']
+
+        def getBarcodes(self):
+            return self['barcodes']

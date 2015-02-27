@@ -58,12 +58,20 @@ class LocalDataManager:
         return self._solexaruns.get(idd)
 
     def showpipelinerun(self, idd=None):
+        """
+        Args : idd - Pipeline Run ID
+        """
         if self.disable:
             return None
 
         return self._pipelineruns.get(idd)
 
     def showlaneresult(self, idd=None):
+        """
+        Args : idd - a Solexa Lane Result ID. For example, given the run 141117_MONK_0387_AC4JCDACXX, click on the analysis link with the date of '2014-11-30 20:22:00 -0800'.
+                     Then on the resulting page, find the Analysis Results table. In the Details columns, those 'View' links take you to a page that refers to a lane result.
+                     The lane result ID number is present at the end of the URL in the browser.
+        """ 
         if self.disable:
             return None
 
@@ -87,6 +95,10 @@ class LocalDataManager:
             return solexa_run
         
     def indexpipelineruns(self, run=None):
+        """
+        Finds all pipeline runs for a given run name from the test file, and puts them into a dict keyed by the pipeline run id
+        and valued by a dict being with the metadata on the pipeline run.
+        """
         if self.disable: 
             return {}
 
@@ -97,14 +109,19 @@ class LocalDataManager:
                 found_pipelineruns[str(pipelinerun.get('id'))] = pipelinerun
         return found_pipelineruns
 
-    def indexlaneresults(self, run=None, lane=None, barcode=None, readnumber=None):
+    def indexlaneresults(self, run, lane=None, barcode=None, readnumber=None):
+        """
+        Function : Finds all lane results for a given run name. Doesn't yet support filtering for a particular
+                   lane, barcode, and readnumber. Puts retrieved lane results into a dict keyed by the lane result ID
+                   and valued by a dict being the lane results for the particular barcode and readnumber retrieved.
+        """
         if self.disable:
             return {}
 
         laneids = self._getlaneids(run)
         found_laneresults = {}
         for idd, laneresult in self._laneresults.iteritems():
-            if str(laneresult.get('solexa_run_id')) in laneids:
+            if str(laneresult.get('solexa_lane_id')) in laneids:
                 found_laneresults[str(laneresult.get('id'))] = laneresult
                 #TODO add other filters for lane, barcode, readnumber
         return found_laneresults
@@ -294,7 +311,7 @@ class LocalDataManager:
         except:
             return None
         laneids = []
-        for lane in lanes.values():
+        for lane in lanes.values(): #each value is a dict from the lane
             laneids.append(str(lane.get('id')))
         return laneids
 
