@@ -75,6 +75,8 @@ class Connection:
             self.log('Running in local only mode')
 
         elif testdata_update_mode:
+            # In testdata_update_mode, all queries to LIMS are written to the local cache for later use.
+
             # Testdata is updated by pulling info from LIMS, so local_only doesn't make sense.
             if local_only:
                 raise Exception("You cannot use local_only with testdata_update_mode")
@@ -82,8 +84,8 @@ class Connection:
             # Both LIMS and local testdata are needed, so that data for new test cases can be
             # queried and saved locally.
             #
-            # We don't want to write to LIMS while we're editing our tests, so we
-            # override the default remote_is_read_only=False
+            # We read from LIMS if data has not been overwritten locally, but instead of writing
+            # to LIMS we write to the local cache
             write_lims = False
             read_lims = True
             disable_local = False
@@ -107,7 +109,7 @@ class Connection:
             self.log('Running in remote is read only mode. No changes will be made to the remote LIMS')
 
         else:
-            # No flags set, normal mode where we work with the LIMS and
+            # Normal mode where we work with the LIMS and
             # disable the local cache.
             write_lims = True
             read_lims = True
@@ -121,6 +123,8 @@ class Connection:
 
         # If override_owner is set to a valid email address,
         # emails in runinfo will be replaced by the override.
+        # Useful for using production data but not sending
+        # automated emails to users.
         if override_owner is None:
             self.override_owner = None
         else:
@@ -253,7 +257,31 @@ class Connection:
         
         if self.saveresults:
             self.local.addsolexarun(idd=idd, solexarun=solexarun)
-        self.log("Added solexarun id %s to testdata." % run_name)
+            self.writesolexarunstodisk()
+            self.log("Added solexarun %s to testdata." % run_name)
+
+        self.log(solexarun, pretty=True)
+        return solexarun
+
+    def showsolexaflowcell(self, idd):
+
+        self.log("Getting solexaflowcell id %s" % idd)
+
+        solexaflowcell = self.local.showsolexaflowcell(idd)
+        if solexaflowcell is None:
+            solexaflowcell = self.remote.showsolexaflowcell(idd)
+
+        if not solexaflowcell:
+            raise Exception('solexaflowcell with id %s could not be found.' % idd)
+
+        if self.saveresults:
+            self.local.addsolexaflowcell(idd=idd, solexaflowcell=solexaflowcell)
+            self.local.writesolexaflowcellstodisk()
+            self.log("added solexaflowcell id %s to testdata." % idd)
+
+        self.log(solexaflowcell, pretty=True)
+        return solexaflowcell
+
 
     def showpipelinerun(self, idd):
 
@@ -388,15 +416,29 @@ class Connection:
         
         self.log("Updating Solexa Run id=%s with paramdict=%s" % (run_id, paramdict))
     
-        run = self.remote.updaterun(run_id, paramdict)
+        run = self.remote.updatesolexarun(run_id, paramdict)
         if not run:
-            run = self.local.updatepipelinerun(run_id, paramdict)
+            run = self.local.updatesolexarun(run_id, paramdict)
 
         if not run:
             raise Exception("Failed to update Solexa Run id=%s paramdict=%s" % (run_id, paramdict))
         
         self.log(run, pretty=True)
         return run
+
+    def updatesolexaflowcell(self, id, paramdict):
+        
+        self.log("Updating Solexa Flow Cell id=%s with paramdict=%s" % (id, paramdict))
+    
+        flowcell = self.remote.updatesolexaflowcell(id, paramdict)
+        if not flowcell:
+            flowcell = self.local.updatesolexaflowcell(id, paramdict)
+
+        if not flowcell:
+            raise Exception("Failed to update Solexa Flow Cell id=%s paramdict=%s" % (id, paramdict))
+        
+        self.log(flowcell, pretty=True)
+        return flowcell
 
     def updatepipelinerun(self, idd, paramdict):
 
@@ -461,7 +503,8 @@ class Connection:
 
     def getallrunobjects(self, run):
         runinfo = self.getruninfo(run)
-        self.indexsolexaruns(run)
+        run_data = self.indexsolexaruns(run).values()[0]
+        self.showsolexaflowcell(run_data['solexa_flow_cell_id'])
         self.getsamplesheet(run, filename=None)
         self.indexsolexaruns(run)
         for lane in runinfo['run_info']['lanes'].keys():

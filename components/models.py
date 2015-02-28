@@ -1,21 +1,16 @@
 import re
 class RunInfo:
 
-    #TODO fix this enum
-    RUN_STATUS_COPY_STARTED = 0
-    RUN_SEQUENCING_FAILED = 0
-
     def __init__(self, conn, run):
         obj = conn.getruninfo(run=run)
-        self.ri = obj['run_info'] #self.ri = run info object
-        self.runId =obj['id'] 
+        self.data = obj['run_info']
 
     def getRunName(self):
-        return self.ri['run_name']
+        return self.data['run_name']
       
     def getLane(self,lane):
         lane = str(lane)
-        return self.Lane(self.ri['lanes'][lane])
+        return self.Lane(self.data['lanes'][lane])
 
     def setRunStatus(self, status):
         pass #TODO
@@ -58,75 +53,42 @@ class RunInfo:
 
         return _getlatest(pipeline_runs, status)
 
-    class LaneInfo:
-        emailReg = re.compile('\w{3,20}@\w{3,20}\.\w{3}')
-        def __init__(self,laninfo):
-            """
-            Args: laneinfo - A dict that is one of the values of the lanes in self.ri['lanes'].
-            """
-            self.li = laneinfo
-      
-        def __getitem__(self,key):
-            return self.li[key] 
+class SolexaRun:
 
-        def getDnaLibraryId(self):
-            return self['dna_library_id']
+    STATUS_SEQUENCING = 'sequencing'
+    STATUS_SEQUENCING_DONE = 'sequencing_done'
+    STATUS_SEQUENCING_FAILED = 'sequencing_failed'
+    STATUS_SEQUENCING_EXCEPTION = 'sequencing_exception'
+    STATUS_PREPROCESSING = 'preprocessing'
 
-        def getBarcodeSize1(self):
-            return self['barcode_size']
+    def __init__(self, conn, run_id=None, run_name=None):
+        if run_id is not None:
+            if run_name is not None:
+                raise Exception("Specify run_id or run_name but not both. run_id=%s, run_name=%s" % (run_id, run_name))
+            run = conn.showsolexarun(run_id)
+        elif run_name is not None:
+            run = conn.indexsolexaruns(run_name)
+            if len(run) > 1:
+                raise Exception("More than 1 run found with run_name=%s" % run_name)
+            else:
+                raise Exception("No run found with run_name=%s" % run_name)
+        else:
+            raise Exception("Either run_id or run_name is required")
 
-        def getLab(self):
-            return self['lab']
- 
-        def getMappingRequests(self):
-            return self['mapping_requests']
+        for (id, data) in run.iter_items():
+            # There is only 1. This isn't a real loop.
+            self.id = id
+            self.data = data
 
-        def getQueue(self):
-            return self['queue']
- 
-        def getSubmitter(self):
-            return self['submitter']
-      
-        def getBarcodePosition(self):
-            return self['barcode_position']
+    def getStatus(self):
+        return self.data['sequencing_run_status']
 
-        def getSequencingRequest(self):
-            return self['sequencing_request']
+    def setStatus(self, status, save=True):
+        self.data['sequencing_run_status'] = status
+        if save:
+            self.save()
 
-        def getNotify(self):
-            return self['notify']
+    def save(self):
+        conn.updatesolexarun(self.id, self.data)
 
-        def getSampleName(self):
-            return self['sample_name']
-
-        def getOwner(self):
-            return self['owner']
-   
-        def getBarcodeSize2(self):
-            return self['barcode_size2']
         
-        def isMultiplexed(self):
-            return self['multiplexed']
- 
-            self.notify_emails = [x['email'].strip() for x in self.li['notify']]
-            notify_comments = None
-            try:
-                notify_comments = self.li['notify_comments']
-            except KeyError:
-                pass
-            if notify_comments:
-                potentialEmails = re.split(r'[ ,;]',notify_comments)
-                potentialEmails = [x.strip() for x in potentialEmails]
-                potentialEmails = emaiReg.findall(potentialEmails)
-                if potentialEmails:
-                    for i in potentialEmails:
-                        self.notify_emails.append(i)
-
-        def getLaneId(self):
-            return self['id']
-
-        def getSubmitterEmail(self):
-            return self['submitter_email']
-
-        def getBarcodes(self):
-            return self['barcodes']

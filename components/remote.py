@@ -90,6 +90,20 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
+    def showsolexaflowcell(self, idd):
+        if not self.read_lims:
+            return None
+
+        response = requests.get(
+            self.urlprefix+'solexa_flow_cells/%s' % idd,
+            params = {
+                'token': self.token
+                },
+            verify = self.verify,
+            )
+        self._checkstatus(response)
+        return response.json()
+
     def showpipelinerun(self, idd):
         if not self.read_lims:
             return None
@@ -271,6 +285,22 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
+    def updatesolexaflowcell(self, idd, paramdict):
+        if not self.write_lims:
+            return None
+
+        response = requests.patch(
+            self.urlprefix+'solexa_flow_cells/%s' % idd,
+            params = {
+                'token': self.token
+                },
+            data=json.dumps(paramdict),
+            headers = {'content-type': 'application/json'},
+            verify=self.verify,
+            )
+        self._checkstatus(response)
+        return response.json()
+
     def updatepipelinerun(self, idd, paramdict):
         if not self.write_lims:
             return None
@@ -320,15 +350,6 @@ class RemoteDataManager:
         return response.json()
 
     def deletelaneresults(self, run, lane):
-
-        # for each lane
-        #   for each lane_result
-        #     Select pipeline_runs where id = lane_result.solexa_pipeline_run_id
-        #     for each, active = false
-        #     select each mapper_result where dataset_id = lane_result.id
-        #     for each, active = false
-        #     lane_result.active = false
-        #                                                                                                                                                                                                   
         response = requests.post(
             self.urlprefix+'delete_lane_results',
             params = {

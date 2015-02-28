@@ -10,6 +10,7 @@ class LocalDataManager:
     _runinfofile = 'runinfo.json'
     _samplesheetsfile = 'samplesheets.json'
     _solexarunsfile = 'solexaruns.json'
+    _solexaflowcellsfile = 'solexaflowcells.json'
     _pipelinerunsfile = 'pipelineruns.json'
     _laneresultsfile = 'laneresults.json'
     _mapperresultsfile = 'mapperresults.json'
@@ -21,6 +22,7 @@ class LocalDataManager:
         self._runinfo = {}
         self._samplesheets = {}
         self._solexaruns = {}
+        self._solexaflowcells = {}
         self._pipelineruns = {}
         self._laneresults = {}
         self._mapperresults = {}
@@ -56,6 +58,12 @@ class LocalDataManager:
             return None
 
         return self._solexaruns.get(idd)
+
+    def showsolexaflowcell(self, idd=None):
+        if self.disable:
+            return None
+
+        return self._solexaflowcells.get(idd)
 
     def showpipelinerun(self, idd=None):
         """
@@ -202,6 +210,17 @@ class LocalDataManager:
             return None
         return self.showsolexarun(idd)
 
+    def updatesolexaflowcell(self, idd, paramdict):
+        if self.disable:
+            return None
+
+        idd=str(idd)
+        try:
+            self._solexaflowcells.get(idd).update(paramdict)
+        except:
+            return None
+        return self.showsolexaflowcells(idd)
+
     def updatepipelinerun(self, idd, paramdict):
         if self.disable:
             return None
@@ -258,6 +277,9 @@ class LocalDataManager:
     def addsolexarun(self, idd, solexarun):
         self._solexaruns[str(idd)] = solexarun
 
+    def addsolexaflowcell(self, idd, solexaflowcell):
+        self._solexaflowcells[str(idd)] = solexaflowcell
+
     def addpipelinerun(self, idd, pipelinerun):
         self._pipelineruns[str(idd)] = pipelinerun
 
@@ -270,6 +292,10 @@ class LocalDataManager:
     def addsolexaruns(self, solexaruns):
         for idd, solexarun in solexaruns.iteritems():
             self.addsolexarun(idd, solexarun)
+
+    def addsolexaflowcells(self, solexaflowcells):
+        for idd, solexarun in solexaruns.iteritems():
+            self.addsolexaflowcell(idd, solexaflowcell)
 
     def addpipelineruns(self, pipelineruns):
         for idd, pipelinerun in pipelineruns.iteritems():
@@ -324,6 +350,9 @@ class LocalDataManager:
     def writesolexarunstodisk(self):
         self._writetodisk(self._solexaruns, self._solexarunsfile)
 
+    def writesolexaflowcellstodisk(self):
+        self._writetodisk(self._solexaflowcells, self._solexaflowcellsfile)
+
     def writepipelinerunstodisk(self):
         self._writetodisk(self._pipelineruns, self._pipelinerunsfile)
 
@@ -346,6 +375,7 @@ class LocalDataManager:
         self._loadruninfo()
         self._loadsamplesheets()
         self._loadsolexaruns()
+        self._loadsolexaflowcells()
         self._loadpipelineruns()
         self._loadlaneresults()
         self._loadmapperresults()
@@ -358,6 +388,9 @@ class LocalDataManager:
 
     def _loadsolexaruns(self):
         self._solexaruns = self._load(self._solexarunsfile)
+
+    def _loadsolexaflowcells(self):
+        self._solexaflowcells = self._load(self._solexaflowcellsfile)
 
     def _loadpipelineruns(self):
         self._pipelineruns = self._load(self._pipelinerunsfile)
