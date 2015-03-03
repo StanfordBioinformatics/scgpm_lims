@@ -10,7 +10,7 @@ class Connection:
 
     __version__ = '0.1'
 
-    def __init__(self, lims_url=None, lims_token=None, apiversion='v1', verbose=False, override_owner=None, local_only=False, remote_is_read_only=False, testdata_update_mode=False, verify_cert=False):
+    def __init__(self, lims_url=None, lims_token=None, apiversion='v1', verbose=False, override_owner=None, local_only=False, testdata_update_mode=False, verify_cert=False):
 
         # The Connection class is a tool for connecting to the HTTP API of the UHTS LIMS
         # for making queries or updating objects in the database.
@@ -29,11 +29,6 @@ class Connection:
         #
         # local_only=True will prevent any connection to the LIMS, either read or write.
         # Instead the test database will be used. This is saved as a flat file that can be checked in with source code.
-        #
-        # remote_is_read_only=True will prevent write operations to LIMS, writing instead to the local database.
-        # Be careful with this option. It provides data from the local database when it is available (otherwise data
-        # updates recorded in the local database could not be read). So if the local database contains an object with the
-        # same ID as the remote LIMS, the local object will mask the object in the remote LIMS.
         #
         # testdata_update_mode=True will write the results of every query to the local database. This is useful for
         # saving a copy of data from remote LIMS to the code base to be used later for testing without connecting to the
@@ -67,11 +62,8 @@ class Connection:
         if local_only:
             # No connection with LIMS. Since this is used for testing mode,
             # we load the test data.
-            write_lims = False
-            read_lims = False
-            loadtestdata = True
-            disable_local = False
-            self.saveresults = False
+            self.server = local.LocalDataManager(loadtestdata=True, disable=False)
+            self.autosaveserver = None
             self.log('Running in local only mode')
 
         elif testdata_update_mode:
@@ -86,40 +78,16 @@ class Connection:
             #
             # We read from LIMS if data has not been overwritten locally, but instead of writing
             # to LIMS we write to the local cache
-            write_lims = False
-            read_lims = True
-            disable_local = False
-            loadtestdata = True
-            self.saveresults = True
+            self.remote = remote.RemoteDataManager(write_lims=False, read_lims=True lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
+            self.autosaveserver = local.LocalDataManager(loadtestdata=False, disable=False)
             self.log('Running in testdata update mode')
-
-        elif remote_is_read_only:
-            # If remote_is_read_only is set, write operations go to a local in-memory cache.
-            #
-            # For new objects created in local cache, an object id is generated and returned.
-            #
-            # Read operations need not specify whether an id is for the local cache
-            # or for the LIMS. For read operations, we first check the local cache
-            # and query the lims only if the key is not found there
-            write_lims = False
-            read_lims = True
-            disable_local = False
-            loadtestdata = False
-            self.saveresults = False
-            self.log('Running in remote is read only mode. No changes will be made to the remote LIMS')
 
         else:
             # Normal mode where we work with the LIMS and
             # disable the local cache.
-            write_lims = True
-            read_lims = True
-            disable_local=True
-            loadtestdata = None # no effect, local disabled
-            self.saveresults = False
+            self.remote = remote.RemoteDataManager(write_lims=True, read_lims=True, lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
+            self.autosaveserver = None
             self.log('Running in normal mode, reading from and writing to remote LIMS')
-
-        self.local = local.LocalDataManager(loadtestdata=loadtestdata, disable=disable_local)
-        self.remote = remote.RemoteDataManager(write_lims=write_lims, read_lims=read_lims, lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
 
         # If override_owner is set to a valid email address,
         # emails in runinfo will be replaced by the override.
@@ -140,15 +108,14 @@ class Connection:
         else:
             self.log("Writing samplesheet for run %s, all lanes, to file %s" % (run, filename))
 
-        samplesheet = self.local.getsamplesheet(run=run, lane=lane)
-        if samplesheet is None:
-            samplesheet = self.remote.getsamplesheet(run=run, lane=lane)
+        samplesheet = self.server.getsamplesheet(run=run, lane=lane)
+
         if not samplesheet:
             raise Exception('samplesheet for run %s could not be found.' % run)
 
-        if self.saveresults: #true only when testdata_update_mode is true
-            self.local.addsamplesheet(run=run, samplesheet=samplesheet, lane=lane)
-            self.local.writesamplesheetstodisk()
+        if self.autosaveserver:
+            self.autosaveserver.addsamplesheet(run=run, samplesheet=samplesheet, lane=lane)
+            self.autosaveserver.writesamplesheetstodisk()
             if lane is not None:
                 self.log("Added samplesheet for run %s lane %s to testdata." % (run, lane))
             else:
@@ -164,18 +131,15 @@ class Connection:
     def getruninfo(self, run=None):
         self.log("Getting run info for run %s" % run)
 
-        dirty_runinfo = self.local.getruninfo(run=run)
-        if not dirty_runinfo:
-            dirty_runinfo = self.remote.getruninfo(run=run)
-
+        dirty_runinfo = self.server.getruninfo(run=run)
         runinfo = self._processruninfo(dirty_runinfo) #update emails if self.override_owner is True
 
         if not runinfo:
             raise Exception('runinfo for run %s could not be found.' % run)
 
-        if self.saveresults:
-            self.local.addruninfo(run=run, runinfo=runinfo)
-            self.local.writeruninfotodisk()
+        if self.autosaveserver:
+            self.autosaveserver.addruninfo(run=run, runinfo=runinfo)
+            self.autosaveserver.writeruninfotodisk()
             self.log("Added runinfo for %s to testdata." % run)
 
         self.log(runinfo, pretty=True)
@@ -183,47 +147,36 @@ class Connection:
 
     def createpipelinerun(self, run, lane, paramdict = None):
 
-        if self.remote.write_lims:
-            self.log("Resetting any old results before creating pipeline run")
-            self.remote.deletelaneresults(run, lane)
-            self.log("Creating pipeline run object for run=%s, lane=%s, paramdict=%s" % (run, lane, paramdict))
-            pipelinerun = self.remote.createpipelinerun(run, lane, paramdict)
-        else:
-            self.log("Resetting any old results before creating pipeline run")
-            self.local.deletelaneresults(run, lane)
-            # run_id may be for a run in either remote or local, so we look it up here
-            # instead of in the local data manager
-            run_id = self.getrunid(run)
-            self.log("Creating pipeline run object for run=%s, lane=%s, paramdict=%s" % (run, lane, paramdict))
-            pipelinerun = self.local.createpipelinerun(run_id, lane, paramdict)
+        self.log("Resetting any old results before creating pipeline run")
+        self.server.deletelaneresults(run, lane)
+        self.log("Creating pipeline run object for run=%s, lane=%s, paramdict=%s" % (run, lane, paramdict))
+        pipelinerun = self.server.createpipelinerun(run, lane, paramdict)
 
         if not pipelinerun:
             raise Exception('Failed to create pipelinerun for run=%s lane=%s paramdict=%s' % (run, lane, paramdict))
+
+        if self.autosaveserver:
+            self._write_not_supported_error()
 
         self.log(pipelinerun, pretty=True)
         return pipelinerun
 
     def deletelaneresults(self, run, lane):
-        if self.remote.write_lims:
-            self.log("Reseting old results")
-            self.remote.deletelaneresults(run, lane)
-        else:
-            self.log("Resetting old results")
-            self.local.deletelaneresults(run, lane)
+        self.log("Resetting old results")
+        self.server.deletelaneresults(run, lane)
+
+        if self.autosaveserver:
+            self._delete_not_supported_error()
 
     def createlaneresult(self, paramdict, run, lane):
-
         self.log("Creating lane result for run=%s, lane=%s, paramsdict=%s" % (run, lane, paramdict))
-        if self.remote.write_lims:
-            laneresult = self.remote.createlaneresult(paramdict, run=run, lane=lane)
-        else:
-            # lane_id may be for a run in either remote or local, so we look it up here
-            # instead of in the local data manager
-            lane_id = self.getlaneid(run=run, lane=lane)
-            laneresult = self.local.createlaneresult(lane_id, paramdict)
+        laneresult = self.server.createlaneresult(paramdict, run=run, lane=lane)
 
         if not laneresult:
             raise Exception('Failed to create laneresult for run=%s lane=%s paramdict=%s' % (run, lane, paramdict))
+
+        if self.autosaveserver:
+            self._write_not_supported_error()
 
         self.log(laneresult, pretty=True)
         return laneresult
@@ -231,14 +184,13 @@ class Connection:
     def createmapperresult(self, paramdict):
 
         self.log("Creating mapper result with paramsdict=%s" % paramdict)
-
-        if self.remote.write_lims:
-            mapperresult = self.remote.createmapperresult(paramdict)
-        else:
-            mapperresult = self.local.createmapperresult(paramdict)
+        mapperresult = self.server.createmapperresult(paramdict)
 
         if not mapperresult:
             raise Exception('Failed to create mapperresult for paramdict=%s' % paramdict)
+
+        if self.autosaveserver:
+            self._write_not_supported_error()
         
         self.log(mapperresult, pretty=True)
         return mapperresult
@@ -381,7 +333,7 @@ class Connection:
                  (run, lane, barcode))
 
         laneresults = self.remote.indexlaneresults(run, lane=lane, barcode=barcode, readnumber=readnumber)
-        # data from remote is overridden if found in local
+        # Data from remote is overridden if found in local
         laneresults.update(self.local.indexlaneresults(run, lane=lane, barcode=barcode, readnumber=readnumber))
 
         # Don't raise Exception if the list is empty.
@@ -399,6 +351,7 @@ class Connection:
         self.log("Indexing mapper results where run=%s" % run)
 
         mapperresults = self.remote.indexmapperresults(run)
+        # Data from remote is overridden if found in local
         mapperresults.update(self.local.indexmapperresults(run))
 
         # Don't raise Exception if the list is empty.
@@ -481,15 +434,6 @@ class Connection:
         self.log(mapperresult, pretty=True)
         return mapperresult
 
-    def getrunid(self, run):
-
-        idd = self.local.getrunid(run)
-        if not idd:
-            idd = self.remote.getrunid(run)
-        if not idd:
-            raise Exception("Failed to find id for run %s" % run)
-        return idd
-
     def getlaneid(self, run, lane):
         idd = self.local.getlaneid(run=run, lane=lane)
         if not idd:
@@ -511,6 +455,16 @@ class Connection:
         self.indexpipelineruns(run)
         self.indexlaneresults(run)
         self.indexmapperresults(run)
+
+    def _write_not_supported_error(self):
+        raise Exception('Write operations are not supported in test_data_update mode. '+
+                        'If you want to create objects in the local cache, run in local_only '+
+                        'mode and call write_to_disk')
+
+    def _delete_not_supported_error(self):
+        raise Exception('Delete operations are not supported in test_data_update mode. '+
+                        'If you want to destroy objects in the local cache, run in local_only '+
+                        'mode and call write_to_disk')
 
     def testconnection(self):
         # Raises exception if no 200 response
