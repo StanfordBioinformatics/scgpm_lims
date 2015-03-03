@@ -1,24 +1,81 @@
 import re
+
+# These are convenience classes. You can work directly with the Connection class
+# and the data objects that it returns, but any methods for working with those
+# data objects live here.
+
+class SolexaRun:
+
+    STATUS_SEQUENCING = 'sequencing'
+    STATUS_SEQUENCING_DONE = 'sequencing_done'
+    STATUS_SEQUENCING_FAILED = 'sequencing_failed'
+    STATUS_SEQUENCING_EXCEPTION = 'sequencing_exception'
+    STATUS_PREPROCESSING = 'preprocessing'
+
+class SolexaFlowCell:
+
+    STATUS_INCOMPLETE = 'incomplete'
+    STATUS_ASSIGNED = 'assigned'
+    STATUS_CLUSTERING = 'clustering'
+    STATUS_SEQUENCING = 'sequencing'
+    STATUS_ANALYZING = 'analyzing'
+    STATUS_REVIEWING = 'reviewing'
+    STATUS_DONE = 'done'
+    STATUS_CANCELLED = 'cancelled'
+
 class RunInfo:
 
     def __init__(self, conn, run):
-        obj = conn.getruninfo(run=run)
-        self.data = obj['run_info']
+        self.conn = conn
+        self.run = run
+        self._refresh()
 
-    def getRunName(self):
+    def _refresh(self):
+        obj = self.conn.getruninfo(run=self.run)
+        self.data = obj['run_info']
+        self.solexarunid = obj['id']
+
+    def get_solexa_run_status(self):
+        return self.data['sequencing_run_status']
+
+    def get_flow_cell_status(self):
+        return self.data['flow_cell_status']
+
+    def get_solexa_run_name(self):
         return self.data['run_name']
+
+    def get_solexa_run_id(self):
+        return self.solexarunid
+
+    def get_sequencing_instrument(self):
+        return self.data['sequencing_instrument']
+
+    def get_data_volume(self):
+        return self.data['data_volume']
+
+    def get_sequencer_software(self):
+        return self.data['seq_software']
+
+    def is_paired_end(self):
+        return self.data['paired_end']
+
+    def has_index_read(self):
+        return self.data['index_read']
+
+    def get_read1_cycles(self):
+        return self.data.get('read1_cycles')
+
+    def get_read2_cycles(self):
+        return self.data.get('read2_cycles')
+
+    def get_solexa_flow_cell_id(self):
+        return self.data['flow_cell_id']
       
-    def getLane(self,lane):
+    def get_lane(self,lane):
         lane = str(lane)
         return self.Lane(self.data['lanes'][lane])
 
-    def setRunStatus(self, status):
-        pass #TODO
-
-    def getRunStatus(self, status):
-        pass #TODO
-
-    def getpipelinerunid(self, run, lane=None, status='done'):
+    def get_pipeline_run_id(self, run, lane=None, status='done'):
         VALID_STATA = ['done', 'inprogress', 'new']
         if status not in VALID_STATA:
             raise Exception('Invalid pipeline run status "%s" was requested.'
@@ -52,43 +109,36 @@ class RunInfo:
             pipeline_runs = inprogress
 
         return _getlatest(pipeline_runs, status)
+    
+    def has_status_sequencing_failed(self):
+        return self.get_solexa_run_status() == SolexaRun.STATUS_SEQUENCING_FAILED
 
-class SolexaRun:
+    def is_analysis_done(self):
+        return self.data['analysis_done']
 
-    STATUS_SEQUENCING = 'sequencing'
-    STATUS_SEQUENCING_DONE = 'sequencing_done'
-    STATUS_SEQUENCING_FAILED = 'sequencing_failed'
-    STATUS_SEQUENCING_EXCEPTION = 'sequencing_exception'
-    STATUS_PREPROCESSING = 'preprocessing'
+    def set_flags_for_sequencing_failed(self):
+        solexarunupdate = {
+            'sequencer_done': True,
+            'analysis_done': True,
+            'dnanexus_done': True,
+            'notification_done': True,
+            'archiving_done': True
+        }
+        self.conn.updatesolexarun(self.get_solexa_run_id(), solexarunupdate)
 
-    def __init__(self, conn, run_id=None, run_name=None):
-        if run_id is not None:
-            if run_name is not None:
-                raise Exception("Specify run_id or run_name but not both. run_id=%s, run_name=%s" % (run_id, run_name))
-            run = conn.showsolexarun(run_id)
-        elif run_name is not None:
-            run = conn.indexsolexaruns(run_name)
-            if len(run) > 1:
-                raise Exception("More than 1 run found with run_name=%s" % run_name)
-            else:
-                raise Exception("No run found with run_name=%s" % run_name)
-        else:
-            raise Exception("Either run_id or run_name is required")
+        solexaflowcellupdate = {
+            'flow_cell_status': SolexaFlowCell.STATUS_DONE
+        }
+        self.conn.updatesolexaflowcell(self.get_solexa_flow_cell_id(), solexaflowcellupdate)
+        self._refresh()
 
-        for (id, data) in run.iter_items():
-            # There is only 1. This isn't a real loop.
-            self.id = id
-            self.data = data
+    def set_flags_for_sequencing_finished_analysis_started(self):
+        solexarunupdate = {
+            'sequencer_done': True
+        }
+        self.conn.updatesolexarun(self.get_solexa_run_id(), solexarunupdate)
 
-    def getStatus(self):
-        return self.data['sequencing_run_status']
+        solexaflowcellupdate = {
+            'flow_cell_status': SolexaFlowCell.STATUS_ANALYZING
+        }
 
-    def setStatus(self, status, save=True):
-        self.data['sequencing_run_status'] = status
-        if save:
-            self.save()
-
-    def save(self):
-        conn.updatesolexarun(self.id, self.data)
-
-        

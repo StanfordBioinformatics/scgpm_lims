@@ -219,7 +219,7 @@ class LocalDataManager:
             self._solexaflowcells.get(idd).update(paramdict)
         except:
             return None
-        return self.showsolexaflowcells(idd)
+        return self.showsolexaflowcell(idd)
 
     def updatepipelinerun(self, idd, paramdict):
         if self.disable:

@@ -3,7 +3,10 @@
         "id": 2290,
         "run_info": {
             "control_lane": 5,
+            "data_volume": "illumina_runs5",
             "flow_cell": "C4JCD",
+            "flow_cell_id": 2102,
+            "flow_cell_status": "reviewing",
             "index1_cycles": 8,
             "index2_cycles": null,
             "index_read": true,
@@ -2004,6 +2007,7 @@
             "read2_cycles": 101,
             "run_name": "141117_MONK_0387_AC4JCDACXX",
             "seq_software": "hcs_1_5_15_1",
+            "sequencing_instrument": "Monk",
             "sequencing_run_status": "sequencing_done"
         }
     },
@@ -2011,7 +2015,10 @@
         "id": 2302,
         "run_info": {
             "control_lane": 5,
+            "data_volume": "illumina_runs6",
             "flow_cell": "C4J1P",
+            "flow_cell_id": 2112,
+            "flow_cell_status": "reviewing",
             "index1_cycles": 8,
             "index2_cycles": 8,
             "index_read": true,
@@ -2738,6 +2745,7 @@
             "read2_cycles": 101,
             "run_name": "141126_PINKERTON_0343_BC4J1PACXX",
             "seq_software": "hcs_1_5_15_1",
+            "sequencing_instrument": "Pinkerton",
             "sequencing_run_status": "sequencing_done"
         }
     }

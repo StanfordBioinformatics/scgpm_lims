@@ -162,7 +162,6 @@ class Connection:
         return samplesheet
 
     def getruninfo(self, run=None):
-
         self.log("Getting run info for run %s" % run)
 
         dirty_runinfo = self.local.getruninfo(run=run)
