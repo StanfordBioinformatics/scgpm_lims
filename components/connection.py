@@ -59,33 +59,27 @@ class Connection:
                 if lims_token == None:
                     raise Exception('lims_token is requred unless running in local_only mode')
 
+        # testdata_update_mode reads from remote, so using it with local_only doesn't make sense.
+        if testdata_update_mode and local_only:
+            raise Exception("You cannot use local_only with testdata_update_mode")
+
         if local_only:
             # No connection with LIMS. Since this is used for testing mode,
             # we load the test data.
-            self.server = local.LocalDataManager(loadtestdata=True, disable=False)
+            self.server = local.LocalDataManager()
             self.autosaveserver = None
             self.log('Running in local only mode')
 
         elif testdata_update_mode:
-            # In testdata_update_mode, all queries to LIMS are written to the local cache for later use.
-
-            # Testdata is updated by pulling info from LIMS, so local_only doesn't make sense.
-            if local_only:
-                raise Exception("You cannot use local_only with testdata_update_mode")
-
-            # Both LIMS and local testdata are needed, so that data for new test cases can be
-            # queried and saved locally.
-            #
-            # We read from LIMS if data has not been overwritten locally, but instead of writing
-            # to LIMS we write to the local cache
-            self.remote = remote.RemoteDataManager(write_lims=False, read_lims=True lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
-            self.autosaveserver = local.LocalDataManager(loadtestdata=False, disable=False)
+            # Remote LIMS is used, but all queries are saved to local testdata.
+            self.server = remote.RemoteDataManager(lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
+            self.autosaveserver = local.LocalDataManager()
             self.log('Running in testdata update mode')
 
         else:
             # Normal mode where we work with the LIMS and
             # disable the local cache.
-            self.remote = remote.RemoteDataManager(write_lims=True, read_lims=True, lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
+            self.remote = remote.RemoteDataManager(lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
             self.autosaveserver = None
             self.log('Running in normal mode, reading from and writing to remote LIMS')
 
@@ -102,11 +96,10 @@ class Connection:
         self.pprint = pprint.PrettyPrinter(indent=2, width=1).pprint
 
     def getsamplesheet(self, run, lane=None, filename='samplesheet.csv'):
-
-        if lane is not None:
-            self.log("Writing samplesheet for run %s lane %s to file %s" % (run, lane, filename))
-        else:
+        if lane is None:
             self.log("Writing samplesheet for run %s, all lanes, to file %s" % (run, filename))
+        else:
+            self.log("Writing samplesheet for run %s lane %s to file %s" % (run, lane, filename))
 
         samplesheet = self.server.getsamplesheet(run=run, lane=lane)
 
@@ -116,10 +109,10 @@ class Connection:
         if self.autosaveserver:
             self.autosaveserver.addsamplesheet(run=run, samplesheet=samplesheet, lane=lane)
             self.autosaveserver.writesamplesheetstodisk()
-            if lane is not None:
-                self.log("Added samplesheet for run %s lane %s to testdata." % (run, lane))
-            else:
+            if lane is None:
                 self.log("Added samplesheet for run %s all lanes to testdata." % run)
+            else:
+                self.log("Added samplesheet for run %s lane %s to testdata." % (run, lane))
 
         if filename:
             with open(filename, 'w') as f:
@@ -130,7 +123,6 @@ class Connection:
 
     def getruninfo(self, run=None):
         self.log("Getting run info for run %s" % run)
-
         dirty_runinfo = self.server.getruninfo(run=run)
         runinfo = self._processruninfo(dirty_runinfo) #update emails if self.override_owner is True
 
@@ -146,8 +138,10 @@ class Connection:
         return runinfo
 
     def createpipelinerun(self, run, lane, paramdict = None):
-
         self.log("Resetting any old results before creating pipeline run")
+        if self.autosaveserver:
+            self._write_not_supported_error()
+
         self.server.deletelaneresults(run, lane)
         self.log("Creating pipeline run object for run=%s, lane=%s, paramdict=%s" % (run, lane, paramdict))
         pipelinerun = self.server.createpipelinerun(run, lane, paramdict)
@@ -155,21 +149,22 @@ class Connection:
         if not pipelinerun:
             raise Exception('Failed to create pipelinerun for run=%s lane=%s paramdict=%s' % (run, lane, paramdict))
 
-        if self.autosaveserver:
-            self._write_not_supported_error()
-
         self.log(pipelinerun, pretty=True)
         return pipelinerun
 
     def deletelaneresults(self, run, lane):
         self.log("Resetting old results")
-        self.server.deletelaneresults(run, lane)
-
         if self.autosaveserver:
             self._delete_not_supported_error()
 
+        self.server.deletelaneresults(run, lane)
+
+
     def createlaneresult(self, paramdict, run, lane):
         self.log("Creating lane result for run=%s, lane=%s, paramsdict=%s" % (run, lane, paramdict))
+        if self.autosaveserver:
+            self._write_not_supported_error()
+
         laneresult = self.server.createlaneresult(paramdict, run=run, lane=lane)
 
         if not laneresult:
@@ -182,146 +177,112 @@ class Connection:
         return laneresult
 
     def createmapperresult(self, paramdict):
-
         self.log("Creating mapper result with paramsdict=%s" % paramdict)
+        if self.autosaveserver:
+            self._write_not_supported_error()
+        
         mapperresult = self.server.createmapperresult(paramdict)
 
         if not mapperresult:
             raise Exception('Failed to create mapperresult for paramdict=%s' % paramdict)
 
-        if self.autosaveserver:
-            self._write_not_supported_error()
-        
         self.log(mapperresult, pretty=True)
         return mapperresult
 
-    def showsolexarun(self, idd):
-        
-        self.log("Getting solexarun id %s" % idd)
-
-        solexarun = self.local.showsolexarun(idd)
-        if solexarun is None:
-            solexarun = self.remote.showsolexarun(idd)
+    def showsolexarun(self, id):
+        self.log("Getting solexarun id %s" % id)
+        solexarun = self.server.showsolexarun(id)
 
         if not solexarun:
-            raise Exception('solexarun with id %s could not be found.' % idd)
+            raise Exception('solexarun with id %s could not be found.' % id)
         
-        if self.saveresults:
-            self.local.addsolexarun(idd=idd, solexarun=solexarun)
+        if self.autosaveserver:
+            self.autosaveserver.addsolexarun(id=id, solexarun=solexarun)
             self.writesolexarunstodisk()
             self.log("Added solexarun %s to testdata." % run_name)
 
         self.log(solexarun, pretty=True)
         return solexarun
 
-    def showsolexaflowcell(self, idd):
-
-        self.log("Getting solexaflowcell id %s" % idd)
-
-        solexaflowcell = self.local.showsolexaflowcell(idd)
-        if solexaflowcell is None:
-            solexaflowcell = self.remote.showsolexaflowcell(idd)
+    def showsolexaflowcell(self, id):
+        self.log("Getting solexaflowcell id %s" % id)
+        solexaflowcell = self.server.showsolexaflowcell(id)
 
         if not solexaflowcell:
-            raise Exception('solexaflowcell with id %s could not be found.' % idd)
+            raise Exception('solexaflowcell with id %s could not be found.' % id)
 
-        if self.saveresults:
-            self.local.addsolexaflowcell(idd=idd, solexaflowcell=solexaflowcell)
-            self.local.writesolexaflowcellstodisk()
-            self.log("added solexaflowcell id %s to testdata." % idd)
+        if self.autosaveserver:
+            self.autosaveserver.addsolexaflowcell(id=id, solexaflowcell=solexaflowcell)
+            self.autosaveserver.writesolexaflowcellstodisk()
+            self.log("added solexaflowcell id %s to testdata." % id)
 
         self.log(solexaflowcell, pretty=True)
         return solexaflowcell
 
-
-    def showpipelinerun(self, idd):
-
-        self.log("Showing pipeline run with id=%s" % idd)
-
-        pipelinerun = self.local.showpipelinerun(idd)
-        if pipelinerun is None:
-            pipelinerun = self.remote.showpipelinerun(idd)
+    def showpipelinerun(self, id):
+        self.log("Showing pipeline run with id=%s" % id)
+        pipelinerun = self.server.showpipelinerun(id)
 
         if not pipelinerun:
-            raise Exception('pipelinerun with id %s could not be found.' % idd)
+            raise Exception('pipelinerun with id %s could not be found.' % id)
 
-        if self.saveresults:
-            self.local.addpipelinerun(idd=idd, pipelinerun=pipelinerun)
-            self.local.writepipelinerunstodisk()
-            self.log("Added pipelinerun id %s to testdata." % idd)
+        if self.autosaveserver:
+            self.autosaveserver.addpipelinerun(id=id, pipelinerun=pipelinerun)
+            self.autosaveserver.writepipelinerunstodisk()
+            self.log("Added pipelinerun id %s to testdata." % id)
 
         self.log(pipelinerun, pretty=True)
         return pipelinerun
 
-    def showlaneresult(self, idd):
-
-        self.log("Showing laneresult with id=%s" % idd)
-
-        laneresult = self.local.showlaneresult(idd)
-        if not laneresult:
-            laneresult = self.remote.showlaneresult(idd)
+    def showlaneresult(self, id):
+        self.log("Showing laneresult with id=%s" % id)
+        laneresult = self.server.showlaneresult(id)
 
         if not laneresult:
-            raise Exception('laneresult with id %s could not be found.' % idd)
+            raise Exception('laneresult with id %s could not be found.' % id)
 
-        if self.saveresults:
-            self.local.addlaneresult(idd=idd, laneresult=laneresult)
-            self.local.writelaneresultstodisk()
-            self.log("Added laneresult id %s to testdata." % idd)
+        if self.autosaveserver:
+            self.autosaveserver.addlaneresult(id=id, laneresult=laneresult)
+            self.autosaveserver.writelaneresultstodisk()
+            self.log("Added laneresult id %s to testdata." % id)
 
         self.log(laneresult, pretty=True)
         return laneresult
 
-    def showmapperresult(self, idd):
-
-        self.log("Showing mapper result with id=%s" % idd)
-
-        mapperresult = self.local.showmapperresult(idd)
-        if not mapperresult:
-            mapperresult = self.remote.showmapperresult(idd)
+    def showmapperresult(self, id):
+        self.log("Showing mapper result with id=%s" % id)
+        mapperresult = self.server.showmapperresult(id)
 
         if not mapperresult:
-            raise Exception('mapperresult with id %s could not be found.' % idd)
+            raise Exception('mapperresult with id %s could not be found.' % id)
 
-        if self.saveresults:
-            self.local.addmapperresult(idd=idd, mapperresult=mapperresult)
-            self.local.writemapperresultstodisk()
-            self.log("Added mapperresult id %s to testdata." % idd)
+        if self.autosaveserver:
+            self.autosaveserver.addmapperresult(id=id, mapperresult=mapperresult)
+            self.autosaveserver.writemapperresultstodisk()
+            self.log("Added mapperresult id %s to testdata." % id)
 
         self.log(mapperresult, pretty=True)
         return mapperresult
 
     def indexsolexaruns(self, run):
-
         self.log("Indexing solexa run(s) where run=%s" % run)
+        solexaruns = self.server.indexsolexaruns(run)
 
-        solexaruns = self.remote.indexsolexaruns(run)
-        # data from remote is overridden if found in local
-        solexaruns.update(self.local.indexsolexaruns(run))
-
-        # Don't raise Exception if the list is empty.
-
-        if self.saveresults:
-            self.local.addsolexaruns(solexaruns=solexaruns)
-            self.local.writesolexarunstodisk()
+        if self.autosaveserver:
+            self.autosaveserver.addsolexaruns(solexaruns=solexaruns)
+            self.autosaveserver.writesolexarunstodisk()
             self.log("Added %s solexa runs to testdata" % len(solexaruns))
 
         self.log(solexaruns, pretty=True)
         return solexaruns
 
     def indexpipelineruns(self, run):
-
         self.log("Indexing pipeline runs where run=%s" % run)
+        pipelineruns = self.server.indexpipelineruns(run)
 
-        pipelineruns = self.remote.indexpipelineruns(run)
-        # data from remote is overridden if found in local
-        pipelineruns.update(self.local.indexpipelineruns(run))
-
-        # Don't raise Exception if the list is empty.
-
-        if self.saveresults:
-            self.local.addpipelineruns(pipelineruns=pipelineruns)
-            self.local.writepipelinerunstodisk()
+        if self.autosaveserver:
+            self.autosaveserver.addpipelineruns(pipelineruns=pipelineruns)
+            self.autosaveserver.writepipelinerunstodisk()
             self.log("Added %s pipeline runs to testdata" % len(pipelineruns))
 
         self.log(pipelineruns, pretty=True)
@@ -332,59 +293,46 @@ class Connection:
         self.log("Indexing lane results where run=%s, lane=%s, barcode=%s" % 
                  (run, lane, barcode))
 
-        laneresults = self.remote.indexlaneresults(run, lane=lane, barcode=barcode, readnumber=readnumber)
-        # Data from remote is overridden if found in local
-        laneresults.update(self.local.indexlaneresults(run, lane=lane, barcode=barcode, readnumber=readnumber))
+        laneresults = self.server.indexlaneresults(run, lane=lane, barcode=barcode, readnumber=readnumber)
 
-        # Don't raise Exception if the list is empty.
-
-        if self.saveresults:
-            self.local.addlaneresults(laneresults = laneresults)
-            self.local.writelaneresultstodisk()
+        if self.autosaveserver:
+            self.autosaveserver.addlaneresults(laneresults = laneresults)
+            self.autosaveserver.writelaneresultstodisk()
             self.log("Added %s lane results to testdata" % len(laneresults))
 
         self.log(laneresults, pretty=True)
         return laneresults
 
     def indexmapperresults(self, run):
-
         self.log("Indexing mapper results where run=%s" % run)
+        mapperresults = self.server.indexmapperresults(run)
 
-        mapperresults = self.remote.indexmapperresults(run)
-        # Data from remote is overridden if found in local
-        mapperresults.update(self.local.indexmapperresults(run))
-
-        # Don't raise Exception if the list is empty.
-
-        if self.saveresults:
-            self.local.addmapperresults(mapperresults=mapperresults)
-            self.local.writemapperresultstodisk()
+        if self.autosaveserver:
+            self.autosaveserver.addmapperresults(mapperresults=mapperresults)
+            self.autosaveserver.writemapperresultstodisk()
             self.log("Added %s mapper results to testdata" % len(mapperresults))
 
         self.log(mapperresults, pretty=True)
         return mapperresults
 
     def updatesolexarun(self, run_id, paramdict):
-        
         self.log("Updating Solexa Run id=%s with paramdict=%s" % (run_id, paramdict))
-    
-        run = self.remote.updatesolexarun(run_id, paramdict)
-        if not run:
-            run = self.local.updatesolexarun(run_id, paramdict)
-
+        if self.autosaveserver:
+            self._write_not_supported_error()
+        
+        run = self.server.updatesolexarun(run_id, paramdict)
         if not run:
             raise Exception("Failed to update Solexa Run id=%s paramdict=%s" % (run_id, paramdict))
-        
+
         self.log(run, pretty=True)
         return run
 
     def updatesolexaflowcell(self, id, paramdict):
-        
         self.log("Updating Solexa Flow Cell id=%s with paramdict=%s" % (id, paramdict))
+        if self.autosaveserver:
+            self._write_not_supported_error()
     
-        flowcell = self.remote.updatesolexaflowcell(id, paramdict)
-        if not flowcell:
-            flowcell = self.local.updatesolexaflowcell(id, paramdict)
+        flowcell = self.server.updatesolexaflowcell(id, paramdict)
 
         if not flowcell:
             raise Exception("Failed to update Solexa Flow Cell id=%s paramdict=%s" % (id, paramdict))
@@ -392,57 +340,44 @@ class Connection:
         self.log(flowcell, pretty=True)
         return flowcell
 
-    def updatepipelinerun(self, idd, paramdict):
+    def updatepipelinerun(self, id, paramdict):
+        self.log("Updating pipeline run id=%s with paramdict=%s" % (id, paramdict))
+        if self.autosaveserver:
+            self._write_not_supported_error()
 
-        self.log("Updating pipeline run id=%s with paramdict=%s" % (idd, paramdict))
+        pipelinerun = self.server.updatepipelinerun(id, paramdict)
 
-        pipelinerun = self.remote.updatepipelinerun(idd, paramdict)
         if not pipelinerun:
-            pipelinerun = self.local.updatepipelinerun(idd, paramdict)
-
-        if not pipelinerun:
-            raise Exception("Failed to update pipelinerun id=%s paramdict=%s" % (idd, paramdict))
+            raise Exception("Failed to update pipelinerun id=%s paramdict=%s" % (id, paramdict))
 
         self.log(pipelinerun, pretty=True)
         return pipelinerun
     
-    def updatelaneresult(self, idd, paramdict):
+    def updatelaneresult(self, id, paramdict):
+        self.log("Updating lane result id=%s with paramdict=%s" % (id, paramdict))
+        if self.autosaveserver:
+            self._write_not_supported_error()
 
-        self.log("Updating lane result id=%s with paramdict=%s" % (idd, paramdict))
+        laneresult = self.server.updatelaneresult(id, paramdict)
 
-        laneresult = self.remote.updatelaneresult(idd, paramdict)
         if not laneresult:
-            laneresult = self.local.updatelaneresult(idd, paramdict)
-
-        if not laneresult:
-            raise Exception("Failed to update laneresult id=%s paramdict=%s" % (idd, paramdict))
+            raise Exception("Failed to update laneresult id=%s paramdict=%s" % (id, paramdict))
 
         self.log(laneresult, pretty=True)
         return laneresult
 
-    def updatemapperresult(self, idd, paramdict):
+    def updatemapperresult(self, id, paramdict):
+        self.log("Updating mapper result id=%s with paramdict=%s" % (id, paramdict))
+        if self.autosaveserver:
+            self._write_not_supported_error()
 
-        self.log("Updating mapper result id=%s with paramdict=%s" % (idd, paramdict))
+        mapperresult = self.server.updatemapperresult(id, paramdict)
 
-        mapperresult = self.remote.updatemapperresult(idd, paramdict)
         if not mapperresult:
-            mapperresult = self.local.updatemapperresult(idd, paramdict)
-
-        if not mapperresult:
-            raise Exception("Failed to update mapperresult id=%s paramdict=%s" % (idd, paramdict))
+            raise Exception("Failed to update mapperresult id=%s paramdict=%s" % (id, paramdict))
 
         self.log(mapperresult, pretty=True)
         return mapperresult
-
-    def getlaneid(self, run, lane):
-        idd = self.local.getlaneid(run=run, lane=lane)
-        if not idd:
-            idd = self.remote.getlaneid(run=run, lane=lane)
-
-        if not idd:
-            raise Exception("Failed to find lane_id for run=%s lane=%s" % (run, lane))
-
-        return idd
 
     def getallrunobjects(self, run):
         runinfo = self.getruninfo(run)
@@ -468,7 +403,7 @@ class Connection:
 
     def testconnection(self):
         # Raises exception if no 200 response
-        self.remote.testconnection()
+        self.server.testconnection()
         return True
 
     def _processruninfo(self, runinfo):

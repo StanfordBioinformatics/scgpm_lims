@@ -17,7 +17,7 @@ class LocalDataManager:
 
     _testdatadir = '../testdata'
 
-    def __init__(self, loadtestdata=False, disable=False):
+    def __init__(self):
 
         self._runinfo = {}
         self._samplesheets = {}
@@ -27,76 +27,45 @@ class LocalDataManager:
         self._laneresults = {}
         self._mapperresults = {}
 
-        if loadtestdata:
-            self._loadall()
-            self._loadedtestdata = True
-        else:
-            self._loadedtestdata = False
-
-        self.disable = disable
+        self._loadall()
 
     def getruninfo(self, run=None):
-        if self.disable:
-            return None
-
         return self._runinfo.get(run)
 
     def getsamplesheet(self, run=None, lane=None):
+        run = self._samplesheets.get(run)
         if lane:
             lane = str(lane)
-        if self.disable:
-            return None
-
-        run = self._samplesheets.get(run)
-        if not lane:
-            return run
-        else:
             return run.get(lane)
+        else:
+            return run
 
-    def showsolexarun(self, idd=None):
-        if self.disable:
-            return None
+    def showsolexarun(self, id=None):
+        return self._solexaruns.get(id)
 
-        return self._solexaruns.get(idd)
+    def showsolexaflowcell(self, id=None):
+        return self._solexaflowcells.get(id)
 
-    def showsolexaflowcell(self, idd=None):
-        if self.disable:
-            return None
-
-        return self._solexaflowcells.get(idd)
-
-    def showpipelinerun(self, idd=None):
+    def showpipelinerun(self, id=None):
         """
-        Args : idd - Pipeline Run ID
+        Args : id - Pipeline Run ID
         """
-        if self.disable:
-            return None
+        return self._pipelineruns.get(id)
 
-        return self._pipelineruns.get(idd)
-
-    def showlaneresult(self, idd=None):
+    def showlaneresult(self, id=None):
         """
-        Args : idd - a Solexa Lane Result ID. For example, given the run 141117_MONK_0387_AC4JCDACXX, click on the analysis link with the date of '2014-11-30 20:22:00 -0800'.
+        Args : id - a Solexa Lane Result ID. For example, given the run 141117_MONK_0387_AC4JCDACXX, click on the analysis link with the date of '2014-11-30 20:22:00 -0800'.
                      Then on the resulting page, find the Analysis Results table. In the Details columns, those 'View' links take you to a page that refers to a lane result.
                      The lane result ID number is present at the end of the URL in the browser.
         """ 
-        if self.disable:
-            return None
+        return self._laneresults.get(id)
 
-        return self._laneresults.get(idd)
-
-    def showmapperresult(self, idd=None):
-        if self.disable:
-            return None
-
-        return self._mapperresults.get(idd)
+    def showmapperresult(self, id=None):
+        return self._mapperresults.get(id)
 
     def indexsolexaruns(self, run=None):
-        if self.disable:
-            return {}
-
-        run_idd =self.getrunid(run)
-        solexa_run = self._solexaruns.get(run_idd)
+        run_id =self.getrunid(run)
+        solexa_run = self._solexaruns.get(run_id)
         if solexa_run is None:
             return {}
         else:
@@ -107,13 +76,10 @@ class LocalDataManager:
         Finds all pipeline runs for a given run name from the test file, and puts them into a dict keyed by the pipeline run id
         and valued by a dict being with the metadata on the pipeline run.
         """
-        if self.disable: 
-            return {}
-
-        run_idd =self.getrunid(run)
+        run_id =self.getrunid(run)
         found_pipelineruns = {}
-        for idd, pipelinerun in self._pipelineruns.iteritems():
-            if str(pipelinerun.get('solexa_run_id')) == str(run_idd):
+        for id, pipelinerun in self._pipelineruns.iteritems():
+            if str(pipelinerun.get('solexa_run_id')) == str(run_id):
                 found_pipelineruns[str(pipelinerun.get('id'))] = pipelinerun
         return found_pipelineruns
 
@@ -123,35 +89,26 @@ class LocalDataManager:
                    lane, barcode, and readnumber. Puts retrieved lane results into a dict keyed by the lane result ID
                    and valued by a dict being the lane results for the particular barcode and readnumber retrieved.
         """
-        if self.disable:
-            return {}
-
         laneids = self._getlaneids(run)
         found_laneresults = {}
-        for idd, laneresult in self._laneresults.iteritems():
+        for id, laneresult in self._laneresults.iteritems():
             if str(laneresult.get('solexa_lane_id')) in laneids:
                 found_laneresults[str(laneresult.get('id'))] = laneresult
                 #TODO add other filters for lane, barcode, readnumber
         return found_laneresults
 
     def indexmapperresults(self, run=None):
-        if self.disable: 
-            return None
-
         laneresultids = self._getlaneresultids(run)
         found_mapperresults = {}
-        for idd, mapperresult in self._mapperresults.iteritems():
+        for id, mapperresult in self._mapperresults.iteritems():
             if str(mapperresult.get('dataset_id')) in laneresultids:
-                found_mapperresults[idd] = mapperresult
+                found_mapperresults[id] = mapperresult
         return found_mapperresults
 
     def createpipelinerun(self, run_id, lane, paramdict=None):
-        if self.disable:
-            return None
-
-        idd =self._getrandomid()
+        id =self._getrandomid()
         pipelinerun = {
-            'id': idd,
+            'id': id,
             'solexa_run_id': run_id,
             'started': True,
             'active': True,
@@ -168,11 +125,8 @@ class LocalDataManager:
         return pipelinerun
 
     def createlaneresult(self, lane_id, paramdict):
-        if self.disable:
-            return None
-
-        idd =self._getrandomid()
-        laneresult = {'id': idd,
+        id =self._getrandomid()
+        laneresult = {'id': id,
                       'solexa_lane_id': lane_id,
                       'solexa_pipeline_run_id': None,
                       'created_at': str(datetime.now()),
@@ -180,79 +134,58 @@ class LocalDataManager:
                       'codepoint': None,
                       }
         laneresult.update(paramdict)
-
-        self.addlaneresult(idd, laneresult)
-        
+        self.addlaneresult(id, laneresult)
         return laneresult
 
     def createmapperresult(self, paramdict):
-        if self.disable:
-            return None
-        
-        idd =self._getrandomid()
-        mapperresult = { 'id': idd,
+        id =self._getrandomid()
+        mapperresult = { 'id': id,
                          'created_at': str(datetime.now()),
                          'active': True
                          }
         mapperresult.update(paramdict)
-        self.addmapperresult(idd, mapperresult)
-
+        self.addmapperresult(id, mapperresult)
         return mapperresult
 
-    def updatesolexarun(self, idd, paramdict):
-        if self.disable:
-            return None
-
-        idd=str(idd)
+    def updatesolexarun(self, id, paramdict):
+        id=str(id)
         try:
-            self._solexaruns.get(idd).update(paramdict)
+            self._solexaruns.get(id).update(paramdict)
         except:
             return None
-        return self.showsolexarun(idd)
+        return self.showsolexarun(id)
 
-    def updatesolexaflowcell(self, idd, paramdict):
-        if self.disable:
-            return None
-
-        idd=str(idd)
+    def updatesolexaflowcell(self, id, paramdict):
+        id=str(id)
         try:
-            self._solexaflowcells.get(idd).update(paramdict)
+            self._solexaflowcells.get(id).update(paramdict)
         except:
             return None
-        return self.showsolexaflowcell(idd)
+        return self.showsolexaflowcell(id)
 
-    def updatepipelinerun(self, idd, paramdict):
-        if self.disable:
-            return None
-
-        idd =str(idd)
+    def updatepipelinerun(self, id, paramdict):
+        id =str(id)
         try:
-            self._pipelineruns.get(idd).update(paramdict)
+            self._pipelineruns.get(id).update(paramdict)
         except:
             return None
-        return self.showpipelinerun(idd)
+        return self.showpipelinerun(id)
 
-    def updatelaneresult(self, idd, paramdict):
-        if self.disable:
-            return None
-
-        idd =str(idd)
+    def updatelaneresult(self, id, paramdict):
+        id =str(id)
         try:
-            self._laneresults.get(idd).update(paramdict)
+            self._laneresults.get(id).update(paramdict)
         except:
             return None
-        return self.showlaneresult(idd)
+        return self.showlaneresult(id)
 
-    def updatemapperresult(self, idd, paramdict):
-        if self.disable:
-            return None
-
-        idd =str(idd)
+    def updatemapperresult(self, id, paramdict):
+        id =str(id)
         try:
-            self._mapperresults.get(idd).update(paramdict)
+            self._mapperresults.get(id).update(paramdict)
         except:
             return None
-        return self.showmapperresult(idd)
+        return self.showmapperresult(id)
 
     def _getrandomid(self):
         # High enough min to exclude valid ids in LIMS
@@ -261,53 +194,53 @@ class LocalDataManager:
 
     def deletelaneresults(self, run, lane):
         # TODO
-        pass
+        raise Exception("Todo. This method hasn't been implemented for local connection yet.")
 
     def addruninfo(self, run, runinfo):
         self._runinfo[run] = runinfo
 
-    def addrun(self, idd, run):
-        self._runs[str(idd)] = run
+    def addrun(self, id, run):
+        self._runs[str(id)] = run
 
     def addsamplesheet(self, run, samplesheet, lane=None):
         # lane = None means samplesheet for all lanes.
         run = self._samplesheets.setdefault(run, {}) 
         run[lane] = samplesheet
 
-    def addsolexarun(self, idd, solexarun):
-        self._solexaruns[str(idd)] = solexarun
+    def addsolexarun(self, id, solexarun):
+        self._solexaruns[str(id)] = solexarun
 
-    def addsolexaflowcell(self, idd, solexaflowcell):
-        self._solexaflowcells[str(idd)] = solexaflowcell
+    def addsolexaflowcell(self, id, solexaflowcell):
+        self._solexaflowcells[str(id)] = solexaflowcell
 
-    def addpipelinerun(self, idd, pipelinerun):
-        self._pipelineruns[str(idd)] = pipelinerun
+    def addpipelinerun(self, id, pipelinerun):
+        self._pipelineruns[str(id)] = pipelinerun
 
-    def addlaneresult(self, idd, laneresult):
-        self._laneresults[str(idd)] = laneresult
+    def addlaneresult(self, id, laneresult):
+        self._laneresults[str(id)] = laneresult
 
-    def addmapperresult(self, idd, mapperresult):
-        self._mapperresults[str(idd)] = mapperresult
+    def addmapperresult(self, id, mapperresult):
+        self._mapperresults[str(id)] = mapperresult
 
     def addsolexaruns(self, solexaruns):
-        for idd, solexarun in solexaruns.iteritems():
-            self.addsolexarun(idd, solexarun)
+        for id, solexarun in solexaruns.iteritems():
+            self.addsolexarun(id, solexarun)
 
     def addsolexaflowcells(self, solexaflowcells):
-        for idd, solexarun in solexaruns.iteritems():
-            self.addsolexaflowcell(idd, solexaflowcell)
+        for id, solexarun in solexaruns.iteritems():
+            self.addsolexaflowcell(id, solexaflowcell)
 
     def addpipelineruns(self, pipelineruns):
-        for idd, pipelinerun in pipelineruns.iteritems():
-            self.addpipelinerun(idd, pipelinerun)
+        for id, pipelinerun in pipelineruns.iteritems():
+            self.addpipelinerun(id, pipelinerun)
 
     def addlaneresults(self, laneresults):
-        for idd, laneresult in laneresults.iteritems():
-            self.addlaneresult(idd, laneresult)
+        for id, laneresult in laneresults.iteritems():
+            self.addlaneresult(id, laneresult)
 
     def addmapperresults(self, mapperresults):
-        for idd, mapperresult in mapperresults.iteritems():
-            self.addmapperresult(idd, mapperresult)
+        for id, mapperresult in mapperresults.iteritems():
+            self.addmapperresult(id, mapperresult)
 
     def getrunid(self, run):
         try:
@@ -318,11 +251,11 @@ class LocalDataManager:
     def getlaneid(self, run, lane):
         runinfo = self.getruninfo(run)
         try:
-            idd =runinfo.get('run_info').get('lanes').get(str(lane)).get('id')
+            id =runinfo.get('run_info').get('lanes').get(str(lane)).get('id')
         except:
             return None
         
-        return idd
+        return id
 
     def _getlaneresultids(self, run):
         laneresultids = []
@@ -363,8 +296,6 @@ class LocalDataManager:
         self._writetodisk(self._mapperresults, self._mapperresultsfile)
 
     def _writetodisk(self, info, datafile):
-        if not self._loadedtestdata:
-            raise Exception("Since you didn't load local testdata, writing to disk will overwrite the current testdata. Stopping without save.")
         fullfilename = self._fullpath(datafile)
         if os.path.exists(fullfilename):
             os.remove(fullfilename)
@@ -412,3 +343,7 @@ class LocalDataManager:
             warn("Could not load testdata from %s" % datafile)
             data = {}
         return data
+
+    def testconnection(self):
+        # No-op. This mirrors the same method in remote to test a valid http connection.
+        pass
