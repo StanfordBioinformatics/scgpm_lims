@@ -79,7 +79,7 @@ class Connection:
         else:
             # Normal mode where we work with the LIMS and
             # disable the local cache.
-            self.remote = remote.RemoteDataManager(lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
+            self.server = remote.RemoteDataManager(lims_url=lims_url, lims_token=lims_token, apiversion=apiversion, verify=verify_cert)
             self.autosaveserver = None
             self.log('Running in normal mode, reading from and writing to remote LIMS')
 
