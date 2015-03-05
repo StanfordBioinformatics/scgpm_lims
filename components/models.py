@@ -75,18 +75,17 @@ class RunInfo:
         lane = str(lane)
         return self.Lane(self.data['lanes'][lane])
 
-    def get_pipeline_run_id(self, run, lane=None, status='done'):
+    def get_pipeline_run(self, lane=None, status='done'):
         VALID_STATA = ['done', 'inprogress', 'new']
         if status not in VALID_STATA:
             raise Exception('Invalid pipeline run status "%s" was requested.'
                             % (status, VALID_STATA))
-        run_info = self.getruninfo(run)
 
         done = {}
         new = {}
         inprogress = {}
 
-        for run_id, run in run_info['run_info']['pipeline_runs'].iteritems():
+        for run_id, run in self.data['pipeline_runs'].iteritems():
             if run['finished'] == True:
                 done[run_id] = run
             elif run['started'] == False and run['finished'] == False:
