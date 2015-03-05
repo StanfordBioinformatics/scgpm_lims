@@ -2,6 +2,7 @@
     "141117_MONK_0387_AC4JCDACXX": {
         "id": 2290,
         "run_info": {
+            "archiving_done": false,
             "control_lane": 5,
             "data_volume": "illumina_runs5",
             "flow_cell": "C4JCD",
@@ -2014,6 +2015,7 @@
     "141126_PINKERTON_0343_BC4J1PACXX": {
         "id": 2302,
         "run_info": {
+            "archiving_done": false,
             "control_lane": 5,
             "data_volume": "illumina_runs6",
             "flow_cell": "C4J1P",
