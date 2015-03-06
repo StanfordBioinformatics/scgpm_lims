@@ -1,5 +1,8 @@
 import json
 import requests
+import warnings
+
+warnings.filterwarnings('ignore', 'Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html')
 
 class RemoteDataManager:
 
@@ -25,7 +28,7 @@ class RemoteDataManager:
         if lane is not None:
             params['lane'] = str(lane)
 
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'samplesheets', 
             params=params,
             verify=self.verify,
@@ -34,7 +37,7 @@ class RemoteDataManager:
         return response.text
 
     def getruninfo(self, run):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'run_info',
             params = {
                 'token': self.token,
@@ -46,7 +49,7 @@ class RemoteDataManager:
         return response.json()
 
     def getrunid(self, run):
-        runinfo = self.getruninfo(run)
+        runinfo = requests.getruninfo(run)
         try:
             id = runinfo.get('id')
         except:
@@ -54,7 +57,7 @@ class RemoteDataManager:
         return id
 
     def getlaneid(self, run, lane):
-        runinfo = self.getruninfo(run)
+        runinfo = requests.getruninfo(run)
         try:
             id = runinfo.get('run_info').get('lanes').get(str(lane)).get('id')
         except:
@@ -62,7 +65,7 @@ class RemoteDataManager:
         return id
 
     def showsolexarun(self, id):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'solexa_runs/%s' % id,
             params = {
                 'token': self.token
@@ -73,7 +76,7 @@ class RemoteDataManager:
         return response.json()
 
     def showsolexaflowcell(self, id):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'solexa_flow_cells/%s' % id,
             params = {
                 'token': self.token
@@ -84,7 +87,7 @@ class RemoteDataManager:
         return response.json()
 
     def showpipelinerun(self, id):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'solexa_pipeline_runs/%s' % id,
             params = {
                 'token': self.token
@@ -95,7 +98,7 @@ class RemoteDataManager:
         return response.json()
 
     def showlaneresult(id):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'solexa_lane_results/%s' % id,
             params = {
                 'token': self.token
@@ -106,7 +109,7 @@ class RemoteDataManager:
         return response.json()
 
     def showmapperresult(self, id):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'mapper_results/%s' % id,
             params = {
                 'token': self.token
@@ -117,7 +120,7 @@ class RemoteDataManager:
         return response.json()
 
     def indexsolexaruns(self, run):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'solexa_runs',
             params = {
                 'token': self.token,
@@ -130,7 +133,7 @@ class RemoteDataManager:
         return self._listtodict(response.json())
 
     def indexpipelineruns(self, run):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'solexa_pipeline_runs',
             params = {
                 'token': self.token,
@@ -150,7 +153,7 @@ class RemoteDataManager:
                 params.update({'barcode': barcode})
                 if readnumber is not None:
                     params.update({'read_number': readnumber})
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'solexa_lane_results',
             params = params,
             verify=self.verify,
@@ -160,7 +163,7 @@ class RemoteDataManager:
         return self._listtodict(response.json())
 
     def indexmapperresults(self, run):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'mapper_results',
             params = {
                 'token': self.token,
@@ -178,7 +181,7 @@ class RemoteDataManager:
         else:
             data = None
 
-        response = self.post(
+        response = requests.post(
             self.urlprefix+'solexa_pipeline_runs',
             params = {
                 'run': run,
@@ -197,7 +200,7 @@ class RemoteDataManager:
             params.update({'run': run})
             if lane is not None:
                 params.update({'lane': lane})
-        response = self.post(
+        response = requests.post(
             self.urlprefix+'solexa_lane_results',
             params = params,
             data = json.dumps(paramdict),
@@ -208,7 +211,7 @@ class RemoteDataManager:
         return response.json()
 
     def createmapperresult(self, paramdict):
-        response = self.post(
+        response = requests.post(
             self.urlprefix+'mapper_results',
             params = {'token': self.token},
             data = json.dumps(paramdict),
@@ -284,7 +287,7 @@ class RemoteDataManager:
         return response.json()
 
     def deletelaneresults(self, run, lane):
-        response = self.post(
+        response = requests.post(
             self.urlprefix+'delete_lane_results',
             params = {
                 'run': run,
@@ -296,7 +299,7 @@ class RemoteDataManager:
         self._checkstatus(response)
 
     def testconnection(self):
-        response = self.get(
+        response = requests.get(
             self.urlprefix+'ok',
             params = {
                 'token': self.token
@@ -321,14 +324,3 @@ class RemoteDataManager:
         if not response.ok:
             raise Exception("%s response. %s. %s" % (response.status_code, response.reason, response.url))
 
-    def post(self, *args):
-        try:
-            requests.post(*args)
-        except InsecureRequestWarning:
-            pass
-
-    def get(self, *args):
-        try:
-            requests.post(*args)
-        except InsecureRequestWarning:
-            pass
