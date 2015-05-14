@@ -391,6 +391,9 @@ class Connection:
         self.indexlaneresults(run)
         self.indexmapperresults(run)
 
+    def get_runinfo_by_library_name(self,library_name):
+        self.server.get_runinfo_by_library_name(library_name)
+
     def _write_not_supported_error(self):
         raise Exception('Write operations are not supported in test_data_update mode. '+
                         'If you want to create objects in the local cache, run in local_only '+

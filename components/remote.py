@@ -1,6 +1,7 @@
 import json
 import requests
 import warnings
+import os
 
 warnings.filterwarnings('ignore', 'Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html')
 
@@ -45,6 +46,20 @@ class RemoteDataManager:
                 },
             verify = self.verify,
             )
+        self._checkstatus(response)
+        return response.json()
+
+    def get_runinfo_by_library_name(self,library_name):
+        url = self.urlprefix + "run_info_by_library_name",
+        print(url)
+        response = requests.get(
+            url,
+            params = {
+                'token': self.token,
+                'starts_with': library_name
+           },
+           verify = self.verify
+        )
         self._checkstatus(response)
         return response.json()
 
@@ -317,7 +332,7 @@ class RemoteDataManager:
 
     def _geturlprefix(self, rooturl, apiversion):
         
-        return '%s/api/%s/' % (rooturl, apiversion)
+        return os.path.join(rooturl,"api",apiversion) + "/"
 
     def _checkstatus(self, response):
 
