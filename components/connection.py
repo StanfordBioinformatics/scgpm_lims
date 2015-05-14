@@ -392,7 +392,8 @@ class Connection:
         self.indexmapperresults(run)
 
     def get_runinfo_by_library_name(self,library_name):
-        self.server.get_runinfo_by_library_name(library_name)
+        runinfo = self.server.get_runinfo_by_library_name(library_name)
+        return runinfo
 
     def _write_not_supported_error(self):
         raise Exception('Write operations are not supported in test_data_update mode. '+

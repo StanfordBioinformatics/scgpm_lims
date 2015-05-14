@@ -50,15 +50,15 @@ class RemoteDataManager:
         return response.json()
 
     def get_runinfo_by_library_name(self,library_name):
-        url = self.urlprefix + "run_info_by_library_name",
+        url = self.urlprefix + "run_info_by_library_name"
         print(url)
         response = requests.get(
             url,
             params = {
                 'token': self.token,
                 'starts_with': library_name
-           },
-           verify = self.verify
+            },
+            verify = self.verify
         )
         self._checkstatus(response)
         return response.json()
