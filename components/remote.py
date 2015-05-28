@@ -50,7 +50,10 @@ class RemoteDataManager:
         return response.json()
 
     def get_runinfo_by_library_name(self,library_name):
-        url = self.urlprefix + "run_info_by_library_name"
+        #run_info_by_library_name defined in config/routes.rb in RAILS app.
+        # Also see the UHTS controller app/controllers/api/v1/run_info_by_library_name_controller.rb.
+ 
+        url = self.urlprefix + "run_info_by_library_name" #run_info_by_library_name defined in config/routes.rb in RAILS app
         print(url)
         response = requests.get(
             url,
@@ -336,6 +339,7 @@ class RemoteDataManager:
 
     def _checkstatus(self, response):
 
-        if not response.ok:
+       #could instead have used response.raise_for_status(), but that doesn't show the url that you attempted.
+        if not response.ok: 
             raise Exception("%s response. %s. %s" % (response.status_code, response.reason, response.url))
 
