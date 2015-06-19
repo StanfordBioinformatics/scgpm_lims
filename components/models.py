@@ -140,4 +140,6 @@ class RunInfo:
         solexaflowcellupdate = {
             'flow_cell_status': SolexaFlowCell.STATUS_ANALYZING
         }
+        self.conn.updatesolexaflowcell(self.get_solexa_flow_cell_id(), solexaflowcellupdate)
+        self._refresh()
 
