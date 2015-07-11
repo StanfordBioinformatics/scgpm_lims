@@ -395,6 +395,26 @@ class Connection:
         runinfo = self.server.get_runinfo_by_library_name(library_name)
         return runinfo
 
+    def get_person_attributes_by_email(self,email):
+        person_info = self.server.get_person_attributes_by_email(email=email)
+        return person_info
+
+    def update_person(self,personid,attributeDict={}):
+        json_response = self.server.update_person(personid=personid,attributeDict=attributeDict)
+        return json_response
+
+    def runHasFinishedPipelineRun(self,run_name):
+        uhtsPipelineRuns = self.indexpipelineruns(run=run_name)
+        finishedUhtsRun = False
+        for uhtsRun in uhtsPipelineRuns:
+            if uhtsPipelineRuns[uhtsRun]['finished']:
+                finishedUhtsRun = True
+                break
+        if finishedUhtsRun:
+            return True
+        else:
+            return False
+
     def _write_not_supported_error(self):
         raise Exception('Write operations are not supported in test_data_update mode. '+
                         'If you want to create objects in the local cache, run in local_only '+

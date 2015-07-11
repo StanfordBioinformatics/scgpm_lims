@@ -2,6 +2,7 @@ import json
 import requests
 import warnings
 import os
+import sys
 
 warnings.filterwarnings('ignore', 'Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html')
 
@@ -53,7 +54,7 @@ class RemoteDataManager:
         #run_info_by_library_name defined in config/routes.rb in RAILS app.
         # Also see the UHTS controller app/controllers/api/v1/run_info_by_library_name_controller.rb.
  
-        url = self.urlprefix + "run_info_by_library_name" #run_info_by_library_name defined in config/routes.rb in RAILS app
+        url = self.urlprefix + "run_info_by_library_name" #run_info_by_library_name route defined in config/routes.rb in RAILS app
         print(url)
         response = requests.get(
             url,
@@ -65,6 +66,36 @@ class RemoteDataManager:
         )
         self._checkstatus(response)
         return response.json()
+
+    def get_person_attributes_by_email(self,email):
+        url = self.urlprefix + "get_person_by_email" #get_person_by_email route defined in config/routes.rb in RAILS app
+        print(url)
+        response = requests.get(
+            url,
+            params = {
+                'token': self.token,
+                 'email': email
+            },
+            verify = self.verify
+        )
+        print(response.url)
+        self._checkstatus(response)
+        return response.json()
+
+    def update_person(self,personid,attributeDict={}):
+        url = self.urlprefix + "people/" + str(personid)
+        params = {"token": self.token}
+        params.update(attributeDict)
+        print(params)
+        response = requests.patch(
+            url,
+            params = params,
+            verify = self.verify
+        )
+        self._checkstatus(response)
+        print(response.url)
+        return response.json()
+           
 
     def getrunid(self, run):
         runinfo = requests.getruninfo(run)
@@ -339,7 +370,8 @@ class RemoteDataManager:
 
     def _checkstatus(self, response):
 
-       #could instead have used response.raise_for_status(), but that doesn't show the url that you attempted.
+       #response.raise_for_status(), doesn't show the url that you attempted, so I'll that that in addition to sys.stderr
         if not response.ok: 
-            raise Exception("%s response. %s. %s" % (response.status_code, response.reason, response.url))
+            sys.stderr.write("%s response. %s. %s\n" % (response.status_code, response.reason, response.url))
+            response.raise_for_status()
 
