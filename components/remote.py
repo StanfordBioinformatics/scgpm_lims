@@ -83,6 +83,12 @@ class RemoteDataManager:
         return response.json()
 
     def update_person(self,personid,attributeDict={}):
+        """
+        Function : Updates/sets an attribute of a Person record.
+        Args     : personid - The ID of a UHTS.Person record.
+                   attributeDict - dict. Keys are Person attribute names.
+        Returns  : A JSON hash of the person specified by personid as it exists in the database after the record update(s).
+        """
         url = self.urlprefix + "people/" + str(personid)
         params = {"token": self.token}
         params.update(attributeDict)
