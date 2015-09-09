@@ -31,7 +31,7 @@ class RemoteDataManager:
             params['lane'] = str(lane)
 
         response = requests.get(
-            self.urlprefix+'samplesheets', 
+            self.urlprefix+'samplesheets',  #calls solexa_run.samplesheets in app/models in UHTS
             params=params,
             verify=self.verify,
             )
@@ -378,6 +378,11 @@ class RemoteDataManager:
 
        #response.raise_for_status(), doesn't show the url that you attempted, so I'll that that in addition to sys.stderr
         if not response.ok: 
-            sys.stderr.write("%s response. %s. %s\n" % (response.status_code, response.reason, response.url))
-            response.raise_for_status()
+            sys.stderr.write("HTTPError! {status} ({reason}). Final URL location of Response: {url}. Response text: {text}\n\n".format(status=response.status_code,reason=response.reason, url=response.url,text=response.text))
+            sys.stderr.write("Body sent in the request:\n")
+            sys.stderr.write(response.request.body)
+            #response.status_code - Integer Code of responded HTTP Status, e.g. 404 or 200.
+            #response.reason - Textual reason of responded HTTP Status, e.g. "Not Found" or "OK".
+            #response.url    - Final URL location of Response.  	
+            response.raise_for_status() #Raises stored HTTPError, if one occurred (and here one did occur).
 
