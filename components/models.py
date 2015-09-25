@@ -119,7 +119,7 @@ class RunInfo:
         solexarunupdate = {
             'sequencer_done': True,
             'analysis_done': True,
-            'dnanexus_done': True,
+            'dnanexus_done': False,
             'notification_done': True,
             'archiving_done': True
         }
