@@ -22,10 +22,17 @@ class RemoteDataManager:
         self.urlprefix = self._geturlprefix(lims_url, apiversion)
         self.verify = verify
 
-    def getsamplesheet(self, run, lane=None):
+    def getsamplesheet(self, bcl2fastq_version, run, lane=None):
+        """
+        Creates a sample sheet contents for demultiplexing. Supports bcl2fastq 1x and 2x. For 2x, the second index (I5) is reverse-complemented
+        with respect to what's stored in UHTS. As stated in the Illumina docs: For Illumina sequencing systems running RTA version 1.18.54 and 
+        later, use bcl2fastq2 Conversion Software v2.17.  For Illumina sequencing systems runnings RTA versions earlier than 1.18.54, use bcl2fastq
+        Conversion Software v1.8.4.
+       """
         params = {
             'token': self.token,
-            'run': run
+            'run': run,
+            'bcl2fastq_version': bcl2fastq_version
             }
         if lane is not None:
             params['lane'] = str(lane)
@@ -36,6 +43,7 @@ class RemoteDataManager:
             verify=self.verify,
             )
         self._checkstatus(response)
+        print(response.url)
         return response.text
 
     def getruninfo(self, run):

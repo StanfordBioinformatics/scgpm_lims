@@ -95,13 +95,29 @@ class Connection:
         # Initialize pretty printer for writing data structures in the log
         self.pprint = pprint.PrettyPrinter(indent=2, width=1).pprint
 
-    def getsamplesheet(self, run, lane=None, filename='samplesheet.csv'):
+    def getsamplesheet(self, run, bcl2fastq_version, lane=None, filename='samplesheet.csv'):
+        """
+        Creates a sample sheet for demultiplexing. The sample sheet can be created for all lanes on the given run, or 
+        just the specified lane. Supports bcl2fastq 1x and 2x. For 2x, the second index (I5) is reverse-complemented
+        with respect to what's stored in UHTS. As stated in the Illumina docs: For Illumina sequencing systems running
+        RTA version 1.18.54 and later, use bcl2fastq2 Conversion Software v2.17.  For Illumina sequencing systems runnings
+        RTA versions earlier than 1.18.54, use bcl2fastq Conversion Software v1.8.4.
+
+        Args     : run - The sequencing run name.
+                   bcl2fastq_version - int. The major version number of the bcl2fastq demultiplexer that will be used to demultiplex the run. This
+                                       argument determines the format of the output sample sheet.
+                   lane - int. The number of the lane sequenced. Presence of this option limits the samplesheet to contain samples only from the specified lane.
+        """
+        bcl2fastqVersions = [1,2]
+        bcl2fastq_version = int(bcl2fastq_version)
+        if bcl2fastq_version not in bcl2fastqVersions:
+            raise ValueError("Invalid bcl2fastq_version '{version}'. Must be one of {valid}.".format(version=bcl2fastq_version,valid=bcl2fastqVersions))
         if lane is None:
             self.log("Writing samplesheet for run %s, all lanes, to file %s" % (run, filename))
         else:
             self.log("Writing samplesheet for run %s lane %s to file %s" % (run, lane, filename))
 
-        samplesheet = self.server.getsamplesheet(run=run, lane=lane)
+        samplesheet = self.server.getsamplesheet(run=run, lane=lane,bcl2fastq_version=bcl2fastq_version)
 
         if not samplesheet:
             raise Exception('samplesheet for run %s could not be found.' % run)
