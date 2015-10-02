@@ -5,7 +5,12 @@ from scgpm_lims import Connection
 import json
 import argparse
 
-description = """Creates a SampleSheet.csv file for demultiplexing. Supports bcl2fastq 1X and 2X style sample sheets. As stated in Illumina's documentation - For Illumina sequencing systems running RTA version 1.18.54 and later, use bcl2fastq2 Conversion Software v2.17. For Illumina sequencing systems runnings RTA versions earlier than 1.18.54, use bcl2fastq Conversion Software v1.8.4.
+description = """
+Creates a sample sheet for demultiplexing. The sample sheet can be created for all lanes on the given run, or 
+just the specified lane. Supports bcl2fastq 1x and 2x. For 2x, the second index (I5) is reverse-complemented
+with respect to what's stored in UHTS. As stated in the Illumina docs: For Illumina sequencing systems running
+RTA version 1.18.54 and later, use bcl2fastq2 Conversion Software v2.17.  For Illumina sequencing systems runnings
+RTA versions earlier than 1.18.54, use bcl2fastq Conversion Software v1.8.4.
 
 The version of RTA used in the sequencing run can be found in the runParameters.xml file with the run directory.
 """

@@ -24,10 +24,12 @@ class RemoteDataManager:
 
     def getsamplesheet(self, bcl2fastq_version, run, lane=None):
         """
-        Creates a sample sheet contents for demultiplexing. Supports bcl2fastq 1x and 2x. For 2x, the second index (I5) is reverse-complemented
+        Creates the sample sheet contents for demultiplexing. Supports bcl2fastq 1x and 2x. For 2x, the second index (I5) is reverse-complemented
         with respect to what's stored in UHTS. As stated in the Illumina docs: For Illumina sequencing systems running RTA version 1.18.54 and 
         later, use bcl2fastq2 Conversion Software v2.17.  For Illumina sequencing systems runnings RTA versions earlier than 1.18.54, use bcl2fastq
         Conversion Software v1.8.4.
+
+        The version of RTA used in the sequencing run can be found in the runParameters.xml file with the run directory.
        """
         params = {
             'token': self.token,
@@ -391,6 +393,6 @@ class RemoteDataManager:
             sys.stderr.write(response.request.body)
             #response.status_code - Integer Code of responded HTTP Status, e.g. 404 or 200.
             #response.reason - Textual reason of responded HTTP Status, e.g. "Not Found" or "OK".
-            #response.url    - Final URL location of Response.  	
+            #response.url    - Final URL location of Response. 
             response.raise_for_status() #Raises stored HTTPError, if one occurred (and here one did occur).
 

@@ -103,6 +103,8 @@ class Connection:
         RTA version 1.18.54 and later, use bcl2fastq2 Conversion Software v2.17.  For Illumina sequencing systems runnings
         RTA versions earlier than 1.18.54, use bcl2fastq Conversion Software v1.8.4.
 
+        The version of RTA used in the sequencing run can be found in the runParameters.xml file with the run directory.
+
         Args     : run - The sequencing run name.
                    bcl2fastq_version - int. The major version number of the bcl2fastq demultiplexer that will be used to demultiplex the run. This
                                        argument determines the format of the output sample sheet.
