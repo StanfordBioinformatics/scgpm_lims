@@ -22,6 +22,28 @@ class RemoteDataManager:
         self.urlprefix = self._geturlprefix(lims_url, apiversion)
         self.verify = verify
 
+
+    def getrunstoanalyze(self):
+        """
+        Fetches the runs names from UHTS that need to have analyses started.
+        Runs with the following criteria are returned:
+            1) sequencing_run_status = sequencing_done
+            2) analysis_done = false 
+            3) There aren't any pipeline_runs
+            4) The sequencing instrument isn't a HiSeq 4000 (since those aren't supported yet in the pipeline).
+       """
+        params = {
+            'token': self.token,
+            }
+        response = requests.get(
+            self.urlprefix+'runs_to_analyze', 
+            params=params,
+            verify=self.verify,
+            )
+        self._checkstatus(response)
+        print(response.url)
+        return response.json()
+
     def getsamplesheet(self, bcl2fastq_version, run, lane=None):
         """
         Creates the sample sheet contents for demultiplexing. Supports bcl2fastq 1x and 2x. For 2x, the second index (I5) is reverse-complemented
@@ -240,7 +262,7 @@ class RemoteDataManager:
 
         return self._listtodict(response.json())
 
-    def createpipelinerun(self, run, lane, paramdict = None):
+    def createpipelinerun(self, run, paramdict = None):
         if paramdict:
             data = json.dumps(paramdict)
         else:

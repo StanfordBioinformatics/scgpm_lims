@@ -95,6 +95,10 @@ class Connection:
         # Initialize pretty printer for writing data structures in the log
         self.pprint = pprint.PrettyPrinter(indent=2, width=1).pprint
 
+    def getrunstoanalyze(self):
+        runs = self.server.getrunstoanalyze()
+        return runs
+
     def getsamplesheet(self, run, bcl2fastq_version, lane=None, filename='samplesheet.csv'):
         """
         Creates a sample sheet for demultiplexing. The sample sheet can be created for all lanes on the given run, or 
@@ -155,17 +159,15 @@ class Connection:
         self.log(runinfo, pretty=True)
         return runinfo
 
-    def createpipelinerun(self, run, lane, paramdict = None):
+    def createpipelinerun(self, run, paramdict = None):
         self.log("Resetting any old results before creating pipeline run")
         if self.autosaveserver:
             self._write_not_supported_error()
 
-        self.server.deletelaneresults(run, lane)
-        self.log("Creating pipeline run object for run=%s, lane=%s, paramdict=%s" % (run, lane, paramdict))
-        pipelinerun = self.server.createpipelinerun(run, lane, paramdict)
-
+        self.log("Creating pipeline run object for run=%s, paramdict=%s" % (run, paramdict))
+        pipelinerun = self.server.createpipelinerun(run=run,paramdict=paramdict)
         if not pipelinerun:
-            raise Exception('Failed to create pipelinerun for run=%s lane=%s paramdict=%s' % (run, lane, paramdict))
+            raise Exception('Failed to create pipelinerun for run=%s paramdict=%s' % (run, paramdict))
 
         self.log(pipelinerun, pretty=True)
         return pipelinerun
