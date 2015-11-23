@@ -88,9 +88,9 @@ class RunInfo:
         for run_id, run in self.data['pipeline_runs'].iteritems():
             if run['finished'] == True:
                 done[run_id] = run
-            elif run['started'] == False and run['finished'] == False:
+            elif not run['started'] and not run['finished']:
                 new[run_id] = run
-            elif run['started'] == True and run['finished'] == False:
+            elif run['started'] and not run['finished']:
                 inprogress[run_id] = run
 
         def _getlatest(pipeline_runs, status):
