@@ -25,10 +25,10 @@ description = """
         Runs with the following criteria are returned:
             1) sequencing_run_status = sequencing_done
             2) analysis_done = false 
-            3) There aren't any pipeline_runs
             4) The sequencing instrument isn't a HiSeq 4000 (since those aren't supported yet in the pipeline).
 """
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,description=description)
+parser.parse_args()
 
 homedir = os.path.expanduser("~")
 fout = open(os.path.join(homedir,"uhts_automated_analyses.txt"),"a")
@@ -36,19 +36,33 @@ conn = Connection()
 runs = conn.getrunstoanalyze()
 now = datetime.now()
 print(runs)
-#runs = ['151104_BRISCOE_0266_BC7M9AACXX', '151104_BRISCOE_0265_AC7KVTACXX', '151103_MONK_0450_AC7MCWACXX', '151110_SPENSER_0226_000000000-AG4GH']
 for r in runs:
-	#create a pipeline run in UHTS
 	if not runPaths.isCopyComplete(r):
 		continue
-	conn.createpipelinerun(run=r)
-	time.sleep(5) #there seems to be a delay in here, strangly, in getting the new pipeline run object to show
+	runinfo = conn.getruninfo(r)['run_info']
+	pipeline_runs = runinfo['pipeline_runs']
+	pipeline_run_ids = sorted(runinfo['pipeline_runs'],reverse=True)
+	most_recent_run = ""
+	most_recent_run_id = ""
+	if pipeline_run_ids:
+		most_recent_run_id = pipeline_run_ids[0]
+		most_recent_run = pipeline_runs[most_recent_run_id]
+		analysis_started = most_recent_run['started']
+		if analysis_started:
+			continue
+
+	if not pipeline_runs:
+		#create a pipeline run in UHTS
+		conn.createpipelinerun(run=r)
+		time.sleep(5) #there seems to be a delay in here, strangly, in getting the new pipeline run object to show
 	#start the analysis pipeline
 	cmd = "run_analysis.rb start_illumina_run --run {run} --force --verbose".format(run=r)
-	if "SPENSER" or "HOLMES" in r: #MiSeqs
+	if most_recent_run:
+		cmd += " --rerun --pipeline-run-id {}".format(most_recent_run_id)
+	if r.find("SPENSER") >= 0 or r.find("HOLMES") or r.find("M04199") >= 0: #MiSeqs
 		cmd += " --lanes 1"
 	fout.write(str(now) + "  " + cmd + "\n")
 	fout.flush()
-	#subprocess.Popen(cmd,shell=True,stderr=fout,stdout=fout)
-	fout.flush()
+	print(cmd)
+	subprocess.Popen(cmd,shell=True,stderr=fout,stdout=fout)
 
