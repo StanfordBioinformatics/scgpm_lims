@@ -59,7 +59,7 @@ for r in runs:
 	cmd = "run_analysis.rb start_illumina_run --run {run} --force --verbose".format(run=r)
 	if most_recent_run:
 		cmd += " --rerun --pipeline-run-id {}".format(most_recent_run_id)
-	if r.find("SPENSER") >= 0 or r.find("HOLMES") or r.find("M04199") >= 0: #MiSeqs
+	if r.find("SPENSER") >= 0 or r.find("HOLMES") >= 0 or r.find("M04199") >= 0: #MiSeqs
 		cmd += " --lanes 1"
 	fout.write(str(now) + "  " + cmd + "\n")
 	fout.flush()
