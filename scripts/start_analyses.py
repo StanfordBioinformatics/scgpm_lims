@@ -35,7 +35,6 @@ fout = open(os.path.join(homedir,"uhts_automated_analyses.txt"),"a")
 conn = Connection()
 runs = conn.getrunstoanalyze()
 now = datetime.now()
-print(runs)
 for r in runs:
 	if not runPaths.isCopyComplete(r):
 		continue
