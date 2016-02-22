@@ -73,7 +73,7 @@ class RunInfo:
       
     def get_lane(self,lane):
         lane = str(lane)
-        return self.Lane(self.data['lanes'][lane])
+        return self.data['lanes'][lane]
 
     def get_pipeline_run(self, lane=None, status='done'):
         VALID_STATA = ['done', 'inprogress', 'new']
