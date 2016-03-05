@@ -5,6 +5,8 @@ import os
 import sys
 
 warnings.filterwarnings('ignore', 'Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html')
+import urllib3
+urllib3.disable_warnings()
 
 class RemoteDataManager:
 
@@ -36,7 +38,7 @@ class RemoteDataManager:
             'token': self.token,
             }
         response = requests.get(
-            self.urlprefix+'runs_to_analyze', 
+            self.urlprefix+'runs_to_analyze', #runs_to_analyze_controller.rb
             params=params,
             verify=self.verify,
             )
@@ -412,7 +414,9 @@ class RemoteDataManager:
         if not response.ok: 
             sys.stderr.write("HTTPError! {status} ({reason}). Final URL location of Response: {url}. Response text: {text}\n\n".format(status=response.status_code,reason=response.reason, url=response.url,text=response.text))
             sys.stderr.write("Body sent in the request:\n")
-            sys.stderr.write(response.request.body)
+            body = response.request.body #can be None
+            if body:
+                sys.stderr.write(body)
             #response.status_code - Integer Code of responded HTTP Status, e.g. 404 or 200.
             #response.reason - Textual reason of responded HTTP Status, e.g. "Not Found" or "OK".
             #response.url    - Final URL location of Response. 
