@@ -159,6 +159,15 @@ class Connection:
         self.log(runinfo, pretty=True)
         return runinfo
 
+    def getdnalibraryinfo(self, dna_library_id):
+        self.log("Getting info for DNA library: %d" % dna_library_id)
+        dna_library_info = self.server.getdnalibraryinfo(dna_library_id)
+
+        if not dna_library_info:
+            raise Exception('DNA library info for DNA library ID %d could not be found.' % dna_library_id)
+
+        return(dna_library_info)
+
     def createpipelinerun(self, run, paramdict = None):
         self.log("Resetting any old results before creating pipeline run")
         if self.autosaveserver:
