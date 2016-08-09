@@ -13,7 +13,6 @@ class RemoteDataManager:
     localorremote = 'remote'
 
     def __init__(self, apiversion=None, lims_url=None, lims_token=None, verify=False):
-
         if not apiversion:
             raise Exception('apiversion is required')
         self.apiversion = apiversion
@@ -21,7 +20,7 @@ class RemoteDataManager:
         if (not lims_url) or not (lims_token):
             raise Exception("lims_url and lims_token are required. Current settings are lims_url=%s, lims_token=%s" % (lims_url, lims_token))
         self.token = lims_token
-        self.urlprefix = self._geturlprefix(lims_url, apiversion)
+        self.urlprefix = self._geturlprefix(rooturl=lims_url,apiversion=apiversion)
         self.verify = verify
 
 
@@ -99,6 +98,10 @@ class RemoteDataManager:
     def get_runinfo_by_library_name(self,library_name):
         #run_info_by_library_name defined in config/routes.rb in RAILS app.
         # Also see the UHTS controller app/controllers/api/v1/run_info_by_library_name_controller.rb.
+        """
+        Returns : dict with a single key being the run name and the value being a list of lanes.
+				Raises  : requests.exceptions.HTTPError with a 404 status if no libraries could be found.
+        """
  
         url = self.urlprefix + "run_info_by_library_name" #run_info_by_library_name route defined in config/routes.rb in RAILS app
         print(url)
@@ -416,9 +419,9 @@ class RemoteDataManager:
             resultsdict[str(result.get('id'))] = result
         return resultsdict
 
-    def _geturlprefix(self, rooturl, apiversion):
-        
-        return os.path.join(rooturl,"api",apiversion) + "/"
+    def _geturlprefix(self, rooturl, apiversion): 
+        url = os.path.join(rooturl,"api",apiversion) + "/"
+        return url
 
     def _checkstatus(self, response):
 
