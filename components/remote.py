@@ -84,7 +84,7 @@ class RemoteDataManager:
         return response.json()
 
     def get_dna_library_info(self, dna_library_id):
-        url = self.urlprefix + 'dna_libraries' + '/' + dna_library_id
+        url = self.urlprefix + 'dna_libraries' + '/' + str(dna_library_id)
         response = requests.get(
             url,
             params = {
