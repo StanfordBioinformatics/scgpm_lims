@@ -83,6 +83,18 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
 
+    def get_dna_library_info(self, dna_library_id):
+        url = self.urlprefix + 'dna_libraries' + '/' + str(dna_library_id)
+        response = requests.get(
+            url,
+            params = {
+                'token': self.token
+            },
+            verify = self.verify
+        )   
+        self._checkstatus(response)
+        return response.json()
+    
     def get_runinfo_by_library_name(self,library_name):
         #run_info_by_library_name defined in config/routes.rb in RAILS app.
         # Also see the UHTS controller app/controllers/api/v1/run_info_by_library_name_controller.rb.
