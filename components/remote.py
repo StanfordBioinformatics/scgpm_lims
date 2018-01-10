@@ -24,6 +24,20 @@ class RemoteDataManager:
         self.verify = verify
 
 
+    def get_runname_from_flowcell_id(self,flowcell_id):
+        params = {
+            'token': self.token,
+            'name' : flowcell_id
+        }
+       
+        response = requests.get(
+            self.urlprefix+'solexa_flow_cells/get_run_name', #runs_to_analyze_controller.rb
+            params=params,
+            verify=self.verify,
+            )
+        self._checkstatus(response)
+        return response.json()["run_name"]
+
     def getrunstoanalyze(self):
         """
         Fetches the runs names from UHTS that need to have analyses started.
@@ -42,7 +56,6 @@ class RemoteDataManager:
             verify=self.verify,
             )
         self._checkstatus(response)
-        print(response.url)
         return response.json()
 
     def getsamplesheet(self, bcl2fastq_version, run, lane=None):
@@ -68,7 +81,6 @@ class RemoteDataManager:
             verify=self.verify,
             )
         self._checkstatus(response)
-        print(response.url)
         return response.text
 
     def getruninfo(self, run):
@@ -95,16 +107,28 @@ class RemoteDataManager:
         self._checkstatus(response)
         return response.json()
     
+    def get_library(self,run,lane):
+        response = requests.get(
+            self.urlprefix+'run_info/get_library',
+            params = {
+                'token': self.token,
+                'run': run,
+                'lane': lane
+                },
+            verify = self.verify,
+            )
+        self._checkstatus(response)
+        return response.json()
+
     def get_runinfo_by_library_name(self,library_name):
         #run_info_by_library_name defined in config/routes.rb in RAILS app.
         # Also see the UHTS controller app/controllers/api/v1/run_info_by_library_name_controller.rb.
         """
         Returns : dict with a single key being the run name and the value being a list of lanes.
-				Raises  : requests.exceptions.HTTPError with a 404 status if no libraries could be found.
+        Raises  : requests.exceptions.HTTPError with a 404 status if no libraries could be found.
         """
  
         url = self.urlprefix + "run_info_by_library_name" #run_info_by_library_name route defined in config/routes.rb in RAILS app
-        print(url)
         response = requests.get(
             url,
             params = {
@@ -118,7 +142,6 @@ class RemoteDataManager:
 
     def get_person_attributes_by_email(self,email):
         url = self.urlprefix + "get_person_by_email" #get_person_by_email route defined in config/routes.rb in RAILS app
-        print(url)
         response = requests.get(
             url,
             params = {
@@ -127,7 +150,6 @@ class RemoteDataManager:
             },
             verify = self.verify
         )
-        print(response.url)
         self._checkstatus(response)
         return response.json()
 
@@ -148,7 +170,6 @@ class RemoteDataManager:
             verify = self.verify
         )
         self._checkstatus(response)
-        print(response.url)
         return response.json()
            
 

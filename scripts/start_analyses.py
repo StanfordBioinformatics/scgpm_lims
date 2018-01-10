@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+print("Howdy there!")
 
 import time
 import sys 

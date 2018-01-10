@@ -95,6 +95,9 @@ class Connection:
         # Initialize pretty printer for writing data structures in the log
         self.pprint = pprint.PrettyPrinter(indent=2, width=1).pprint
 
+    def get_runname_from_flowcell_id(self,flowcell_id):
+        runname = self.server.get_runname_from_flowcell_id(flowcell_id)
+        return runname
     def getrunstoanalyze(self):
         runs = self.server.getrunstoanalyze()
         return runs
@@ -167,6 +170,25 @@ class Connection:
             raise Exception('DNA library info for DNA library ID %d could not be found.' % dna_library_id)
 
         return(dna_library_info)
+    def get_library(self,run,lane):
+        self.log("Getting library info for run {run} and lane {lane}.".format(run=run,lane=lane))
+
+        library = self.server.get_library(run=run,lane=lane)
+
+        if not library:
+            raise Exception("library for run {run} and lane {lane} could not be found.".format(run=run,lane=lane))
+
+
+        self.log(library, pretty=True)
+        return library 
+
+    def getlanenumfromsample(self,run,sample):
+        ri = self.getruninfo(run=run)
+        for lane in ri["lanes"]:
+            lane_sample = ri["lanes"][lane]["sample_name"].split("rcvd")[0].strip()
+            if lane_sample == sample:
+                return lane
+        raise Exception("Sample {sample} appears not to have been sequenced on any of the lanes for run {run}.".format(sample=sample,run=run))
 
     def createpipelinerun(self, run, paramdict = None):
         self.log("Resetting any old results before creating pipeline run")
