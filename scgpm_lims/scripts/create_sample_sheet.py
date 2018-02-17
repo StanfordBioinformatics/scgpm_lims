@@ -1,4 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-                                                                                
+                                                                                                       
+###                                                                                                    
+# © 2018 The Board of Trustees of the Leland Stanford Junior University                              
+# Nathaniel Watson                                                                                      
+# nathankw@stanford.edu                                                                                 
+###
 
 import sys
 import os
@@ -47,4 +54,4 @@ if args.lane:
 	fn += "_L" + str(args.lane)
 fn += '_samplesheet.csv'
 conn.getsamplesheet(run=args.run_name,lane=args.lane,bcl2fastq_version=args.bcl2fastq_version,filename=fn)
-print fn
+print(fn)

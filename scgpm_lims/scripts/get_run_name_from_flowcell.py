@@ -1,9 +1,11 @@
-#!/bin/env python
-
-###
-#Nathaniel Watson
-#2018-01-09
-#nathankw@stanford.edu
+#!/user/bin/env python3
+# -*- coding: utf-8 -*-                                                                                
+                                                                                                       
+###                                                                                                    
+# © 2018 The Board of Trustees of the Leland Stanford Junior University                              
+# Nathaniel Watson                                                                                      
+# nathankw@stanford.edu                                                                                 
+# 2018-01-09
 ###
 
 import os

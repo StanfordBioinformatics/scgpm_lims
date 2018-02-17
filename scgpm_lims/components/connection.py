@@ -3,8 +3,8 @@ import os
 import pprint
 import re
 
-import remote
-import local
+import scgpm_lims.components.remote as remote
+import scgpm_lims.components.local as local
 
 class Connection:
 
@@ -49,12 +49,12 @@ class Connection:
         if not local_only:
             # LIMS info is required. Give option to enter it manually.
             if lims_url is None:
-                print "'lims_url' argument was not provided when creating Connection(), and LIMS_URL environment variable was not found."
+                print("'lims_url' argument was not provided when creating Connection(), and LIMS_URL environment variable was not found.")
                 lims_url = raw_input("You can manually enter the LIMS URL now: ")
                 if lims_url == None:
                     raise Exception('lims_url is requred unless running in local_only mode')
             if lims_token is None:
-                print "'lims_token' argument was not provided when creating Connection(), and LIMS_TOKEN environment variable was not found."
+                print("'lims_token' argument was not provided when creating Connection(), and LIMS_TOKEN environment variable was not found.")
                 lims_token = raw_input("You can manually enter the LIMS token now: ")
                 if lims_token == None:
                     raise Exception('lims_token is requred unless running in local_only mode')
@@ -505,4 +505,4 @@ class Connection:
             if pretty:
                 self.pprint(message)
             else:
-                print message
+                print(message)
