@@ -4,7 +4,9 @@
 # This page is useful for dependencies: 
 # http://python-packaging.readthedocs.io/en/latest/dependencies.html.
 
-from distutils.core import setup
+#from distutils.core import setup
+from setuptools import setup
+from setuptools import find_packages
 import glob
 
 setup(
@@ -14,7 +16,7 @@ setup(
   author = "Nathaniel Watson",
   author_email = "nathankw@stanford.edu",
   url = "https://github.com/StanfordBioinformatics/scgpm_lims",
-  packages = ["scgpm_lims"],
+  packages = find_packages(),
   install_requires = [
     "requests",
     "urllib3"
