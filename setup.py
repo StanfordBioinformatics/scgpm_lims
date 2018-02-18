@@ -13,7 +13,7 @@ setup(
   name = "scgpm_lims",
   version = "0.1.0",
   description = "Client API for UHTS LIMS of the Sequencing Center",
-  author = "Nathaniel Watson",
+  author = "Nathaniel Watson, Nathan Hammond",
   author_email = "nathankw@stanford.edu",
   url = "https://github.com/StanfordBioinformatics/scgpm_lims",
   packages = find_packages(),
