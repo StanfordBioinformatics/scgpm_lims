@@ -4,8 +4,8 @@ import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import unittest
-from components.connection import Connection
-from components.models import RunInfo, SolexaRun
+from scgpm_lims.components.connection import Connection
+from scgpm_lims.components.models import RunInfo, SolexaRun
 
 
 class TestRunInfo(unittest.TestCase):

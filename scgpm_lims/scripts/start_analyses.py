@@ -1,5 +1,11 @@
-#!/usr/bin/env python
-print("Howdy there!")
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-                                                                                
+                                                                                                       
+###                                                                                                    
+# © 2018 The Board of Trustees of the Leland Stanford Junior University                              
+# Nathaniel Watson                                                                                      
+# nathankw@stanford.edu                                                                                 
+###
 
 import time
 import sys 
