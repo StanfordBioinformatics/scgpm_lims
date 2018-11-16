@@ -35,6 +35,24 @@ class RunInfo:
         self.data = obj['run_info']
         self.solexarunid = obj['id']
 
+    def get_sequencing_platform(self):
+      """
+      Figures out the platform of the sequencing run. 
+      Currently, only knows about the HiSeq2000 and HiSeq4000 platforms.
+
+      Raises   : Exception if the platform is not recognized.
+      """
+      platform = self.data["platform"]
+      if platform == "miseq":
+        platform = "MiSeq"
+      elif platform == "hiseq4000":
+        platform == "HiSeq4000"
+      elif platform == "hiseq2000":
+        platform == "HiSeq2000"
+      else:
+        raise Exception("Unknown platform {platform} for sequencing run {run}".format(platform=platform,run=self.run))
+      return platform
+
     def get_solexa_run_status(self):
         return self.data['sequencing_run_status']
 
@@ -70,7 +88,7 @@ class RunInfo:
 
     def get_solexa_flow_cell_id(self):
         return self.data['flow_cell_id']
-      
+
     def get_lane(self,lane):
         lane = str(lane)
         return self.data['lanes'][lane]
@@ -108,7 +126,7 @@ class RunInfo:
             pipeline_runs = inprogress
 
         return _getlatest(pipeline_runs, status)
-    
+
     def has_status_sequencing_failed(self):
         return self.get_solexa_run_status() == SolexaRun.STATUS_SEQUENCING_FAILED
 
